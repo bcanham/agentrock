@@ -7,17 +7,20 @@ Bundler.require :default, Rails.env
 
 module Agentrock
   class Application < Rails::Application
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    config.secret_token = "1bb6af6bb18bc2984a4b5c13a226204594793f58e0a80d14d9cdff4bda775763454f1af696be7882f989e919e305f5bcacc7e4256c0a584800bb3eed98681c12"
+    
     # Add additional load paths for your own custom dirs
     # config.load_paths += %W( #{config.root}/extras )
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-
+		
     # Activate observers that should always be running
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 

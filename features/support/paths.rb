@@ -10,6 +10,29 @@ module NavigationHelpers
     
     when /the home\s?page/
       '/'
+      
+    when /the signup page/
+      '/signup'
+
+    when /the login page/
+      login_path
+    when /the logout page/
+      logout_path
+
+
+
+    when /the signup form/
+      '/signup'
+    when /the activation form/
+      register_path
+    when /the confirm page with bad token/
+      register_path
+
+    when /the reset password page/
+      new_password_reset_path
+    when /the change password form with bad token/
+      edit_password_reset_path('bad')  
+
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

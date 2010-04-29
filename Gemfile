@@ -11,22 +11,20 @@ gem "rails", :git => "git://github.com/rails/rails.git"
 # Rails has selected sqlite3.
 gem "sqlite3-ruby", :require => "sqlite3"
 
-## Bundle the gems you use:
-# gem "bj"
-# gem "hpricot", "0.6"
-# gem "sqlite3-ruby", :require => "sqlite3"
-# gem "aws-s3", :require => "aws/s3"
-
 gem "warden"
 gem "devise", :git => "git://github.com/plataformatec/devise"
+gem "meta-tags", :git =>"git://github.com/kpumuk/meta-tags.git", :require => 'meta_tags'
+gem "sitemap_generator", :git => "git://github.com/adamsalter/sitemap_generator.git"
 
-## Bundle gems used only in certain environments:
-# gem "rspec", :group => :test
+group :development do
+	gem "hermes"
+	#gem "rails-footnotes"
+end
+
 group :test do
-#   gem "webrat"
-
-gem 'capybara'
-gem 'database_cleaner'
-gem 'cucumber-rails'
-gem "rspec-rails", ">= 2.0.0.beta.1"
+	gem "test-unit"
+	gem "capybara", :git => "http://github.com/jnicklas/capybara.git"
+	gem "database_cleaner", :git => "http://github.com/bmabey/database_cleaner.git"
+	gem "cucumber-rails", :git => "http://github.com/aslakhellesoy/cucumber-rails.git"
+	gem "rspec-rails", :git => "git://github.com/rspec/rspec-rails.git"
 end
