@@ -1,0 +1,41 @@
+<% title "Sign up" %>
+
+<div class="col_6 in">
+		<h1>Who is Agent Rock?<br /></h1>
+		<p class="large">Agent Rock is your go-between for finding other musicians, hosting your band's website, selling your music to fans, and learning new tricks on your instrument.<br/> Sign up today and experience the best resource any musician would die for.</p>
+
+		<hr/>
+
+		<ul class="features">
+      <li>Fill a spot in your band. Then land a gig.</li>
+			<li>Upload your music. Then distribute it to your fans.</li>
+			<li>Easily manage your band's website.</li>
+			<li>Improve your knowledge and skills of the music industry and your instrument.</li>
+			<li>Collaborate and compete with musicians worldwide. Win cash and other prizes.</li>
+			<li><a href="/how-it-works">How It Works</a> - turn your music into a solid revenue stream</li>
+		</ul>
+	</div> 
+<div class="col_6 out" id="account_signup">
+
+<%= form_for @user do |f| %>
+  <%= f.error_messages %>
+
+<h2>Signup</h2>
+	<p>Already have an account? <%= link_to "Log in", login_path %>.</p>
+  
+  <label style="display:block;text-align:left;float:none">Username<span style="color: #990000">*</span></label>
+	<%= f.text_field :username, :id => 'Username' %>
+  <label style="display:block;text-align:left;float:none">Email<span style="color: #990000">*</span></label>
+  <%= f.text_field :email, :id => 'Email' %>
+
+  <label style="display:block;text-align:left;float:none">Password<span style="color: #990000">*</span></label>
+  <%= f.password_field :password, :id => 'Password' %>
+
+	<label style="display:block;text-align:left;float:none">Confirm Password<span style="color: #990000">*</span></label>
+  <%= f.password_field :password_confirmation, :id => 'Password Confirmation' %>
+
+  <%= f.submit "Sign up" %>
+<% end %>
+		
+	</div> 
+	<div class="clear">&nbsp;</div> 

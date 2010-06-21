@@ -1,40 +1,21 @@
 Agentrock::Application.routes.draw do |map|
+
+  match 'signup/' => 'users#new', :as => :signup
+
+  match 'logout/' => 'sessions#destroy', :as => :logout
+
+  match 'login/' => 'sessions#new', :as => :login
+#   match 'forgot/' => 'users#send_password_reset'
   
-
-  devise_for :users, :skip => [:sessions, :passwords, :confirmations, :registrations]
+  match '/activate/:activation_code' => 'users#activate'
   
-  get 'login' => 'devise/sessions#new', :as => :new_user_session
-  post 'login' => 'devise/sessions#create', :as => :user_session
-  get 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  resources :users
   
-  post 'Oops!-I-Forgot!(.:format)' => 'devise/passwords#create'
-  put 'Oops!-I-Forgot!(.:format)' => 'devise/passwords#update', :as => :user_password
-  get 'Oops!-I-Forgot!(.:format)' => 'devise/passwords#new', :as => :new_user_password
-  get 'Oops!-I-Forgot!(.:format)' => 'devise/passwords#edit', :as => :edit_user_password    
-
-  post 'signup(.:format)' => 'devise/registrations#create'
-  put 'signup(.:format)' => 'devise/registrations#update'
-  delete 'signup(.:format)' => 'devise/registrations#destroy', :as => :user_registration
-  get 'signup(.:format)' => 'devise/registrations#new', :as => :new_user_registration
-  get 'signup(.:format)' => 'devise/registrations#edit', :as => :edit_user_registration        
-
-  get 'confirm(.:format)' => 'devise/confirmations#show'
-  post 'confirm(.:format)' => 'devise/confirmations#create', :as => :user_confirmation  
-  get 'confirm(.:format)' => 'devise/confirmations#new', :as => :new_user_confirmation
-
-  match ':email' => 'users#show', :as => :profile 
-  #   match ':username/settings' => 'users#edit', :as => :settings
-  #   match 'register/:activation_code', :to => 'activations#new', :as => :register, :conditions => { :method => :get }, :activation_code => nil
-  #   match 'activate/:id' => 'activations#create', :as => :activate#, :conditions => { :method => :post }
-  # match 'browse' => 'accounts#index', :as => :browse
-  #   resources :roles
-  # resource :user, :only => [:show, :create, :edit, :update]
-  #   resources :users, :has_one => :account
-  # resources :pics
-  root :to => 'users#index'
-  # match ':username/upload-pic' => 'pics#new', :as => :upload_pic
-  # match ':username' => 'accounts#show', :as => :user_home
-  # match ':username/edit' => 'accounts#edit', :as => :dashboard
+  resources :sessions
+  
+  match '/:username' => 'users#show'
+  
+#   match '/how-it-works' => render("how")
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -83,4 +64,14 @@ Agentrock::Application.routes.draw do |map|
   #     resources :products
   #   end
 
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+
+  root :to => "users#new"
+
+  # See how all your routes lay out with "rake routes"
+
+  # This is a legacy wild controller route that's not recommended for RESTful applications.
+  # Note: This route will make all actions in every controller accessible via GET requests.
+  # match ':controller(/:action(/:id(.:format)))'
 end

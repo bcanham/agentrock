@@ -10,8 +10,11 @@ require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumber Unicode support
 require 'cucumber/rails/rspec'
 require 'cucumber/rails/world'
-require 'cucumber/rails/active_record'
+#require 'cucumber/rails/active_record'
 require 'cucumber/web/tableish'
+#require 'spec/expectations'
+require 'mongoid'
+
 
 require 'capybara/rails'
 require 'capybara/cucumber'
@@ -46,14 +49,8 @@ ActionController::Base.allow_rescue = false
 # after each scenario, which can lead to hard-to-debug failures in 
 # subsequent scenarios. If you do this, we recommend you create a Before
 # block that will explicitly put your database in a known state.
-Cucumber::Rails::World.use_transactional_fixtures = true
+Cucumber::Rails::World.use_transactional_fixtures = false
 
-# How to clean your database when transactions are turned off. See
-# http://github.com/bmabey/database_cleaner for more info.
-if defined?(ActiveRecord::Base)
-  begin
-    require 'database_cleaner'
-    DatabaseCleaner.strategy = :truncation
-  rescue LoadError => ignore_if_database_cleaner_not_present
-  end
+Before do
+  Mongoid.master.collections.each(&:drop)
 end

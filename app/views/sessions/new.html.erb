@@ -1,0 +1,36 @@
+<% title "Log in" %>
+
+<div class="site"> 
+          
+ 
+<div id="login" class="standard_form"> 
+  <p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
+	<%= form_tag sessions_path do %>
+  <h1>Log in (<a href="/pricing">Pricing and Signup</a>)</h1>
+  
+  
+
+  <label style="display:block;text-align:left;float:none"> 
+    Login or Email<br />
+    <%= text_field_tag :login, params[:login] %>
+
+  </label> <br/>
+
+  <label style="display:block;text-align:left;float:none"> 
+    Password (<a href="/forgot">forgot password</a>) 
+    <br />
+    <%= password_field_tag :password %>
+
+  </label><br/>
+
+  <label style="display:block;text-align:left;float:none"> 
+		<%= submit_tag "Log in" %>
+  </label> 
+
+	<% end %>  </div> 
+
+    </div> 
+  
+
+  <div class="push"></div> 
+</div>
