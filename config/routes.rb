@@ -1,4 +1,6 @@
 Agentrock::Application.routes.draw do |map|
+  resources :activities
+
 
   match 'signup/' => 'users#new', :as => :signup
 

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     unless logged_in?
     	@user = User.new
     else
-    	render :index
+    	render :index#, :layout => "dashboard"    	
     end	
   end
   
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       self.current_user = @user
       flash[:notice] = "Thank you for signing up! You are now logged in."
-      redirect_to dashboard_url
+      redirect_to root_url
     else
       render :action => 'new'
     end
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
     
   def index
-    
+		
   end
   
   def show
@@ -94,4 +94,19 @@ class UsersController < ApplicationController
       end
     end
   end  
+
+layout :choose_layout
+
+private
+	def choose_layout    
+	  if [ 'new', 'show' ].include? action_name	    
+		  if logged_in?
+		  	'users'
+		  else
+		  	'application'	
+		  end  
+	  else
+	    'application'
+	  end
+	end  
 end
