@@ -124,3 +124,10 @@ input[type="submit"] {
 	margin: 0 5px;
 	font: bold 18px/2 "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	}
+.formError {
+		right: 250px;
+		top: -25px;
+		float: right;
+		position: relative;
+		color: #ff7b15;
+	}

@@ -1,37 +1,30 @@
 Agentrock::Application.routes.draw do |map|
+
+
+	devise_for :users, :controllers => { :registrations => 'users' }
+	
+	as :user do 
+		get 'login' => 'devise/sessions#new'
+		get 'logout' => 'devise/sessions#destroy'
+		get 'signup' => 'users#new'
+	  get 'forgot' => 'devise/passwords#new'
+    match '/:name' => 'users#show'
+	end
+	
   resources :activities
-
-
-  match 'signup/' => 'users#new', :as => :signup
-
-  match 'logout/' => 'sessions#destroy', :as => :logout
-
-  match 'login/' => 'sessions#new', :as => :login
-#   match 'forgot/' => 'users#send_password_reset'
   
-  match '/activate/:activation_code' => 'users#activate'
+#   match '/activate/:activation_code' => 'users#activate'
   
   resources :users
   
-  resources :sessions
+#  match 'articles' => Rack::Jekyll.new()
+
+
+
+#  match '/:name/watch' => 'users#watch'
+#  match '/:name/unwatch' => 'users#unwatch'  
   
-  match '/:username' => 'users#show'
-  
-#   match '/how-it-works' => render("how")
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+   #match '/how-it-works' => render("how")
 
   # Sample resource route with options:
   #   resources :products do
@@ -65,15 +58,11 @@ Agentrock::Application.routes.draw do |map|
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
 
-  root :to => "users#new"
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+	constraints(Subdomain) do
+		match '/' => 'subdomains#show'
+	end
+  root :to => "accounts#index"
 end

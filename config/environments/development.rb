@@ -13,10 +13,16 @@ Agentrock::Application.configure do
   config.consider_all_requests_local       = true
   config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
-
+	
+		if config.action_controller.session
+		  config.action_controller.session[:domain] = '.agentrock.net'
+		else
+		  config.action_controller.session = { :domain => '.agentrock.net' }
+		end
+	
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
-	config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+	config.action_mailer.default_url_options = { :host => 'localhost:3001' }
   config.action_mailer.smtp_settings = {
       :tls => true,
       :address => "smtp.gmail.com",

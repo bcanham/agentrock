@@ -1,5 +1,6 @@
 require(File.dirname(__FILE__) + "/../../config/environment") unless defined?(Rails)
-class RenderDirectly < ActionController::Metal
+
+class RenderDirectlyController < ActionController::Metal
   include ActionController::Rendering
   include ActionController::Layouts
  

@@ -1,0 +1,39 @@
+<% title "Sign up" %>
+
+<div class="col_6 in">
+		<h1>Who is Agent Rock?<br /></h1>
+		<p class="large">Agent Rock is a go-between to help you find other musicians, host your website, sell your music to fans, and learn new tricks on your instrument.<br><br> Sign up today and experience the resource that every musician craves.</p>
+
+		<hr/>
+
+		<ul class="features">
+      <li>Fill a spot in your band. Then land a gig.</li>
+			<li>Upload your music. Then distribute it to your fans.</li>
+			<li>Easily manage your band's website.</li>
+			<li>Improve your knowledge and skills of the music industry and your instrument.</li>
+			<li>Collaborate and compete with musicians worldwide. Win cash and other prizes.</li>
+			<li><a href="/how-it-works">How It Works</a> - turn your music into a solid revenue stream</li>
+		</ul>
+	</div> 
+<div class="col_6 out" id="account_signup">
+
+<%= form_for(@user, :as => :user, :url => { :controller => "users", :action => "create" }) do |f| %>
+<h2>Signup</h2>
+	<p>Already have an account? <%= link_to "Log in", login_path %>.</p>
+  
+  <label style="display:block;text-align:left;float:none">Username<span style="color: #990000">*</span></label><%= error_message_on @user, :username %>
+	<input name="user[username]" size="30" type="text" required="required">
+  <label style="display:block;text-align:left;float:none">Email<span style="color: #990000">*</span></label><%= error_message_on @user, :email %>
+  <input name="user[email]" size="30" type="text" required="required">
+
+  <label style="display:block;text-align:left;float:none">Password<span style="color: #990000">*</span></label><%= error_message_on @user, :password %>
+  <input class="error" name="user[password]" size="30" type="password"  required="required">
+
+	<label style="display:block;text-align:left;float:none">Confirm Password<span style="color: #990000">*</span></label><%= error_message_on @user, :password_confirmation %>
+  <input name="user[password_confirmation]" size="30" type="password"  required="required">
+
+  <%= f.submit "Sign up" %>
+<% end %>
+		
+	</div> 
+	<div class="clear">&nbsp;</div> 

@@ -7,13 +7,12 @@ source 'http://gemcutter.org'
 ## Bundle edge rails:
 gem "rails", :git => "git://github.com/rails/rails.git"
 
-# ActiveRecord requires a database adapter. By default,
-# Rails has selected sqlite3.
-gem "sqlite3-ruby", :require => "sqlite3"
-
+gem "warden"	 	
+gem "devise", :git => "git://github.com/plataformatec/devise"
 gem "stalker"
 gem "nifty-generators"
-gem "acts_as_markup"
+gem "trackoid", :git => "http://github.com/twoixter/trackoid.git"
+gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
 gem "ssl_requirement"
 gem "meta-tags", :git =>"git://github.com/kpumuk/meta-tags.git", :require => 'meta_tags'
 gem "sitemap_generator", :git => "git://github.com/adamsalter/sitemap_generator.git"
@@ -23,13 +22,6 @@ gem "sitemap_generator", :git => "git://github.com/adamsalter/sitemap_generator.
   gem "mongo_ext"
   gem "mongoid", :git => "git://github.com/durran/mongoid.git"
   gem "bson_ext"
-  #gem "mongo_session_store", :git => "git://github.com/compressed/mongo_session_store.git"
-
-
-group :development do
-	gem "hermes"
-	#gem "rails-footnotes", :git => "git://github.com/josevalim/rails-footnotes.git"
-end
 
 group :test do
 	gem "test-unit"

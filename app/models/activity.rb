@@ -1,5 +1,6 @@
 class Activity
   include Mongoid::Document
+
   
   field :source, :type => Hash
   field :action
