@@ -2,8 +2,7 @@ class AccountsController < ApplicationController
   respond_to :html, :json
   
   def index
-  	if user_signed_in?  	
-  	else
+  	unless user_signed_in?  	
   		render 'users/new'
   	end
   end

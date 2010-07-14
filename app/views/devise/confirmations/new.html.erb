@@ -1,12 +1,11 @@
+<div style="width:650px;">
 <h2>Resend confirmation instructions</h2>
 
 <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+  <label style="display:block;text-align:left;float:none">Email<span style="color: #b31602">*</span><%= error_message_on @user, :email %></label>
+  <%= f.text_field :email %>
 
   <p><%= f.submit "Resend confirmation instructions" %></p>
 <% end %>
-
-<%= render :partial => "devise/shared/links" %>
+</div>

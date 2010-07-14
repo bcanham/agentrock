@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "please-change-me@config-initializers-devise.com"
+  config.mailer_sender = "support@agentrock.net"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -29,6 +29,8 @@ Devise.setup do |config|
 
   # The realm used in Http Basic Authentication
   # config.http_authentication_realm = "Application"
+  
+  config.cookie_domain = ".agentrock.net"
 
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 10. If
@@ -51,18 +53,18 @@ Devise.setup do |config|
   # You can use this to let your user access some features of your application 
   # without confirming the account, but blocking it after a certain period 
   # (ie 2 days). 
-  # config.confirm_within = 2.days
+  config.confirm_within = 2.years
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+  config.remember_for = 2.years
 
   # ==> Configuration for :validatable
   # Range for password length
-  # config.password_length = 6..20
+  config.password_length = 6..20
 
   # Regex to use to validate the email address
-  # config.email_regexp = /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
+  config.email_regexp = /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
@@ -99,25 +101,13 @@ Devise.setup do |config|
   # are using only default views.
   #config.scoped_views = true
 
-  # By default, devise detects the role accessed based on the url. So whenever
-  # accessing "/users/sign_in", it knows you are accessing an User. This makes
-  # routes as "/sign_in" not possible, unless you tell Devise to use the default
-  # scope, setting true below.
-  # Note that devise does not generate default routes. You also have to
-  # specify them in config/routes.rb
-  config.use_default_scope = true
-
-  # Configure the default scope used by Devise. By default it's the first devise
-  # role declared in your routes.
-  config.default_scope = :user
-
   # ==> Navigation configuration
   # Lists the formats that should be treated as navigational. Formats like
   # :html, should redirect to the sign in page when the user does not have
   # access, but formats like :xml or :json, should return 401.
   # If you have any extra navigational formats, like :iphone or :mobile, you
   # should add them to the navigational formats lists. Default is [:html]
-  # config.navigational_formats = [:html, :iphone]
+  config.navigational_formats = [:html, :iphone]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not (yet) supported by Devise,

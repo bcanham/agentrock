@@ -1,19 +1,20 @@
 body {
 	font:13px/1.5 Helvetica, "Helvetica Neue", Arial, Geneva, sans-serif;
-	color:#333;
+	color: #7a7a7a;
 	text-align:left;
 }
 
 h1,h2,h3,h4,h5,h6 {
 	font-weight:700;
-	color:#112a40;
+	color: #b31602;
 	font-family:Helvetica, "Helvetica Neue", Arial, Geneva, sans-serif;
 }
 
 h1 {
+	text-shadow: 0px 1px 0px black;
 	font-size:36px;
 	line-height:36px;
-	color: #720e00;
+	color: #b31602;
 }
 
 h2 {
@@ -33,7 +34,7 @@ h4 {
 a,a:hover {
 	font-weight:700;
 	text-decoration:underline;
-	color:#5f84a5;
+	color: #0087ec;
 }
 
 a:focus {

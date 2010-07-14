@@ -34,7 +34,7 @@
 			</li>
 	
 			<li><a href="/how-it-works">How It Works</a><span class="tip"><em>&nbsp;</em></span></li>
-			<li><a href="/buzz/">Buzz</a><span class="tip"><em>&nbsp;</em></span></li>
+<!-- 			<li><a href="/buzz/">Buzz</a><span class="tip"><em>&nbsp;</em></span></li> -->
 <!-- <li><a href="/pricing/">Pricing</a><span class="tip"><em>&nbsp;</em></span></li>  -->
 <li class="ticker">
 				<span id="total" class="medium"></span>
@@ -48,8 +48,6 @@
     <div class="box">
             <p class="notice"><%= notice %></p> 
             <p class="alert"><%= alert %></p>
-      
-
 
       <%= yield %>
       	
@@ -68,11 +66,18 @@
 			<a href="http://twitter.com/agentrock/">Twitter</a> | 
 			<a href="/articles/">Articles</a>
 		</div>Copyright &copy; 2010 AgentRock.com All rights reserved.</div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="http://cdn.jquerytools.org/1.2.2/full/jquery.tools.min.js"></script>
+<script>
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'%3E%3C/script%3E"));
+    document.write(unescape("%3Cscript src='/jquery/tools.js'%3E%3C/script%3E"));
+}
+</script>
 <script type="text/javascript" src="/jquery/jquery.cycle.lite.min.js"></script>
 <script type="text/javascript" src="/jquery/jquery.formatCurrency-1.3.0.min.js"></script>
  <script>
   var count = 0;
+/*
   var request = function(options) {
   $.ajax($.extend({ url : options.url, type : 'get' }, options));
   return false;
@@ -87,8 +92,12 @@ $('a[data-remote=true]').live('click', function() {
 $('form[data-remote=true]').live('submit', function() {
   return request({ url : this.action, type : this.method, data : $(this).serialize() });
 });
+*/
 
 $(document).ready(function(){
+
+$("#user_new").validator({position:'top center', offset:[0, 60]}).submit
+
 
 $('span.medium').append("<span>" + count + "</span><span>" + count + "</span>");
   

@@ -20,6 +20,13 @@ border-bottom-color: #333333;
 	border-top: 5px solid;
 	border-bottom: 5px solid;
 */
+	  
+                             
+	                          
+	                                   
+	                      
+	                         
+  
 	padding: 36px 0;
 	}
  
@@ -35,7 +42,7 @@ border-bottom-color: #333333;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	margin: 0px 0px 18px 0;
-	background-color: #fff;
+	background-color: #262626;
 	padding: 18px 15px;
 	-webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
 	-moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
@@ -656,7 +663,7 @@ div.set hr {
 	font-size: 28px;
 	line-height: 36px;
 	margin-bottom: 18px;
-	text-shadow: #fff 0 1px 0;
+	text-shadow: 0px 1px 0px black;
 	}
  
 .set.gateway {

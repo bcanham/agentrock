@@ -10,8 +10,7 @@ gem "rails", :git => "git://github.com/rails/rails.git"
 gem "warden"	 	
 gem "devise", :git => "git://github.com/plataformatec/devise"
 gem "stalker"
-gem "nifty-generators"
-gem "trackoid", :git => "http://github.com/twoixter/trackoid.git"
+
 gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
 gem "ssl_requirement"
 gem "meta-tags", :git =>"git://github.com/kpumuk/meta-tags.git", :require => 'meta_tags'
@@ -22,6 +21,8 @@ gem "sitemap_generator", :git => "git://github.com/adamsalter/sitemap_generator.
   gem "mongo_ext"
   gem "mongoid", :git => "git://github.com/durran/mongoid.git"
   gem "bson_ext"
+  #gem "mongo_session_store", :git => "http://github.com/compressed/mongo_session_store.git"
+  gem "trackoid", :git => "http://github.com/twoixter/trackoid.git"
 
 group :test do
 	gem "test-unit"

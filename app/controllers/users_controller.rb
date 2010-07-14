@@ -1,10 +1,9 @@
 class UsersController < Devise::RegistrationsController
-	respond_to :html, :json
+	respond_to :html, :json, :iphone
 	before_filter :authenticate_user!, :only => [:index]
-	ActionController::Base.session_options[:secure] = true
   
-  def new
-		super
+  def new		
+  	super
   end
   
   def create

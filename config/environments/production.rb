@@ -11,12 +11,16 @@ Agentrock::Application.configure do
 
   # See everything in the log (default is :info)
   # config.log_level = :debug
+  
+  config.active_support.deprecation = :notify
 
   # Use a different logger for distributed setups
   # config.logger = SyslogLogger.new
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
+
+	Rails.application.config.session_store = { :domain => '.agentrock.net' }
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this

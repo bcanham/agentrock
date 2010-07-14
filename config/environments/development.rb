@@ -14,15 +14,13 @@ Agentrock::Application.configure do
   config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
 	
-		if config.action_controller.session
-		  config.action_controller.session[:domain] = '.agentrock.net'
-		else
-		  config.action_controller.session = { :domain => '.agentrock.net' }
-		end
+	config.active_support.deprecation = :log
 	
+	Rails.application.config.session_store = { :domain => '.lvh.me:3001' }
+
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
-	config.action_mailer.default_url_options = { :host => 'localhost:3001' }
+	config.action_mailer.default_url_options = { :host => 'lvh.me:3001' }
   config.action_mailer.smtp_settings = {
       :tls => true,
       :address => "smtp.gmail.com",

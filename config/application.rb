@@ -4,7 +4,6 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "mongoid/railtie"
-#require "mongo_session_store/mongoid"
 
 # Auto-require default libraries and those for the current Rails environment.
 Bundler.require :default, Rails.env
@@ -16,14 +15,9 @@ module Agentrock
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-		#config.session_store :mongoid_store
-		
-		if ActionController::Base.session
-		  ActionController::Base.session[:domain] = '.agentrock.net'
-		else
-		  ActionController::Base.session = { :domain => '.agentrock.net' }
-		end
-		
+			config.session_store :cookie_store, :key => '_agentrock_session',
+  	:secret => '684e92f15b0ba799ff1561f38aeec853acb32dffdf03e9aeaed87d5d305b0efb62910a9ae0fc5390cbd84d74d9c9fa6c0d35ac9e9fad4568ebc5e3c5ee4d2922', :domain => '.agentrock.net'
+
     config.secret_token = 		"1bb6af6bb18bc2984a4b5c13a226204594793f58e0a80d14d9cdff4bda775763454f1af696be7882f989e919e305f5bcacc7e4256c0a584800bb3eed98681c12"
     
     # Add additional load paths for your own custom dirs

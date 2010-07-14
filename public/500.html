@@ -1,26 +1,140 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
-</head>
 
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="/favicon.ico">
+	<style type="text/css" media="all">/*<![CDATA[*/ @import url(/stylesheets/screen.css); /*]]>*/</style>
+  <style type="text/css">
+    body {background-image: url(/images/bg.gif)}
+  </style>
+<%= display_meta_tags :site => "Agent Rock", :reverse => true %>
+<%= csrf_meta_tag %>
+  <%= yield :head %>
+</head>
 <body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <h1>We're sorry, but something went wrong.</h1>
-    <p>We've been notified about this issue and we'll take a look at it shortly.</p>
-  </div>
+<div class="container" id="top">
+		
+
+	<ul id="top_nav">
+                <li style="color:#FFFFFF; font-weight:normal; padding:0px; text-decoration:none;"><!-- <img src="/images/"> --></li>
+		<li><%= user_public(current_user) %></li>
+		<li><%= user_settings_path(current_user) %></li>
+		<li><%= login_logout %></li>
+
+		<li><a href="/articles/">Articles</a></li>
+		<li><a href="http://twitter.com/agentrock" target="blank">Twitter</a></li>
+		<li><a href="/contact">Contact</a></li>
+	</ul>
+	<div class="clear">&nbsp;</div>
+		<ul id="nav" class="clearfix">
+			<li class="col_3" id="logo">
+				<a href="/"><img src="/images/logo.png" alt="Agent Rock"></a>
+				<p class="tagline"></p>
+			</li>
+	
+			<li><a href="/how-it-works">How It Works</a><span class="tip"><em>&nbsp;</em></span></li>
+<!-- 			<li><a href="/buzz/">Buzz</a><span class="tip"><em>&nbsp;</em></span></li> -->
+<!-- <li><a href="/pricing/">Pricing</a><span class="tip"><em>&nbsp;</em></span></li>  -->
+<li class="ticker">
+				<span id="total" class="medium"></span>
+				<span class="small" style="padding-left:80px;">EARNED YTD</span>
+			</li>          
+	    </ul>
+		<div class="clear">&nbsp;</div>
+</div>
+<div class="middle">
+    <div class="container">
+    <div class="box">
+      
+
+
+      <div><p>Down for maintenance</p></div>
+      	
+	<div class="clear">&nbsp;</div>
+</div>
+    </div>
+    </div>
+
+<div class="push"></div>
+        
+        <div class="footer">
+
+<div id="copyright">		<div id=""> 
+			<a href="/login/">Login</a> | 
+			<a href="/contact/">Support</a> | 
+			<a href="http://twitter.com/agentrock/">Twitter</a> | 
+			<a href="/articles/">Articles</a>
+		</div>Copyright &copy; 2010 AgentRock.com All rights reserved.</div>
+<script src="http://cdn.jquerytools.org/1.2.2/full/jquery.tools.min.js"></script>
+<script>
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'%3E%3C/script%3E"));
+    document.write(unescape("%3Cscript src='/jquery/tools.js'%3E%3C/script%3E"));
+}
+</script>
+<script type="text/javascript" src="/jquery/jquery.cycle.lite.min.js"></script>
+<script type="text/javascript" src="/jquery/jquery.formatCurrency-1.3.0.min.js"></script>
+ <script>
+  var count = 0;
+/*
+  var request = function(options) {
+  $.ajax($.extend({ url : options.url, type : 'get' }, options));
+  return false;
+};
+ 
+// remote links handler
+$('a[data-remote=true]').live('click', function() {
+  return request({ url : this.href });
+});
+ 
+// remote forms handler
+$('form[data-remote=true]').live('submit', function() {
+  return request({ url : this.action, type : this.method, data : $(this).serialize() });
+});
+*/
+
+$(document).ready(function(){
+
+$("#user_new").validator({position:'top center', offset:[0, 60]}).submit(function(e) {
+
+	var form = $(this);
+
+	// client-side validation passed
+	if (!e.isDefaultPrevented()) {
+	
+		// submit the data to the server with AJAX
+		$(function() {
+  		$('form.ajax-validation').railsAjaxValidation();
+		});
+
+		// prevent default form submission logic
+		/* e.preventDefault(); */
+	}
+});
+$("#errorExplanation").hide();
+
+$('span.medium').append("<span>" + count + "</span><span>" + count + "</span>");
+  
+  $('span.medium').cycle({
+      fx:      'scrollDown',
+      speed:    0.0003,
+      timeout:  3,
+      containerResize:	1,
+      after:   onSlide
+  });
+
+
+});
+
+function onSlide() {
+  count++;
+  $(this).siblings("span").empty().text(count).formatCurrency({roundToDecimalPlace: '-2'});
+
+}
+  </script>
+<% unless Rails.env = "Production" %>
+<%= render 'layouts/trackers' %>
+<% end %>
 </body>
 </html>

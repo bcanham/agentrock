@@ -6,7 +6,7 @@
 <div id="login" class="standard_form"> 
   <p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
 	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <h1>Log in (<a href="/pricing">Pricing and Signup</a>)</h1>
+  <h1>Log in <!-- (<a href="/pricing">Pricing and Signup</a>) --></h1>
   
   
 
@@ -23,11 +23,9 @@
 
   </label><br/>
 
-<!--
-<#% if devise_mapping.rememberable? -%>
-<#%= f.check_box :remember_me %> <#%= f.label :remember_me %>
-  <#% end -%>
--->
+  <% if devise_mapping.rememberable? -%>
+    <p><label style="display:block;text-align:left;float:none">Remember me</label><%= f.check_box :remember_me %> </p>
+  <% end -%>
 
   <label style="display:block;text-align:left;float:none"> 
 		<%= f.submit "Log in" %>

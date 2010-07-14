@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
 # 	include SslRequirement
 
   helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details  
+  protect_from_forgery :only => [:create, :update, :destroy]
  	
  	def after_sign_in_path_for(resource)
     if resource.is_a?(User)
-      root_url
+      redirect_to root_url
     else
     	super  
     end

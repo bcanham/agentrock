@@ -4,8 +4,8 @@ class User
   include Mongoid::Paranoia
   include Mongoid::Tracking
  
-  field :name,        					:type => String
-  field :email,           					:type => String, :null => false
+  field :name,        					:type => String, :accessible => true
+  field :email,           					:type => String, :null => false, :accessible => true
   field :login,											:type => String	
   field :encrypted_password,   					:type => String, :null => false
   field :password_salt,   					:type => String, :null => false
@@ -22,21 +22,19 @@ class User
   field :last_sign_in_ip
   field :failed_attempts, :type => Integer, :default => 0
   field :unlock_token
-  field :locked_at  
+  field :locked_at
+  
+  field :watching, :type => Array
+    
 
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-
-  #attr_accessible :username, :login, :email, :password, :password_confirmation
+         :recoverable, :rememberable, :trackable, :confirmable, :validatable
   
 	before_create :create_login
   
   validates :login, :uniqueness => { :on => :update }
   validates :name, :presence => { :on => :update }, :uniqueness => true
-  validates :email, :presence => true, :uniqueness => true  
+  #validates :email, :presence => true, :uniqueness => true  
   
   def create_login
 require 'strscan'              
@@ -52,6 +50,14 @@ require 'strscan'
 
 	def self.find_for_database_authentication(conditions)
 		self.first(:conditions => { :login => conditions[:email] }) || self.first(:conditions => { :email => conditions[:email] })
+  end
+  
+  def watch
+    #self.watching = params[:]
+  end
+  
+    def unwatch
+    #self.watching = params[:]
   end
 
 end

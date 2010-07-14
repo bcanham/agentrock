@@ -1,30 +1,11 @@
 Agentrock::Application.routes.draw do |map|
 
 
-	devise_for :users, :controllers => { :registrations => 'users' }
+  resources :discussions
+
+  resources :articles
 	
-	as :user do 
-		get 'login' => 'devise/sessions#new'
-		get 'logout' => 'devise/sessions#destroy'
-		get 'signup' => 'users#new'
-	  get 'forgot' => 'devise/passwords#new'
-    match '/:name' => 'users#show'
-	end
-	
-  resources :activities
-  
-#   match '/activate/:activation_code' => 'users#activate'
-  
-  resources :users
-  
-#  match 'articles' => Rack::Jekyll.new()
-
-
-
-#  match '/:name/watch' => 'users#watch'
-#  match '/:name/unwatch' => 'users#unwatch'  
-  
-   #match '/how-it-works' => render("how")
+  resources :activities   
 
   # Sample resource route with options:
   #   resources :products do
@@ -59,7 +40,19 @@ Agentrock::Application.routes.draw do |map|
   #     resources :products
   #   end
   
-
+	devise_for :users, :controllers => { :registrations => 'users' }
+	
+	as :user do 
+		get 'login' => 'devise/sessions#new'
+		get 'logout' => 'devise/sessions#destroy'
+		get 'signup' => 'users#new'
+	  get 'forgot' => 'devise/passwords#new'
+    match '/:name' => 'users#show'
+    match '/:name/watch' => 'users#watch'
+  	match '/:name/unwatch' => 'users#unwatch'  
+	end
+	
+  resources :users  	
 
 	constraints(Subdomain) do
 		match '/' => 'subdomains#show'
