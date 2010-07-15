@@ -1,6 +1,6 @@
 class UsersController < Devise::RegistrationsController
 	respond_to :html, :json, :iphone
-	before_filter :authenticate_user!, :only => [:index]
+	#before_filter :authenticate_user!, :only => [:index]
   
   def new		
   	super

@@ -40,22 +40,20 @@ Agentrock::Application.routes.draw do |map|
   #     resources :products
   #   end
   
-	devise_for :users, :controllers => { :registrations => 'users' }
-	
-	as :user do 
+	devise_for :users, :skip => [:registrations, :sessions], :controllers => { :registrations => 'users' } do 
 		get 'login' => 'devise/sessions#new'
 		get 'logout' => 'devise/sessions#destroy'
-		get 'signup' => 'users#new'
 	  get 'forgot' => 'devise/passwords#new'
+	  resource :user, :only => [:index, :show]  	
     match '/:name' => 'users#show'
     match '/:name/watch' => 'users#watch'
   	match '/:name/unwatch' => 'users#unwatch'  
 	end
 	
-  resources :users  	
 
-	constraints(Subdomain) do
-		match '/' => 'subdomains#show'
-	end
+
+ 	constraints(Subdomain) do
+ 		match '/' => 'subdomains#show'
+ 	end
   root :to => "accounts#index"
 end
