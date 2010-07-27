@@ -57,7 +57,10 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  config.remember_for = 2.years
+  config.remember_for = 6.weeks
+  
+  # If a valid remember token can be re-used between multiple browsers.
+  config.remember_across_browsers = true  
 
   # ==> Configuration for :validatable
   # Range for password length
@@ -107,7 +110,7 @@ Devise.setup do |config|
   # access, but formats like :xml or :json, should return 401.
   # If you have any extra navigational formats, like :iphone or :mobile, you
   # should add them to the navigational formats lists. Default is [:html]
-  config.navigational_formats = [:html, :iphone]
+  config.navigational_formats = [:html]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not (yet) supported by Devise,

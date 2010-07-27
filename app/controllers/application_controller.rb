@@ -8,13 +8,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery :only => [:create, :update, :destroy]
  	
- 	def after_sign_in_path_for(resource)
-    if resource.is_a?(User)
-      redirect_to root_url
-    else
-    	super  
-    end
-  end
+
   
   def render_404
   	render :file => "#{Rails.root}/app/views/shared/404.html.erb",  :status => 404

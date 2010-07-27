@@ -28,13 +28,13 @@ class User
     
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :confirmable, :validatable
+         :recoverable, :rememberable, :trackable, :confirmable, :validatable, :lockable
   
 	before_create :create_login
   
   validates :login, :uniqueness => { :on => :update }
   validates :name, :presence => { :on => :update }, :uniqueness => true
-  #validates :email, :presence => true, :uniqueness => true  
+  validates :email, :presence => true, :uniqueness => true  
   
   def create_login
 require 'strscan'              
@@ -56,7 +56,7 @@ require 'strscan'
     #self.watching = params[:]
   end
   
-    def unwatch
+  def unwatch
     #self.watching = params[:]
   end
 

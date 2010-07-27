@@ -1,0 +1,21 @@
+<h1><%= title "Articles" %></h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_articles.each do |admin_article| %>
+  <tr>
+    <td><%= link_to 'Show', admin_article %></td>
+    <td><%= link_to 'Edit', edit_admin_article_path(admin_article) if admin_signed_in? %></td>
+    <td><%= link_to 'Destroy', admin_article, :confirm => 'Are you sure?', :method => :delete  if admin_signed_in? %></td>
+  </tr>
+<% end %>
+</table>
+<p>I haven't written any yet!</p>
+<br />
+
+<%= link_to 'New Article', new_admin_article_path  if admin_signed_in? %>

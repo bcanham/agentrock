@@ -1,0 +1,30 @@
+
+	<ul id="top_nav">
+                <li style="color:#FFFFFF; font-weight:normal; padding:0px; text-decoration:none;"><!-- <img src="/images/"> --></li>
+		<li><%= user_public(current_user) %></li>
+		<li><%= user_settings_path(current_user) %></li>
+		<li><%= login_logout %></li>
+
+		<li><a href="/articles/">Articles</a></li>
+		<li><a href="http://twitter.com/agentrock" target="blank">Twitter</a></li>
+		<li><a href="/support">Support</a></li>
+	</ul>
+	<div class="clear">&nbsp;</div>
+		<ul id="nav" class="clearfix">
+			<li class="col_3" id="logo">
+				<a href="/"><img src="/images/logo.png" alt="Agent Rock"></a>
+				<p class="tagline"></p>
+			</li>
+	
+			<li class="tab"><a href="/how-it-works/affiliates">How It Works</a><span class="tip"><em>&nbsp;</em></span></li>
+			<li class="tab"><a href="/buzz/">Buzz</a><span class="tip"><em>&nbsp;</em></span></li> 
+		 <li class="tab"><a href="/features/">Features</a><span class="tip"><em>&nbsp;</em></span></li> 
+<!--
+<li class="tab">
+				<span id="total" class="medium"></span>
+				<span class="small" style="padding-left:80px;">EARNED YTD</span>
+			</li>
+-->          
+	    </ul>
+		<div class="clear">&nbsp;</div>
+</div>

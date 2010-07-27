@@ -16,26 +16,7 @@
 <div class="container" id="top">
 		
 
-	<ul id="top_nav">
-                <li style="color:#FFFFFF; font-weight:normal; padding:0px; text-decoration:none;"><!-- <img src="/images/"> --></li>
-		<li><%= user_public(current_user) %></li>
-		<li><%= user_settings_path(current_user) %></li>
-		<li><%= login_logout %></li>
-
-		<li><a href="/articles/">Articles</a></li>
-		<li><a href="http://twitter.com/agentrock" target="blank">Twitter</a></li>
-		<li><a href="/contact">Contact</a></li>
-	</ul>
-	<div class="clear">&nbsp;</div>
-		<ul id="nav" class="clearfix">
-			<li class="col_3" id="logo">
-				<a href="/"><img src="/images/logo.png" alt="Agent Rock"></a>
-				<p class="tagline"></p>
-			</li>
-	         
-	    </ul>
-		<div class="clear">&nbsp;</div>
-</div>
+<%= render 'layouts/user_nav' %>
 <div class="middle">
     <div class="container">
     <div class="box">
@@ -53,14 +34,18 @@
 
 <div class="push"></div>
         
-        <div class="footer">
+<!--
+	<div class="footer"> 
+	<a href="/login/">Login</a> | 
+	<a href="/contact/">Support</a> | 
+	<a href="http://twitter.com/agentrock/">Twitter</a> | 
+	<a href="/articles/">Articles</a>
+</div>
+-->
 
-<div id="copyright">		<div id=""> 
-			<a href="/login/">Login</a> | 
-			<a href="/contact/">Support</a> | 
-			<a href="http://twitter.com/agentrock/">Twitter</a> | 
-			<a href="/articles/">Articles</a>
-		</div>Copyright &copy; 2010 AgentRock.com All rights reserved.</div>
+<div id="copyright">
+		Copyright &copy; 2010 AgentRock.net All rights reserved. <a href="/terms-conditions">Terms & Conditions.</a> <a href="/privacy-policy">Privacy Policy.</a> <a href="/sitemap">Sitemap.</a>
+</div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <% unless Rails.env = "Production" %>
 <%= render 'layouts/trackers' %>

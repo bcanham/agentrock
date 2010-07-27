@@ -1,0 +1,21 @@
+<h1>Listing pages_dynamic_pages</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pages_dynamic_pages.each do |pages_dynamic_page| %>
+  <tr>
+    <td><%= link_to 'Show', pages_dynamic_page %></td>
+    <td><%= link_to 'Edit', edit_pages_dynamic_page_path(pages_dynamic_page) %></td>
+    <td><%= link_to 'Destroy', pages_dynamic_page, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dynamic page', new_pages_dynamic_page_path %>

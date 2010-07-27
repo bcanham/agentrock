@@ -1,7 +1,7 @@
 class SubdomainsController < ApplicationController
 	respond_to :html
-	before_filter :authenticate_user!, :except => [:show, :index]
-	before_filter :ensure_created_by!, :only => [:edit, :update, :destroy]
+	#before_filter :authenticate_user!, :except => [:show, :index]
+	#before_filter :ensure_created_by!, :only => [:edit, :update, :destroy]
 
 
 

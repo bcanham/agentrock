@@ -6,15 +6,15 @@ source 'http://gemcutter.org'
 
 ## Bundle edge rails:
 gem "rails", :git => "git://github.com/rails/rails.git"
+gem "unicorn"
 
 gem "warden"	 	
 gem "devise", :git => "git://github.com/plataformatec/devise"
 gem "stalker"
-
 gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
 gem "ssl_requirement"
 gem "meta-tags", :git =>"git://github.com/kpumuk/meta-tags.git", :require => 'meta_tags'
-gem "sitemap_generator", :git => "git://github.com/adamsalter/sitemap_generator.git"
+#gem "sitemap_generator", :git => "git://github.com/adamsalter/sitemap_generator.git"
 
 
   gem "mongo"

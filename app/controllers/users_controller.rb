@@ -1,12 +1,20 @@
 class UsersController < Devise::RegistrationsController
-	respond_to :html, :json, :iphone
-	#before_filter :authenticate_user!, :only => [:index]
+	respond_to :html, :json#, :iphone
+	before_filter :authenticate_user!, :only => [:index]
   
   def new		
   	super
   end
   
   def create
+    super
+  end
+  
+  def edit
+    super
+  end
+  
+  def update 
     super
   end
     
@@ -19,6 +27,16 @@ class UsersController < Devise::RegistrationsController
 	  else
 	  	render_404
 	  end  
+  end
+  
+  def destroy
+    @user = User.find(params[:id])    
+    @user.delete
+
+    respond_to do |format|
+      format.html { redirect_to(root_url) }
+      format.xml  { head :ok }
+    end
   end
   
   def watch		
@@ -41,7 +59,7 @@ layout :choose_layout
 
 private
 	def choose_layout    
-	  if [ 'edit', 'show' ].include? action_name	    
+	  if [ 'index', 'edit', 'show' ].include? action_name	    
 		  'users'
 	  else
 	    'application'
