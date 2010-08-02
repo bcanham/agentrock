@@ -88,7 +88,7 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-core.git
-  revision: 06b6b4b
+  revision: 3c32ce5
   specs:
     rspec-core (2.0.0.beta.19)
 

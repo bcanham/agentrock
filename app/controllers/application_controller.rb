@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 # 	include SslRequirement
 
   helper :all # include all helpers, all the time
-  protect_from_forgery :only => [:create, :update, :destroy]
+  #protect_from_forgery :only => [:create, :update, :destroy]
  	
 
   

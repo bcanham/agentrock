@@ -745,10 +745,19 @@ div.set.active {
 #recurring.selected p.small em {
 	background: #fe6;
 }
-#copyright {
+.copyright {
 	display: block;
 	margin-left: 150px;
 	margin-bottom: 30px;
 	margin-right: 150px;
 	margin-top: 150px;
+}
+div.copyright a {
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	color: #666666;
+}
+div.copyright a.google {
+	color: #a71100;
 }	

@@ -15,19 +15,41 @@ class AccountsController < ApplicationController
   end
 
   def show
-
+		if @account = Account.first(:conditions => { :owner => current_user.name })
+    	redirect_to edit_account_details_path
+    end
+  end
+  
+  def new
+    @account = Account.new
+  end
+  
+  def create
+    @account = Account.new(params[:account])
+    
+    if @account.save
+    	redirect_to root_url
+    end
+  end
+  
+  def edit
+    @account = Account.first(:conditions => { :owner => current_user.name })
+  end
+  
+  def update
+    
   end
   
 layout :choose_layout
 
 private
 	def choose_layout    
-	  if [ 'index', 'show' ].include? action_name	    
+	  if [ 'index', 'show', 'edit', 'show' ].include? action_name	    
 		  if user_signed_in? 
-		  'users' 
+		  	'users' 		  	
 	  else
 	    'application'
-	  	end
+	    end	  	
 	  end
 	end   
 

@@ -8,6 +8,7 @@ class UsersController < Devise::RegistrationsController
   
   def create
     super
+    Account.create
   end
   
   def edit
