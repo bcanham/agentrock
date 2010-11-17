@@ -11,70 +11,15 @@ body {
 	margin: 7px 0 0 8px;
 }
  
- 
-.middle {
-	/*
-border-bottom-color: #333333;
-	border-top-color: #333333;
-	background: #e6e6e6 url() repeat-x;
-	border-top: 5px solid;
-	border-bottom: 5px solid;
-*/                       
-	border-bottom-color: #262626;
-	  
-                             
-	                          
-	                                   
-	                      
-	                         
-                         
-	border-top-color: #262626;
-	  
-                             
-	                          
-	                                   
-	                      
-	                         
-                         
-	border-bottom-width: 5px;
-	  
-                             
-	                          
-	                                   
-	                      
-	                         
-                         
-	border-top-width: 5px;
-	  
-                             
-	                          
-	                                   
-	                      
-	                         
-                         
-	border-bottom-style: solid;
-	  
-                             
-	                          
-	                                   
-	                      
-	                         
-                         
-	border-top-style: solid;
-	  
-                             
-	                          
-	                                   
-	                      
-	                         
-                         
+.middle {                      
+	border-bottom-color: #262626;     
+	border-top-color: #262626;          
+	border-bottom-width: 5px;       
+	border-top-width: 5px;     
+	border-bottom-style: solid;    
+	border-top-style: solid;                     
 	background-color: #3e3e3e;                   
 	padding: 36px 0;
-	}
- 
-.middle .container {
-/*	padding: 36px 0;*/
-/*	background: #fff;*/
 	}
  
 /* @group Box */
@@ -761,3 +706,19 @@ div.copyright a {
 div.copyright a.google {
 	color: #a71100;
 }	
+
+#facebox {
+	/* overlay is hidden before loading */
+	display:none;
+
+	/* standard decorations */
+	width:800px;
+	border:10px solid #666;
+
+	/* for modern browsers use semi-transparent color on the border. nice! */
+	border:10px solid rgba(82, 82, 82, 0.698);
+
+	/* hot CSS3 features for mozilla and webkit-based browsers (rounded borders) */
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+}

@@ -1,6 +1,11 @@
-<h3>Hi, <%= username %>!</h3>
-<div class="toolbox">
+<h1><%= title "Browse Musicians" %></h1>
 
-</div>
 
-<%= @activities %>
+
+
+<% @users.each do |user| %>
+
+<p><%= link_to user.name, user_path(user.name) %></p>
+
+
+<% end %>

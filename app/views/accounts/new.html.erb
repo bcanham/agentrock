@@ -21,7 +21,7 @@
 <h2>Signup</h2>
 	<p>Already have an account? <a href="/login">Log in</a>.</p>
 
-  <label style="display:block;text-align:left;float:none">Zipcode or City<span style="color: #990000">*</span></label><%= error_message_on @user, :location %>
+  <label style="display:block;text-align:left;float:none">Zipcode or City/State<span style="color: #990000">*</span></label><%= error_message_on @user, :location %>
 	<input name="user[location]" size="30" type="text" required="required">
 	<%= f.hidden_field :owner, :value => current_user.name %>
 <!--

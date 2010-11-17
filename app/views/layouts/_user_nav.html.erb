@@ -2,6 +2,7 @@
 	<ul id="top_nav">
                 <li style="color:#FFFFFF; font-weight:normal; padding:0px; text-decoration:none;"><!-- <img src="/images/"> --></li>
 		<li><%= user_public(current_user) %></li>
+		<li><%= link_to "Dashboard", root_url %></li>
 		<li><%= user_settings_path(current_user) %></li>
 		<li><%= login_logout %></li>
 	</ul>
@@ -12,9 +13,9 @@
 				<p class="tagline"></p>
 			</li>
 	
-			<li class="tab"><a href="/"></a><span class="tip"><em>&nbsp;</em></span></li>
-			<li class="tab"><a href="/"></a><span class="tip"><em>&nbsp;</em></span></li> 
-		 <li class="tab"><a href="/"></a><span class="tip"><em>&nbsp;</em></span></li>        
+			<li class="tab"><a href="/"></a></li>
+			<li class="tab"><a href="/"></a></li> 
+		 <li class="tab"><a href="/"></a></li>        
 	    </ul>
 		<div class="clear">&nbsp;</div>
 </div>

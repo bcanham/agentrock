@@ -1,14 +1,13 @@
 class UsersController < Devise::RegistrationsController
 	respond_to :html, :json#, :iphone
-	before_filter :authenticate_user!, :only => [:index]
+	#before_filter :authenticate_user!, :only => [:index]
   
   def new		
   	super
   end
   
   def create
-    super
-    Account.create
+    super    
   end
   
   def edit
@@ -20,6 +19,9 @@ class UsersController < Devise::RegistrationsController
   end
     
   def index
+  	@users = User.only(:name, :id).paginate(:page => params[:page] || 1, :per_page => 10)
+  	@location = User.near(:position => [ 37.7, -122.4, 10 ])
+  
   end
   
   def show

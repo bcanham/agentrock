@@ -1,8 +1,8 @@
 module AccountsHelper
 
-	def account_details(current_user)
-	  unless Account.first(:conditions => { :owner => current_user })
-	  	link_to "You should fill in a few deatils about yourself", "/#{current_user}/details"
+	def edit_account_details(current_user)
+	  unless Account.where(:owner => current_user).first
+	  	link_to "You should fill in a few details about yourself", "/#{current_user}/edit"
 	  end
 	end
 

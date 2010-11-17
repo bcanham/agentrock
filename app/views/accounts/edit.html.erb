@@ -1,1 +1,18 @@
-<h1><%= @account.owner %></h1>
+<h2>General Info</h2>
+
+<%= form_for(@account, :as => :account, :url => { :controller => 'accounts', :action => 'update' }, :html => { :method => :put }) do |f| %>
+
+  <p><label style="display:block;text-align:left;float:none">Location<%= error_message_on @account, :location %></label>
+  <%= f.text_field :location %></p>
+
+  <label style="display:block;text-align:left;float:none">Primary Instrument of Focus</label><br />
+  <%= f.text_field :primary_instrument %></p>
+
+  <p><label style="display:block;text-align:left;float:none">Other Instruments</label>
+  <%= f.text_field :other_instruments %></p>
+
+  <p><label style="display:block;text-align:left;float:none">Genre</label><br />
+  <%= f.text_field :genre %></p>
+
+  <p><%= f.submit "Update" %></p>
+<% end %>

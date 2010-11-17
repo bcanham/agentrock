@@ -1,11 +1,11 @@
 <div class="col_4 in">
 <h1>Hi, <%= current_user.name %></h1>
-<%= account_details(current_user.name) %>
+<%= edit_account_details(current_user.name) %>
 </div>
 <div class="col_4 out" style="float:right;"> 
 			
 			<dl class="facts"> 
-			<dt class="head">Your Songs (<%=  %>)</dt> 
+			<dt class="head">Your Songs (<%=  %>) <%= link_to "Upload Songs", upload_songs_path, :remote => true %></dt> 
  
 				<dd class="big first">&nbsp;<%  %></dd> 
 			
@@ -15,3 +15,7 @@
 				<%  %> 
 </dl>
 </div>
+
+
+
+<div id="comments"></div>

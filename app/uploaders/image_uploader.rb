@@ -2,7 +2,7 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
 
-  #include CarrierWave::RMagick
+  include CarrierWave::RMagick
 
   storage :grid_fs
 

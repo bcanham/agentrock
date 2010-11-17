@@ -1,7 +1,7 @@
-Agentrock::Application.routes.draw do |map|
+Agentrock::Application.routes.draw do
 
 
-	resources :accounts
+  resources :accounts	  	
 
   resources :notifications
 
@@ -72,11 +72,16 @@ Agentrock::Application.routes.draw do |map|
 	    post :create,  :path => 'signup', :as => ""
 	  end
     get "forgot", :to => "devise/passwords#new"
-    match ':name' => 'accounts#show'
+    
 		match ':name/settings' => 'users#edit', :as => :settings
-		match ':name/edit' => 'accounts#edit', :as => :edit_account_details		
+		get ':name/edit' => 'accounts#edit', :as => :edit_account_details		
+		post ':name/edit' => 'accounts#update'		
 	  match ':name/watch' => 'users#watch'
 	  match ':name/unwatch' => 'users#unwatch'
+	  get '/upload/songs' => 'accounts#new', :as => :upload_songs
+	  post '/upload/songs' => 'accounts#create', :as => ""
+		get 'browse' => 'users#index'
+	  match ':name' => 'accounts#show', :as => :user
 	end	
 	
 	devise_for :admin

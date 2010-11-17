@@ -30,18 +30,12 @@ Devise.setup do |config|
   # The realm used in Http Basic Authentication
   # config.http_authentication_realm = "Application"
   
-  config.cookie_domain = ".agentrock.net"
+  config.cookie_options = { :domain => ".agentrock.net" }
 
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 10. If
   # using other encryptors, it sets how many times you want the password re-encrypted.
   config.stretches = 10
-
-  # Define which will be the encryption algorithm. Devise also supports encryptors
-  # from others authentication tools as :clearance_sha1, :authlogic_sha512 (then
-  # you should set stretches above to 20 for default behavior) and :restful_authentication_sha1
-  # (then you should set stretches to 10, and copy REST_AUTH_SITE_KEY to pepper)
-  config.encryptor = :bcrypt
 
   # Setup a pepper to generate the encrypted password.
   config.pepper = "f43119c88a21661d7b86c73461cdb0c3b124872fc74c58bfe2fb18a889192b63bbea1670e7cf7ca6232f01e7a2649385f12b548123c203c5ddae9bea5ebef773"

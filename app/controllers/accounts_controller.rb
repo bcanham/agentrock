@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  respond_to :html, :json
+  respond_to :html, :json, :xml, :js
   
   def index
  		@page_title = "Your Dashboard"
@@ -15,9 +15,9 @@ class AccountsController < ApplicationController
   end
 
   def show
-		if @account = Account.first(:conditions => { :owner => current_user.name })
-    	redirect_to edit_account_details_path
-    end
+		@account = Account.where(:owner => @current_user).first
+		@photo = @account.image.url ? @account.image.url : 'logo.png'
+
   end
   
   def new
@@ -28,12 +28,13 @@ class AccountsController < ApplicationController
     @account = Account.new(params[:account])
     
     if @account.save
+    	respond_with(@account)
     	redirect_to root_url
     end
   end
   
   def edit
-    @account = Account.first(:conditions => { :owner => current_user.name })
+    @account = Account.where(:owner => current_user.name).first
   end
   
   def update

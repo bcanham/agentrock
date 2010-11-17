@@ -9,6 +9,14 @@
     body {background-image: url(/images/bg.gif)}
   </style>
 <%= display_meta_tags :site => "Agent Rock", :reverse => true %>
+<script src="http://cdn.jquerytools.org/1.2.2/full/jquery.tools.min.js"></script>
+<script>
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'%3E%3C/script%3E"));
+    document.write(unescape("%3Cscript src='/jquery/tools.js'%3E%3C/script%3E"));
+}
+</script>
+<script type="text/javascript" src="/jquery/rails.js"></script>
 <%= csrf_meta_tag %>
   <%= yield :head %>
 </head>
@@ -34,8 +42,6 @@
 
 <div class="push"></div>
         
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <% unless Rails.env = "Production" %>
 <%= render 'layouts/trackers' %>
 <% end %>
