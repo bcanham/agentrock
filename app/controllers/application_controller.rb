@@ -2,13 +2,14 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base		
-	include UrlHelper
 # 	include SslRequirement
 
   helper :all # include all helpers, all the time
   #protect_from_forgery :only => [:create, :update, :destroy]
  	
-
+  def koala_oauth
+    Koala::Facebook::OAuth.new('141114879242972', 'edb74892f516289cab8c2b7643cf4bbd', user_omniauth_callback_url(:facebook))
+  end
   
   def render_404
   	render :file => "#{Rails.root}/app/views/shared/404.html.erb",  :status => 404

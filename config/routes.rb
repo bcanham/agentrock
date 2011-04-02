@@ -1,5 +1,10 @@
 Agentrock::Application.routes.draw do
+	
+  get "welcome/index"
 
+  get "home/index"
+
+  get "buzz/index"
 
   resources :accounts	  	
 
@@ -18,9 +23,10 @@ Agentrock::Application.routes.draw do
   resources :activities
   
   get 'how-it-works' => 'pages/how_it_works#index', :as => :how_it_works   
+  get 'buzz' => 'pages/buzz#index', :as => :buzz
   get 'features' => 'pages/features#index', :as => :features   
-  get 'privacy-policy' => 'pages/privacy_policies#index', :as => :privacy_policy   
-  get 'terms-conditions' => 'pages/terms_conditions#index', :as => :terms_conditions   
+  get 'privacy' => 'pages/privacy_policies#index', :as => :privacy_policy   
+  get 'terms' => 'pages/terms_conditions#index', :as => :terms_conditions   
   get 'sitemap' => 'pages/sitemap#index', :as => :sitemap   
 
 
@@ -55,6 +61,12 @@ Agentrock::Application.routes.draw do
  	constraints(Subdomain) do
  		match '/' => 'subdomains#show'
  	end
+	
+	constraints(Facebook) do
+		match "/facebook/" => "facebooks#index"
+		match 'facebook/welcome' => 'facebooks/welcomes#index'
+	end
+	 	
   root :to => "accounts#index"
 
 	get 'articles/' => 'admin/articles#index'
@@ -71,6 +83,10 @@ Agentrock::Application.routes.draw do
 	    get  :new,     :path => 'signup', :as => "new"
 	    post :create,  :path => 'signup', :as => ""
 	  end
+	  scope :controller => 'users', :as => :oauth_callback do
+      get  :auth,     :path => 'user/auth/facebook/callback', :as => "new"
+      post :deauth,  :path => 'user/de-auth/facebook/callback', :as => "de"
+    end
     get "forgot", :to => "devise/passwords#new"
     
 		match ':name/settings' => 'users#edit', :as => :settings
@@ -84,7 +100,7 @@ Agentrock::Application.routes.draw do
 	  match ':name' => 'accounts#show', :as => :user
 	end	
 	
-	devise_for :admin
+  devise_for :admin
 	
 	devise_for :affiliate, :controllers => { :registrations => 'affiliates' }, :skip => [:sessions, :registration] do
 	  scope :controller => 'devise/sessions', :as => :affiliate_session do

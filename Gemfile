@@ -1,8 +1,9 @@
 source 'http://gemcutter.org'
 
-gem "rails", "3.0"#, :git => "git://github.com/rails/rails.git"
+gem "rails", "3.0.4"#, :git => "git://github.com/rails/rails.git"
 
-gem "warden"	 	
+gem "warden"
+gem "oa-oauth", :require => "omniauth/oauth"	 	
 gem "devise", :git => "git://github.com/plataformatec/devise"
 gem "resque"
 gem 'resque_mailer'
@@ -15,32 +16,40 @@ gem "rackamole"
 gem "wackamole"
 gem "memcache-client"
 #gem "score-fu", :git => "http://github.com/bry4n/score-fu.git"
-#gem 'rack-bundle'
+gem 'rack-bundle'
+gem 'remail'
+gem "koala"
+gem "dynamic_form"
 
   gem "mongo"
   gem "mongo_ext"
-  gem "mongoid", :git => "git://github.com/mongoid/mongoid.git"
+  gem "mongoid", :git => "git://github.com/mongoid/mongoid.git", :branch => "safe_master"
   gem "bson_ext"
-  gem "mongoid_session_store", :git => "http://github.com/ryanfitz/mongoid_session_store.git"
+  #gem "mongoid_session_store", :git => "http://github.com/ryanfitz/mongoid_session_store.git"
   gem "trackoid", :git => "http://github.com/twoixter/trackoid.git"
-  gem 'will_paginate', "3.0.pre2"
+  gem 'will_paginate'
 
-group :development, :test do
+group :development do
+	gem "sitemap_generator"
+	# gem 'machinist_mongo', :require => 'machinist/mongoid'
+	#   gem "faker"
+# gem "ZenTest"
+	#   gem "autotest"	
+	# gem 'launchy'
+#	gem "ruby-debug19"
+#	gem "ruby-debug-base19"
+	
+end
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+
 	gem "rspec-rails",        :git => "git://github.com/rspec/rspec-rails.git"
 	gem "rspec",              :git => "git://github.com/rspec/rspec.git"
 	gem "rspec-core",         :git => "git://github.com/rspec/rspec-core.git"
 	gem "rspec-expectations", :git => "git://github.com/rspec/rspec-expectations.git"
 	gem "rspec-mocks",        :git => "git://github.com/rspec/rspec-mocks.git"
-	gem 'machinist_mongo', :require => 'machinist/mongoid'
-  gem "faker"
-# gem "ZenTest"
-  gem "autotest"	
-	gem "capybara"
-  gem "cucumber",         :git => "git://github.com/aslakhellesoy/cucumber.git"
-	gem "database_cleaner", :git => "http://github.com/bmabey/database_cleaner.git"
-	gem "cucumber-rails"#, :git => "http://github.com/aslakhellesoy/cucumber-rails.git"
-	gem 'launchy'
-#	gem "ruby-debug19"
-#	gem "ruby-debug-base19"
-	
+	gem "mongoid-rspec", :git => "https://github.com/evansagge/mongoid-rspec.git"
 end

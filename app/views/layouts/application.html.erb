@@ -8,7 +8,7 @@
   <style type="text/css">
     body {background-image: url(/images/bg.gif)}
   </style>
-<%= display_meta_tags :site => "Agent Rock", :reverse => true %>
+<%= display_meta_tags :site => "Agent Rock" %>
 <script src="http://cdn.jquerytools.org/1.2.2/full/jquery.tools.min.js"></script>
 <script>
 if (typeof jQuery == 'undefined') {
@@ -16,10 +16,10 @@ if (typeof jQuery == 'undefined') {
     document.write(unescape("%3Cscript src='/jquery/tools.js'%3E%3C/script%3E"));
 }
 </script>
-<script type="text/javascript" src="/jquery/jquery.cycle.lite.min.js"></script>
-<script type="text/javascript" src="/jquery/jquery.formatCurrency-1.3.0.min.js"></script>
+<!-- <script type="text/javascript" src="/jquery/jquery.cycle.lite.min.js"></script>
+<script type="text/javascript" src="/jquery/jquery.formatCurrency-1.3.0.min.js"></script> -->
 <script type="text/javascript" src="/jquery/rails.js"></script>
- <script>
+ <!-- <script>
   var count = 0;
 
 $(document).ready(function(){
@@ -45,7 +45,7 @@ function onSlide() {
   $(this).siblings("span").empty().text(count).formatCurrency({roundToDecimalPlace: '-2'});
 
 }
-  </script>
+  </script> -->
 <%= csrf_meta_tag %>
   <%= yield :head %>
 </head>
@@ -55,7 +55,7 @@ function onSlide() {
 <%= render 'layouts/top_nav' %>
 <div class="middle">
     <div class="container">
-    <div class="box">
+    <!-- <div class="box"> -->
             <p class="notice"><%= notice %></p> 
             <p class="alert"><%= alert %></p>
 
@@ -63,7 +63,7 @@ function onSlide() {
       	
 	<div class="clear">&nbsp;</div>
 
-</div>
+<!-- </div> -->
     </div>
     </div>
 <!--
@@ -76,7 +76,7 @@ function onSlide() {
 -->
 
 <div class="copyright">
-		Copyright &copy; 2010 AgentRock.net All rights reserved. <a href="/terms-conditions">Terms & Conditions.</a> <a href="/privacy-policy">Privacy Policy.</a> <a class="google" href="/sitemap">Sitemap.</a>
+		Copyright &copy; 2010 AgentRock.net All rights reserved. <a href="/terms">Terms.</a> <a href="/privacy">Privacy Policy.</a> <a class="google" href="/sitemap">Sitemap.</a>
 </div>
         
 

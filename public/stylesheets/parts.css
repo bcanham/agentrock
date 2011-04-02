@@ -1,6 +1,6 @@
 body {
-	background-color: #112a40;
-	border-top: 3px solid #102134;
+	background-color: black;
+	border-top: 3px solid #262626;
 	}
  
 .tagline {
@@ -10,15 +10,22 @@ body {
 	color: #b31602;
 	margin: 7px 0 0 8px;
 }
+
+img.beta {
+left: 150px;
+position: absolute;
+top: 35px;
+}
  
-.middle {                      
-	border-bottom-color: #262626;     
-	border-top-color: #262626;          
-	border-bottom-width: 5px;       
-	border-top-width: 5px;     
-	border-bottom-style: solid;    
-	border-top-style: solid;                     
-	background-color: #3e3e3e;                   
+.middle {
+	border-bottom-color: #262626;
+	border-top-color: #262626;
+	border-bottom-width: 4px;
+	border-top-width: 40px;
+	border-bottom-style: solid;
+	border-top-style: solid;
+	background-color: #303030;
+	color: #999;
 	padding: 36px 0;
 	}
  
@@ -29,7 +36,8 @@ body {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	margin: 0px 0px 18px 0;
-	background-color: #262626;
+	background-image: url("/images/boxbg.png");
+/*	background-color: #262626;*/
 	padding: 18px 15px;
 	-webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
 	-moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
@@ -313,14 +321,13 @@ ul.features li {
 	}
  
 .footer {
-	right: 30%;
-	left: 30%;
 	position: absolute;
 	font-size: 12px;
 	color: #95a0a9;
 	margin-top: 36px;
 	margin-bottom: 18px;
-	}
+	padding-right: 28px;
+}
  
 .footer ul li a {
 	font-size: 12px;
@@ -722,3 +729,31 @@ div.copyright a.google {
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
 }
+
+.pagination {
+  text-align: center;
+  padding: .3em; }
+  .pagination a, .pagination span {
+    padding: .2em .5em; }
+  .pagination span.disabled {
+    color: #AAA; }
+  .pagination span.current {
+    font-weight: bold;
+    color: #FF0084; }
+  .pagination a {
+/*     border: 1px solid #DDDDDD; */
+    color: #0063DC;
+    text-decoration: none; }
+    .pagination a:hover, .pagination a:focus {
+/*       border-color: #003366; */
+      background: #0063DC;
+      color: white; }
+  .pagination .page_info {
+    color: #aaa;
+    padding-top: .8em; }
+  .pagination .prev_page, .pagination .next_page {
+/*     border-width: 2px; } */
+  .pagination .prev_page {
+    margin-right: 1em; }
+  .pagination .next_page {
+    margin-left: 1em; }

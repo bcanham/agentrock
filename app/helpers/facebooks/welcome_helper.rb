@@ -1,0 +1,2 @@
+module Facebooks::WelcomeHelper
+end

@@ -22,9 +22,6 @@ module Agentrock
     # :all can be used as a placeholder for all plugins not explicitly named
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 		
-#		config.middleware.use Rack::Bundle, :public_dir => "#{Rails.root}/public"
-		config.middleware.use Rack::Mole, { :app_name => "Agent Rock", :user_key => :session_id }		
-		
     # Activate observers that should always be running
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 		
@@ -40,7 +37,7 @@ module Agentrock
     config.generators do |g|
       g.orm             :mongoid
       g.template_engine :erb
-      g.test_framework  :test_unit, :fixture => false
+      g.test_framework  :rspec
     end
 
     # Configure sensitive parameters which will be filtered from the log file.
