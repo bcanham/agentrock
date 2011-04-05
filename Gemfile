@@ -21,7 +21,7 @@ gem 'remail'
 gem "koala"
 gem "dynamic_form"
 
-  gem "mongoid"#, :git => "git://github.com/mongoid/mongoid.git", :branch => "safe_master"
+  gem "mongoid", :git => "git://github.com/mongoid/mongoid.git", :branch => "safe_master"
   #gem "mongoid_session_store", :git => "http://github.com/ryanfitz/mongoid_session_store.git"
   gem "trackoid", :git => "http://github.com/twoixter/trackoid.git"
 

@@ -12,6 +12,17 @@ GIT
     meta-tags (1.2.3)
 
 GIT
+  remote: git://github.com/mongoid/mongoid.git
+  revision: 1abe9edf65ba9c044c0ed253fd26fce2d2f8edf5
+  branch: safe_master
+  specs:
+    mongoid (2.0.0.beta.20)
+      activemodel (~> 3.0)
+      mongo (~> 1.1)
+      tzinfo (~> 0.3.22)
+      will_paginate (~> 3.0.pre)
+
+GIT
   remote: git://github.com/rspec/rspec-core.git
   revision: 875cb059c0bc81f71bca86a35847e363e05f0cb2
   specs:
@@ -161,11 +172,6 @@ GEM
       mongo (>= 0.18.2)
       mongo_ext (>= 0.18.2)
       rack (>= 1.0.1)
-    mongoid (2.0.0)
-      activemodel (~> 3.0)
-      mongo (~> 1.2)
-      tzinfo (~> 0.3.22)
-      will_paginate (~> 3.0.pre)
     multi_json (0.0.5)
     multipart-post (1.1.0)
     nokogiri (1.4.4)
@@ -288,7 +294,7 @@ DEPENDENCIES
   koala
   memcache-client
   meta-tags!
-  mongoid
+  mongoid!
   oa-oauth
   rack-bundle
   rack-linkify
