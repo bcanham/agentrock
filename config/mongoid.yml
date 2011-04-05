@@ -9,6 +9,8 @@ defaults: &defaults
 development:
   <<: *defaults
   database: agentrock_development
+  mongo:
+    database: agentrock_development  
 
 test:
   <<: *defaults
@@ -22,3 +24,5 @@ production:
   username: rails
   password: D@t@Ba$3
   database: agentrock
+  mongo:
+    database: agentrock
