@@ -1,10 +1,10 @@
 source 'http://gemcutter.org'
 
-gem "rails", "3.0.4"#, :git => "git://github.com/rails/rails.git"
+gem "rails", "3.0.5"#, :git => "git://github.com/rails/rails.git"
 
 gem "warden"
 gem "oa-oauth", :require => "omniauth/oauth"	 	
-gem "devise", :git => "git://github.com/plataformatec/devise"
+gem "devise", "1.2.1"#, :git => "git://github.com/plataformatec/devise"
 gem "resque"
 gem 'resque_mailer'
 gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
@@ -21,13 +21,9 @@ gem 'remail'
 gem "koala"
 gem "dynamic_form"
 
-  gem "mongo"
-  gem "mongo_ext"
-  gem "mongoid", :git => "git://github.com/mongoid/mongoid.git", :branch => "safe_master"
-  gem "bson_ext"
+  gem "mongoid"#, :git => "git://github.com/mongoid/mongoid.git", :branch => "safe_master"
   #gem "mongoid_session_store", :git => "http://github.com/ryanfitz/mongoid_session_store.git"
   gem "trackoid", :git => "http://github.com/twoixter/trackoid.git"
-  gem 'will_paginate'
 
 group :development do
 	gem "sitemap_generator"
@@ -51,5 +47,5 @@ group :test do
 	gem "rspec-core",         :git => "git://github.com/rspec/rspec-core.git"
 	gem "rspec-expectations", :git => "git://github.com/rspec/rspec-expectations.git"
 	gem "rspec-mocks",        :git => "git://github.com/rspec/rspec-mocks.git"
-	gem "mongoid-rspec", :git => "https://github.com/evansagge/mongoid-rspec.git"
+	# gem "mongoid-rspec", :git => "https://github.com/evansagge/mongoid-rspec.git"
 end
