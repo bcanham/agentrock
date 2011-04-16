@@ -16,16 +16,16 @@ Agentrock::Application.configure do
 	
 	config.active_support.deprecation = :log
 	
-	config.session_store = { :domain => '.lvh.me:3001' }
+  config.session_store :cookie_store, :key => '_agentrock_session', :domain => :all
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
-	config.action_mailer.default_url_options = { :host => 'lvh.me:3001' }
+  config.action_mailer.default_url_options = { :host => 'lvh.me:3001' }
 
 config.action_mailer.delivery_method = :remail
 config.action_mailer.remail_settings = {
   :app_id  => "remail-agentrock",
-  :api_key => "677aee17d4c2e015acf0754c909e7340a14101521b218291fa00906c2aa8f1db827565b2aebfa83d1fb5a2c08f1417bb50b111880fc98afa208cadd7e37915f7"
+  :api_key => "4d5g2b311f6922f192f11911311d0b70"
 }
   # config.action_mailer.smtp_settings = {
   #     :tls => true,

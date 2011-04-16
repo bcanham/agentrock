@@ -1,6 +1,6 @@
 source 'http://gemcutter.org'
 
-gem "rails", "3.0.5"#, :git => "git://github.com/rails/rails.git"
+gem "rails", "3.0.6"
 
 gem "warden"
 gem "oa-oauth", :require => "omniauth/oauth"	 	
@@ -19,7 +19,9 @@ gem "memcache-client"
 gem 'rack-bundle'
 gem 'remail'
 gem "koala"
+gem "simple_form"
 gem "dynamic_form"
+gem "nifty-generators"
 gem "mongoid", :git => "git://github.com/mongoid/mongoid.git", :branch => "safe_master"
 gem "trackoid", :git => "http://github.com/twoixter/trackoid.git"
 

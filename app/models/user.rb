@@ -11,25 +11,19 @@ class User
   field :fb_uid	
   field :fb_opt_out
     
+  attr_protected :confirmed     
+  mount_uploader :image, ImageUploader
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :trackable#, :confirmable, :validatable, :lockable, :rememberable
+         :recoverable, :trackable, :confirmable, :rememberable
   
-	before_create :create_login
+  before_create :create_login
   
   validates :login, :uniqueness => { :on => :update }
-  # validates :name, :presence => true, :uniqueness => true
-  validates :email, :presence => true, :uniqueness => true  
-  
-  def create_login
-    email = self.email.split(/@/)
-		login_taken = User.where(:login => email[0]).first
-		unless login_taken
-			self.login = email[0]
-		else	
-			self.login = self.email
-		end	       
-  end  
+  # validates :name, :presence => true, :uniqueness => true, :format => { :with => /^[a-z][A-Z][0-9](-_.)$/i }
+  validates :email, :presence => true, :uniqueness => true, :format => { :with => /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i }  
+  validates :password, :password_confirmation, :presence => true, :length => { :within => 6..20, :message => "is too short" }
+  validates_confirmation_of :password, :message => "doesn't match"
 
 	def self.find_for_database_authentication(conditions)
 		self.where(:login => conditions[:email]).first || self.where(:email => conditions[:email]).first
@@ -47,6 +41,22 @@ class User
       # Create an user with a stub password.
       user.update_attributes(:fb_uid => data["id"], :name => data["name"], :first_name => data["first_name"], :last_name => data["last_name"])
     end
+  end
+
+private
+
+  def create_login
+    email = self.email.split(/@/)
+  	login_taken = User.where(:login => email[0]).first
+  	unless login_taken
+  		self.login = email[0]
+  	else	
+  		self.login = self.email
+  	end	       
+  end
+  
+  def check_name
+    
   end
 
 end

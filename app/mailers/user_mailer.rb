@@ -1,29 +1,32 @@
-# class UserMailer < ActionMailer::Base
-#   def activation(user)
-#     setup_email(user)
-#     @subject += "Welcome #{user.username}, Please activate your new account"
-#     @body[:url] = "http://agentrock.net/activate/#{user.activation_code}"
-#   end
-#   
-#   def activated(user)
-#     setup_email(user)
-#     @subject += "Welcome #{user.username}, Your account has been activated!"
-#     @body[:url] = "http://agentrock.net/"
-#   end
-#   
-#   def reset_password(user)
-#     setup_email(user)
-#     @subject += "Hi #{user.username}, Your password reset instructions are here!"
-#     @body[:url] = "http://agentrock.net/password_reset/#{user.reset_token}"
-#   end
-#   
-#   protected
-#   
-#   def setup_email(user)
-#     @recipients = "#{user.email}"
-#     @from = "ADMINEMAIL"
-#     @subject = "[agentrock.net] "
-#     @sent_on = Time.now
-#     @body[:user] = user
-#   end  
-# end
+class UserMailer < Devise::Mailer
+  # include Resque::Mailer
+
+  # default :from => "notifications@agentnate.com"
+
+  def welcome(user)
+    @subject = "Welcome #{user.first_name}, enjoy your Agent Rock account..."
+    setup_email(user) do |format|
+          format.html { render :layout => 'application' }
+          format.text
+    end
+    # mail(:to => user.email, :subject => "Welcome #{user.name}, Please confirm your Agent Nate account")
+  end
+
+  def confirmation_instructions(user)
+    @subject = "Welcome #{user.login}, Please confirm this email address..."
+    setup_email(user) do |format|
+          format.html { render :layout => 'application' }
+          format.text
+    end
+  end
+
+protected
+
+  def setup_email(user)
+    @recipients = "#{user.email}"
+    @from = "<no-reply@agentrock.net>"
+    @sent_on = Time.now
+    @body[:user] = user
+  end
+
+end

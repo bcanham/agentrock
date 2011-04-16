@@ -1,0 +1,18 @@
+<div class="col_12">
+
+	<div class="col_2">
+		<%= render "shared/left_sidebar" %>
+	</div>
+
+	<div class="col_6">
+		<div class="col_6">
+			<%= render "shared/user_sub_nav" %>
+		</div>
+
+		<p><h2>Delete/Disable your account</h2>
+		Disabling your account will cause it to appear deleted, but we’ll keep everything for you. Your account will be enabled the next time you sign in. Deleting your account is quite different. Please read the next section carefully.</p>
+
+		<p>Unhappy? <%= button_to "Delete Account", user_registration_path(current_user), :class => "red", :confirm => "Are you sure?", :method => :delete %><%= button_to "Disable Account", user_registration_path(current_user), :class => "red", :confirm => "Are you sure?", :method => :delete %></p>
+
+	</div>
+</div>	

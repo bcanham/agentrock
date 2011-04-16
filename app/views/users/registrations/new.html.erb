@@ -16,27 +16,35 @@
 		</ul>
 	</div> 
 <div class="col_6 out" id="account_signup">
-	<h1>Join Agent Rock Today!</h1>
+	<h2>Join Agent Rock Today!</h2>
 	<p class="large">It's free and sign up is instant.</p>
 	
-	<%= form_for(@user, :as => :user, :url => { :controller => 'users/registrations', :action => 'new' }) do |f| %>
+		<p>Already have an account? <a href="/login">Log in</a>.</p>	
+	
+	<%= form_for(@user, :as => :user, :url => { :controller => 'users/registrations', :action => 'new' }) do |f| %>  
 
-		<p>Already have an account? <a href="/login">Log in</a>.</p>
+	<% if @user.errors.any? %> 
+		<div id="errorExplanation"> 
+		  <h2>Oops! What happened?</h2>
+		</div> 
+	<% end %>
 
-		<p class="col_6 in"><label style="display:block;text-align:left;float:none">Username<span style="color: #990000">*</span><%= error_message_on @user, :name %></label>
-		<input name="user[name]" style="height:30px" tabindex="1" type="text" required="required"></p>
+	<p class="col_6 in"><label style="display:block;text-align:left;float:none">Username<span style="color: #990000">*</span><%= error_message_on @user, :name %></label>
+	<input name="user[name]" style="height:30px" tabindex="1" type="text" required="required"></p>
 
-		<p class="col_6 in"><label style="display:block;text-align:left;float:none">Email<span style="color: #990000">*</span><%= error_message_on @user, :email %></label>
-		<input name="user[email]" style="height:30px" tabindex="2" type="text" required="required"></p>
+	<p class="col_6 in"><label style="display:block;text-align:left;float:none">Email<span style="color: #990000">*</span><%= error_message_on @user, :email %></label>
+	<input name="user[email]" style="height:30px" tabindex="2" type="text" required="required"></p>
 
-		 <p class="col_3 in">
-		<label style="display:block;text-align:left;float:none">Password<span style="color: #990000">*</span><%= error_message_on @user, :password %></label>
-		<input name="user[password]" type="password" required="required" style="height:30px" tabindex="3">
-		</p>
-		<p class="col_3 out" style="position:relative;right:37px;">
-		<label style="display:block;text-align:left;float:none">Confirm Password<span style="color: #990000">*</span><%= error_message_on @user, :password_confirmation %></label>
-		<input name="user[password_confirmation]" type="password" required="required" style="height:30px" tabindex="4">
-		</p>
+	 <p class="col_3 in">
+	<label style="display:block;text-align:left;float:none">Password<span style="color: #990000">*</span><%= error_message_on @user, :password %></label>
+	<input name="user[password]" type="password" required="required" style="height:30px" tabindex="3">
+	</p>
+	<p class="col_3 out" style="position:relative;right:37px;">
+	<label style="display:block;text-align:left;float:none">Confirm Password<span style="color: #990000">*</span><%= error_message_on @user, :password_confirmation %></label>
+	<input name="user[password_confirmation]" type="password" required="required" style="height:30px" tabindex="4">
+	</p>
+
+<!-- <p class="small">We won’t share anything on Facebook (unless you want us to)</p> -->
 
 	  <%= f.submit "Signup" %>
 	<% end %>	

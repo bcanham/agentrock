@@ -1,0 +1,41 @@
+<div class="col_12 in">   
+
+<div class="col_5 in box set" style="padding-left:12px">  
+<%= form_for(@user, :as => :user, :url => { :controller => 'users/sessions', :action => 'new' }) do |f| %>
+  <h1><%= title "Please Log In" %></h1><p style="">Don't have an account? <%= link_to "Sign Up!", new_user_registration_path %></p>
+
+  <label style="display:block;text-align:left;float:none"> 
+    Login or Email<br />
+    <%= f.text_field :email, :style => "width:80%", :tabindex => "1" %>
+
+  </label> <br/>
+
+  <label style="display:block;text-align:left;float:none"> 
+    Password (<a href="/forgot">forgot password</a>) 
+    <br />
+    <%= f.password_field :password, :style => "width:80%", :tabindex => "2" %>
+  </label><br/>
+
+  <label style="position:relative;display:inline;text-align:left;float:none"> 
+		<p class="col_2 in" style="position:relative;display:inline"><%= f.submit "Continue", :class => "orange" %></p>  <p class="col_3 out" style="position:relative;display:inline"><!-- <img class="fb_login" src="/images/fb-signup-button.png" style="position:relative;display:inline"><a href="<%= new_user_session_path(@user) %>" class="fb_login"> Login</a> --></p>
+  </label> 
+
+	<% end %></div>
+<div class="col_5 pass_1 out">
+		<h1>New to Agent Nate?<br></h1>
+		<p class="large">Agent Nate is bringing the cloud to college students.</p>
+	<hr>
+		<ul class="features">
+	
+			<li>Outlines</li>
+			<li>Study Guides</li>
+			<li>Lecture Notes</li>
+			<li>Textbook Highlights</li>
+	
+			<li style="list-style-image: url()"><a href="/how-it-works/">How It Works</a> - Learn how you can earn money with Agent Nate.</li>
+		</ul>
+
+			<!-- <p>Still not sure? <a href="/tour/">Take the tour</a></p> -->
+  </div>
+
+</div>

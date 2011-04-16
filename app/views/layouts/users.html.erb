@@ -21,27 +21,34 @@ if (typeof jQuery == 'undefined') {
   <%= yield :head %>
 </head>
 <body>
-<div class="container" id="top">
-		
-
+	<div id="wrapper">
+		<div id="content">
 <%= render 'layouts/user_nav' %>
-<div class="middle">
     <div class="container">
-    <div class="box">
-            <p class="notice"><%= notice %></p> 
-            <p class="alert"><%= alert %></p>
+    	<div class="box">
+      <% if notice.present? %>
+				<p class="notice"><%= notice %></p> 
+			<% elsif alert.present? %>
+       	<p class="alert"><%= alert %></p>
+			<% end %>
       
-
-
       <%= yield %>
       	
 	<div class="clear">&nbsp;</div>
-</div>
-    </div>
-    </div>
+	
+			</div>
+		</div>
 
 <div class="push"></div>
-        
+
+	</div>
+</div>
+
+<div class="footer pass_5">        
+	<p class="copyright">&copy; <%= Time.now.year %> AgentRock.net All rights reserved. <a href="/terms">Terms.</a> <a href="/privacy">Privacy.</a> <a class="google" href="/sitemap">Sitemap.</a>
+	</p>
+</div>
+
 <% unless Rails.env = "Production" %>
 <%= render 'layouts/trackers' %>
 <% end %>

@@ -7,28 +7,7 @@ class UsersController < Devise::RegistrationsController
   end
   
   def create
-    build_resource 
-    @oauth = Koala::Facebook::OAuth.new('141114879242972', 'edb74892f516289cab8c2b7643cf4bbd', "http://rock.dev#{oauth_callback_new_path}/") 
-
-    if resource.save!      
-      if resource.active?        
-        if resource.fb_opt_out == "yes"
-          set_flash_message :notice, :signed_up
-          sign_in(resource_name, resource)#_and_redirect(resource_name, resource)          
-          redirect_to root_url
-        else
-          sign_in(resource_name, resource)
-          redirect_to @oauth.url_for_oauth_code
-        end        
-      else
-        set_flash_message :notice, :inactive_signed_up, :reason => resource.inactive_message.to_s
-        expire_session_data_after_sign_in!
-        redirect_to after_inactive_sign_up_path_for(resource)
-      end
-    else
-      clean_up_passwords(resource)
-      render_with_scope :new
-    end    
+    super
   end
   
   def edit

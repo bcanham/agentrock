@@ -11,6 +11,16 @@ class ApplicationController < ActionController::Base
     Koala::Facebook::OAuth.new('141114879242972', 'edb74892f516289cab8c2b7643cf4bbd', user_omniauth_callback_url(:facebook))
   end
   
+  def after_sign_in_path_for(resource)
+    if resource.is_a?(User)
+      edit_user_profile_url  
+    elsif resource.is_a?(Admin)
+      root_admin_url
+    else  
+    	super  
+    end
+  end
+  
   def render_404
   	render :file => "#{Rails.root}/app/views/shared/404.html.erb",  :status => 404
 	end

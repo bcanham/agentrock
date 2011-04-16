@@ -5,11 +5,18 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   storage :grid_fs
+  grid_fs_host "localhost"
+  grid_fs_database "agentrock_images"
+  grid_fs_access_url "/profile/images"
 
-  # Override the directory where uploaded files will be stored
+  # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    nil
+  end
+  
+  def cache_dir
+    "#{Rails.root}/tmp/cache"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded
@@ -17,17 +24,19 @@ class ImageUploader < CarrierWave::Uploader::Base
   #       "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   #     end
 
-  # Process files as they are uploaded.
-      process :scale => [200, 300]
-  
-      def scale(width, height)
-        # do something
-      end
+  process :fix_exif_rotation
+  process :strip
+  # process :resize_to_fill => [1024, 768]
+  process :quality => 100 # Percentage from 0 - 100
 
-  # Create different versions of your uploaded files
-      version :thumb do
-        process :scale => [50, 50]
-      end
+  # Create different versions of your uploaded files:
+  version :thumb do
+    process :resize_to_fill => [50, 50]
+  end
+
+  version :large do
+    process :resize_to_limit => [250, 250]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded,
   # for images you might use something like this:
@@ -36,8 +45,8 @@ class ImageUploader < CarrierWave::Uploader::Base
       end
 
   # Override the filename of the uploaded files
-      def filename
-        "#{Rails.root}/public/images/something.jpg" if original_filename
-      end
+      # def filename
+      #   "#{Rails.root}/public/images/something.jpg" if original_filename
+      # end
 
 end

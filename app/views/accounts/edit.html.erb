@@ -1,18 +1,34 @@
-<h2>General Info</h2>
 
-<%= form_for(@account, :as => :account, :url => { :controller => 'accounts', :action => 'update' }, :html => { :method => :put }) do |f| %>
+<div class="col_12">
 
-  <p><label style="display:block;text-align:left;float:none">Location<%= error_message_on @account, :location %></label>
-  <%= f.text_field :location %></p>
+	<div class="col_2">
+		<%= render "shared/left_sidebar" %>
+	</div>
 
-  <label style="display:block;text-align:left;float:none">Primary Instrument of Focus</label><br />
-  <%= f.text_field :primary_instrument %></p>
+	<div class="col_6">
+		<h2>General Info</h2>
 
-  <p><label style="display:block;text-align:left;float:none">Other Instruments</label>
-  <%= f.text_field :other_instruments %></p>
+		<%= form_for(@account, :as => :account, :url => { :controller => 'accounts', :action => 'update' }, :html => { :method => :put }) do |f| %>
 
-  <p><label style="display:block;text-align:left;float:none">Genre</label><br />
-  <%= f.text_field :genre %></p>
+		  <p><label style="display:block;text-align:left;float:none">Location<%= error_message_on @account, :location %></label>
+		  <%= f.text_field :location %></p>
 
-  <p><%= f.submit "Update" %></p>
-<% end %>
+		  <label style="display:block;text-align:left;float:none">Primary Instrument of Focus</label><br />
+		  <%= f.text_field :primary_instrument %></p>
+
+		  <p><label style="display:block;text-align:left;float:none">Other Instruments</label>
+		  <%= f.text_field :other_instruments %></p>
+
+		  <p><label style="display:block;text-align:left;float:none">Genre</label><br />
+		  <%= f.text_field :genre %></p>
+
+		  <p><%= f.submit "Update", :class => "red" %></p>
+		<% end %>
+
+	</div>
+
+	<div class="col_3">
+		<h2>General Info</h2>
+	</div>
+
+</div>

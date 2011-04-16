@@ -15,8 +15,9 @@ class AccountsController < ApplicationController
   end
 
   def show
-		@account = Account.where(:owner => @current_user).first
-		@photo = @account.image.url ? @account.image.url : 'logo.png'
+		@user = User.find(current_user.id)
+    # @account = Account.where(:owner => current_user.id).first
+    # @photo = @account.image.url ? @account.image.url : 'logo.png'
 
   end
   
@@ -34,7 +35,7 @@ class AccountsController < ApplicationController
   end
   
   def edit
-    @account = Account.where(:owner => current_user.name).first
+    @account = Account.where(:owner => current_user.id).first
   end
   
   def update
