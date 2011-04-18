@@ -35,7 +35,8 @@ class AccountsController < ApplicationController
   end
   
   def edit
-    @account = Account.where(:owner => current_user.id).first
+    @user = User.any_of({:name => params[:name]}, {:name => current_user.name}).first
+    @account = Account.where(:owner => @user).first
   end
   
   def update
@@ -46,13 +47,11 @@ layout :choose_layout
 
 private
 	def choose_layout    
-	  if [ 'index', 'show', 'edit', 'show' ].include? action_name	    
-		  if user_signed_in? 
-		  	'users' 		  	
-	  else
-	    'application'
-	    end	  	
-	  end
+	  if user_signed_in? 
+	  	'users' 		  	
+    else
+      'application'
+    end	  	
 	end   
 
 end

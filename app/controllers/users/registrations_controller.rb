@@ -3,11 +3,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	#before_filter :authenticate_user!, :only => [:index]
 
   def new		
-  	super
+  	@account = Account.new
+    # super
   end
 
   def create
-    super
+    @account = Account.new
+    @account.users.create!(params[:user])
+    build_resource
+
+     if @account.users.save
+       if @account.users.active_for_authentication?
+         set_flash_message :notice, :signed_up if is_navigational_format?
+         sign_in(resource_name, @account.users)
+         respond_with @account.users, :location => redirect_location(resource_name, @account.users)
+       else
+         set_flash_message :notice, :inactive_signed_up, :reason => @account.users.inactive_message.to_s if is_navigational_format?
+         expire_session_data_after_sign_in!
+         respond_with @account.users, :location => after_inactive_sign_up_path_for(@account.users)
+       end
+     else
+       clean_up_passwords(resource)
+       respond_with_navigational(resource) { render_with_scope :new }
+     end
   end
 
   def edit

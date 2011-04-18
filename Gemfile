@@ -1,6 +1,6 @@
 source 'http://gemcutter.org'
 
-gem "rails", "3.0.6"
+gem "rails", "3.0.7.rc2"
 
 gem "warden"
 gem "oa-oauth", :require => "omniauth/oauth"	 	
@@ -21,9 +21,18 @@ gem 'remail'
 gem "koala"
 gem "simple_form"
 gem "dynamic_form"
-gem "nifty-generators"
-gem "mongoid", :git => "git://github.com/mongoid/mongoid.git", :branch => "safe_master"
-gem "trackoid", :git => "http://github.com/twoixter/trackoid.git"
+
+gem "mongoid", "2.0.1"#, :git => "git://github.com/mongoid/mongoid.git", :branch => "safe_master"
+gem "mongoid_geo"
+gem "mongoid-tree"
+gem "mongoid_search"
+gem "trackoid"
+gem "voteable_mongoid"
+gem "mongoid_voteable"
+gem "mongoid_adjust"
+gem "streama"
+gem "mongoid-history"
+
 
 group :development do
 	gem "sitemap_generator"

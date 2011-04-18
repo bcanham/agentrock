@@ -1,9 +1,10 @@
 class Account
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Paranoia
   include Mongoid::Tracking
   
-  field :owner
+  field :name, :null => false
   field :country
   field :state
   field :city
@@ -11,9 +12,12 @@ class Account
   field :lat, :type => Float
   field :lng, :type => Float
   
+  embeds_many :users
+  accepts_nested_attributes_for :users
+  
   attr_accessor :location
   
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
   
   before_save :do_geocode!
 

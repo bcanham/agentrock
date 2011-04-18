@@ -7,23 +7,39 @@
 	<style type="text/css" media="all">/*<![CDATA[*/ @import url(/stylesheets/screen.css); /*]]>*/</style>
   <style type="text/css">
     body {background-image: url(/images/bg.gif)}
+		 div#profile_details dl {
+		    border: 1px solid #ddd;
+		    border-top: none;
+		    margin: 0px;
+		    position: relative;
+		    font-size: 11px;
+		    line-height: 1.3em;
+		    color: #555;
+		}
+		div#profile_details dl dt {
+		    color: #999;
+		    position: absolute;
+		    top: 0px;
+		    left: 0px;
+		    font-size: 10px;
+		    padding: 10px 0px 0px 10px;
+		}
+		div#profile_details dl dd {
+		    padding: 10px 10px 10px 100px;
+		input[type=textarea].profile { height:50px; background:black; }
+		}
   </style>
 <%= display_meta_tags :site => "Agent Rock" %>
-<script src="http://cdn.jquerytools.org/1.2.2/full/jquery.tools.min.js"></script>
-<script>
-if (typeof jQuery == 'undefined') {
-    document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'%3E%3C/script%3E"));
-    document.write(unescape("%3Cscript src='/jquery/tools.js'%3E%3C/script%3E"));
-}
-</script>
-<script type="text/javascript" src="/jquery/rails.js"></script>
+
 <%= csrf_meta_tag %>
   <%= yield :head %>
 </head>
 <body>
 	<div id="wrapper">
 		<div id="content">
+    <div class="container">
 <%= render 'layouts/user_nav' %>
+</div>
     <div class="container">
     	<div class="box">
       <% if notice.present? %>
@@ -44,10 +60,19 @@ if (typeof jQuery == 'undefined') {
 	</div>
 </div>
 
-<div class="footer pass_5">        
-	<p class="copyright">&copy; <%= Time.now.year %> AgentRock.net All rights reserved. <a href="/terms">Terms.</a> <a href="/privacy">Privacy.</a> <a class="google" href="/sitemap">Sitemap.</a>
-	</p>
+<div class="footer pass_3">        
+	<div class="copyright">&copy; <%= Time.now.year %> AgentRock.net All rights reserved. <a href="/terms">Terms.</a> <a href="/privacy">Privacy.</a> <a class="google" href="/sitemap">Sitemap.</a>
+	</div>
 </div>
+
+<script src="http://cdn.jquerytools.org/1.2.2/full/jquery.tools.min.js"></script>
+<script>
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'%3E%3C/script%3E"));
+    document.write(unescape("%3Cscript src='/jquery/tools.js'%3E%3C/script%3E"));
+}
+</script>
+<script type="text/javascript" src="/jquery/rails.js"></script>
 
 <% unless Rails.env = "Production" %>
 <%= render 'layouts/trackers' %>

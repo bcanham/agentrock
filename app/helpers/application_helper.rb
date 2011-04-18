@@ -29,7 +29,7 @@ module ApplicationHelper
 	def user_settings_path(current_user)
 	  unless current_user.nil?
 	  	unless current_user.name.nil?
-	  		link_to("Account", settings_path(current_user.name))
+	  		link_to("Account", edit_user_registration_path(current_user.name))
 	  	end
 	  end
 	end

@@ -1,11 +1,4 @@
-<h1><%= title "Articles" %></h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1><%= title "Agent Rock's Blog" %></h1>
 
 <% @admin_articles.each do |admin_article| %>
   <tr>
@@ -15,7 +8,7 @@
   </tr>
 <% end %>
 </table>
-<p>I haven't written any yet!</p>
-<br />
+
+<br>
 
 <%= link_to 'New Article', new_admin_article_path  if admin_signed_in? %>

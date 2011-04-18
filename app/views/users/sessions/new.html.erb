@@ -1,6 +1,6 @@
 <div class="col_12 in">   
 
-<div class="col_5 in box set" style="padding-left:12px">  
+<div class="col_5 in" style="padding-left:12px">  
 <%= form_for(@user, :as => :user, :url => { :controller => 'users/sessions', :action => 'new' }) do |f| %>
   <h1><%= title "Please Log In" %></h1><p style="">Don't have an account? <%= link_to "Sign Up!", new_user_registration_path %></p>
 
@@ -22,18 +22,10 @@
 
 	<% end %></div>
 <div class="col_5 pass_1 out">
-		<h1>New to Agent Nate?<br></h1>
-		<p class="large">Agent Nate is bringing the cloud to college students.</p>
+		<h1>New to Agent Rock?<br></h1>
+		<p class="large">Agent Rock is bringing the cloud to college students.</p>
 	<hr>
-		<ul class="features">
-	
-			<li>Outlines</li>
-			<li>Study Guides</li>
-			<li>Lecture Notes</li>
-			<li>Textbook Highlights</li>
-	
-			<li style="list-style-image: url()"><a href="/how-it-works/">How It Works</a> - Learn how you can earn money with Agent Nate.</li>
-		</ul>
+
 
 			<!-- <p>Still not sure? <a href="/tour/">Take the tour</a></p> -->
   </div>

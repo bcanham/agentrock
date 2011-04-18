@@ -1,12 +1,4 @@
 Agentrock::Application.routes.draw do
-	
-  get "welcome/index"
-
-  get "home/index"
-
-  get "buzz/index"
-
-  resources :accounts	  	
 
   resources :notifications
 
@@ -22,41 +14,12 @@ Agentrock::Application.routes.draw do
 	
   resources :activities
   
-  get 'how-it-works' => 'pages/how_it_works#index', :as => :how_it_works   
+  get 'how' => 'pages/how_it_works#index', :as => :how
   get 'buzz' => 'pages/buzz#index', :as => :buzz
   get 'features' => 'pages/features#index', :as => :features   
-  get 'privacy' => 'pages/privacy_policies#index', :as => :privacy_policy   
-  get 'terms' => 'pages/terms_conditions#index', :as => :terms_conditions   
+  get 'privacy' => 'pages/privacy_policies#index', :as => :privacy
+  get 'terms' => 'pages/terms_conditions#index', :as => :terms
   get 'sitemap' => 'pages/sitemap#index', :as => :sitemap   
-
-
-
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get :short
-  #       post :toggle
-  #     end
-  #
-  #     collection do
-  #       get :sold
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get :recent, :on => :collection
-  #     end
-  #   end
   
  	constraints(Subdomain) do
  		match '/' => 'subdomains#show'
@@ -69,7 +32,7 @@ Agentrock::Application.routes.draw do
 	 	
   root :to => "home#index"
 
-	get 'articles/' => 'admin/articles#index'
+	get 'blog/' => 'admin/articles#index'
 	get 'articles/:title/' => 'admin/articles#show'
 	
   devise_for :user, :controllers => { :registrations => 'users/registrations', :sessions => 'users/sessions' }, :skip => [:sessions, :registration, :passwords] do
@@ -77,8 +40,10 @@ Agentrock::Application.routes.draw do
     post 'login' => 'users/sessions#create', :as => :user_session
     get 'logout' => 'users/sessions#destroy', :as => :destroy_user_session
 
-    get 'signup' => 'users/registrations#new', :as => :new_user_registration
-    post 'signup' => 'users/registrations#create', :as => :user_registration
+    get 'signup' => 'accounts#new', :as => :new_account
+    post 'signup' => 'accounts#create', :as => :account
+    get 'signup/step_2' => 'users/registrations#new', :as => :new_user_registration
+    post 'signup/step_2' => 'users/registrations#create', :as => :user_registration
     
     # scope :controller => 'users', :as => :oauth_callback do
     #       get  :auth,     :path => 'user/auth/facebook/callback', :as => "new"
@@ -117,8 +82,8 @@ Agentrock::Application.routes.draw do
     # get 'paypal/callback' => 'payments#callback', :as => :paypal_callback
     # get 'paypal/cancel' => 'payments#cancel', :as => :paypal_cancel
 	end	
-	
-  #   devise_for :admin
+	  resources :accounts     
+    devise_for :admin
   # 
   # devise_for :affiliate, :controllers => { :registrations => 'affiliates' }, :skip => [:sessions, :registration] do
   #   scope :controller => 'devise/sessions', :as => :affiliate_session do

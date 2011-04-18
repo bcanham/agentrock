@@ -9,62 +9,31 @@
     body {background-image: url(/images/bg.gif)}
   </style>
 <%= display_meta_tags :site => "Agent Rock" %>
-<script src="http://cdn.jquerytools.org/1.2.2/full/jquery.tools.min.js"></script>
-<script>
-if (typeof jQuery == 'undefined') {
-    document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'%3E%3C/script%3E"));
-    document.write(unescape("%3Cscript src='/jquery/tools.js'%3E%3C/script%3E"));
-}
-</script>
-<!-- <script type="text/javascript" src="/jquery/jquery.cycle.lite.min.js"></script>
-<script type="text/javascript" src="/jquery/jquery.formatCurrency-1.3.0.min.js"></script> -->
-<script type="text/javascript" src="/jquery/rails.js"></script>
- <!-- <script>
-  var count = 0;
 
-$(document).ready(function(){
-
-$("#user_new").validator({position:'top center', offset:[0, 60]}).submit
-
-
-$('span.medium').append("<span>" + count + "</span><span>" + count + "</span>");
-  
-  $('span.medium').cycle({
-      fx:      'scrollDown',
-      speed:    0.0003,
-      timeout:  3,
-      containerResize:	1,
-      after:   onSlide
-  });
-
-
-});
-
-function onSlide() {
-  count++;
-  $(this).siblings("span").empty().text(count).formatCurrency({roundToDecimalPlace: '-2'});
-
-}
-  </script> -->
 <%= csrf_meta_tag %>
   <%= yield :head %>
 </head>
 <body>
-<div class="container" id="top">
-
-<%= render 'layouts/top_nav' %>
+		<div id="wrapper">
+			<div id="content">
+	    <div class="container">
+	<%= render 'layouts/top_nav' %>
+	</div>
 
     <div class="container">
     <div class="box">
-            <p class="notice"><%= notice %></p> 
-            <p class="alert"><%= alert %></p>
+      <% if notice.present? %>
+				<p class="notice"><%= notice %></p> 
+			<% elsif alert.present? %>
+       	<p class="alert"><%= alert %></p>
+			<% end %>
 
       <%= yield %>
       	
 	<div class="clear">&nbsp;</div>
 
 
-    </div>
+    	</div>
     </div>
 
 <div class="footer pass_3">
@@ -72,7 +41,15 @@ function onSlide() {
 	</div>
 </div>
         
+<script src="http://cdn.jquerytools.org/1.2.2/full/jquery.tools.min.js"></script>
+<script>
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'%3E%3C/script%3E"));
+    document.write(unescape("%3Cscript src='/jquery/tools.js'%3E%3C/script%3E"));
+}
+</script>
 
+<script type="text/javascript" src="/jquery/rails.js"></script>
 
 <% unless Rails.env = "Production" %>
 <%= ren
