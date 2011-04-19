@@ -7,7 +7,7 @@ worker_processes (rails_env == 'production' ? 4 : 1)
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-working_directory "/Users/skolstad/Sites/agentrock.git" # available in 0.94.0+
+working_directory "/Users/skolstad/sites/agentrock" # available in 0.94.0+
 
 # Load rails+github.git into the master before forking workers
 # for super-fast worker spawn times
@@ -17,13 +17,13 @@ preload_app true
 timeout 30
 
 # Listen on a Unix data socket
-listen '/Users/skolstad/Sites/agentrock.git/tmp/sockets/unicorn.sock', :backlog => 2048
+listen '/Users/skolstad/sites/agentrock/tmp/sockets/unicorn.sock', :backlog => 2048
 
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path "/Users/skolstad/Sites/agentrock.git/log/unicorn.stderr.log"
-stdout_path "/Users/skolstad/Sites/agentrock.git/log/unicorn.stdout.log"
+stderr_path "/Users/skolstad/sites/agentrock/log/unicorn.stderr.log"
+stdout_path "/Users/skolstad/sites/agentrock/log/unicorn.stdout.log"
 
 
 ##
