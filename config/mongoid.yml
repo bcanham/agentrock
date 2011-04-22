@@ -26,6 +26,11 @@ test:
 production:
   <<: *defaults
   # uri: <%= ENV['MONGOHQ_URL'] %>
-  uri: "mongodb://heroku:ptjsrssyzdj9fejf0eyb6r@flame.mongohq.com:27019/app504379"
-  # mongo:
-  #   database: agentrock
+  # uri: "mongodb://heroku:ptjsrssyzdj9fejf0eyb6r@flame.mongohq.com:27019/app504379"
+  host: localhost
+  port: 27017
+  username: rails
+  password: D2t2Ba$3
+  database: agentnate
+  mongo:
+    database: agentrock
