@@ -1,6 +1,7 @@
 body {
 	background-color: black;
 	border-top: 3px solid #262626;
+	color:black;
 	}
  
 .tagline {
@@ -20,7 +21,7 @@ top: 35px;
 /* @group Box */
  
 .box {
-	/*border: 2px solid #AACAF6;*/
+	border: 1px solid #333333;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	margin: 0px 0px 18px 0;
@@ -465,6 +466,8 @@ a.info_btn, a.info_btn:hover {
  
 #account_signup input[type=text],
 #account_signup input[type=text]:focus,
+#account_signup input[type=email],
+#account_signup input[type=email]:focus,
 #account_signup input[type=password],
 #account_signup input[type=password]:focus,
 #account_signup textarea {
@@ -696,7 +699,7 @@ div.set hr {
 	font-size: 28px;
 	line-height: 36px;
 	margin-bottom: 18px;
-	text-shadow: 0px 1px 0px black;
+/*	text-shadow: 0px 1px 0px black;*/
 	}
 		
 .gray {

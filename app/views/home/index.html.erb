@@ -1,5 +1,6 @@
 <% title "Sign up" %>
 
+<div class="col_12 in">
 <div class="col_6 in">
 		<h1>Who is Agent Rock?<br /></h1>
 		<p class="large">Agent Rock will help you find other musicians, host your website, sell your music to fans, and learn new tricks on your instrument.</p>
@@ -19,26 +20,24 @@
 	<h1>Join Agent Rock Today!</h1>
 	<p class="large">It's free and sign up is instant.</p>
 	
-	<%= form_for(@user, :as => :user, :url => { :controller => 'users/registrations', :action => 'new' }) do |f| %>
+	<%= simple_form_for(@user, :as => :user, :url => { :controller => 'users/registrations', :action => 'new' }) do |f| %>
 
 		<p>Already have an account? <a href="/login">Log in</a>.</p>
 
-		<p class="col_6 in"><label style="display:block;text-align:left;float:none">Username<span style="color: #990000">*</span><%= error_message_on @user, :name %></label>
-		<input name="user[name]" style="height:30px" tabindex="1" type="text" required="required"></p>
+		<% if @user.errors.any? %> 
+			<div id="errorExplanation"> 
+			  <h2>Oops! What happened?</h2>
+			</div> 
+		<% end %>
 
-		<p class="col_6 in"><label style="display:block;text-align:left;float:none">Email<span style="color: #990000">*</span><%= error_message_on @user, :email %></label>
-		<input name="user[email]" style="height:30px" tabindex="2" type="text" required="required"></p>
+		<%= error_message_on @user, :full_name %><%= f.input :name, :label => 'Full name', :tabindex => '1' %>
+	  <%= f.simple_fields_for :profile do |p| %>
+			<%= error_message_on @user.profile, :path %><%= p.input :path, :label => 'Username', :tabindex => '2' %>
+	  <% end %>
+		<%= error_message_on @user, :email %><%= f.input :email, :tabindex => '3' %>
+		<%= error_message_on @user, :password %><%= f.input :password, :tabindex => '4' %>
 
-		 <p class="col_3 in">
-		<label style="display:block;text-align:left;float:none">Password<span style="color: #990000">*</span><%= error_message_on @user, :password %></label>
-		<input name="user[password]" type="password" required="required" style="height:30px" tabindex="3">
-		</p>
-		<p class="col_3 out" style="position:relative;right:37px;">
-		<label style="display:block;text-align:left;float:none">Confirm Password<span style="color: #990000">*</span><%= error_message_on @user, :password_confirmation %></label>
-		<input name="user[password_confirmation]" type="password" required="required" style="height:30px" tabindex="4">
-		</p>
-
-	  <%= f.submit "Signup" %>
+	  <%= f.submit "Signup", :class => 'red' %>
 	<% end %>	
 		
 	</div> 
@@ -50,3 +49,5 @@
 	<!-- <p>A modern day, web 2.0, interactive, dynamic website is a forever evolving entity with lots of internal components that bring their own set of upgrade and maintenance headaches. Are you going to solicit help every time your website needs an update? Agent Rock is your guy! Let him focus on all of your website demands from hosting to customized app building, to internet marketing and beyond...!
 	
 	There is no installation, setup is easy, and best of all you don't pay a cent unless you want to publish your site by taking it live. And, with our al a carte style, dynamic, micro, prorated to the minute billing!, you will surely be thrilled with what Agent Rock can provide for you.</p> -->
+	
+</div>

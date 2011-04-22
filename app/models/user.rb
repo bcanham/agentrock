@@ -3,43 +3,30 @@ class User
   include Mongoid::Timestamps
   include Mongoid::Paranoia
   include Mongoid::Tracking
-
-  embedded_in :account, :inverse_of => :users
-  # embeds_one :profile
-  # accepts_nested_attributes_for :profile
  
  	field :name
   field :first_name
   field :last_name
   field :login
   field :fb_uid	
-  field :fb_opt_out
+  field :fb_opt_out, :type => Boolean
+  field :newsletter, :type => Boolean
+
+  embeds_one :profile
+  accepts_nested_attributes_for :profiles
    
   attr_accessible :name, :login, :email, :password, :password_confirmation, :remember_me 
   mount_uploader :image, ImageUploader
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :trackable, :confirmable, :rememberable
+         :recoverable, :trackable, :confirmable, :rememberable, :timeoutable, :lockable
   
-  before_create :create_login
+  before_create :create_login, :skip_password_confirmation, :titleize_name
   
   validates :login, :uniqueness => { :on => :update }
-  validates :name, :presence => true, :uniqueness => true, :format => { :with => /^[A-Za-z\d._-]+$/ }
+  validates :name, :presence => true, :format => { :with => /^[A-Za-z.' -]+$/ }
   validates :email, :presence => true, :uniqueness => true, :format => { :with => /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i }  
-  validates :password, :password_confirmation, :presence => true, :length => { :within => 6..20, :message => "is too short" }
-  validates_confirmation_of :password, :message => "doesn't match"
-
-  def self.find(*args)
-    options = args.extract_options!
-    user_options = Hash[*(options[:conditions] || {}).map { |k, v| [ :"users.#{k == :id ? :_id : k}", v ] }.flatten]
-    if account = Account.find(*(args + [options.merge(:conditions => user_options)]))
-      account.users.detect do |u|
-        options[:conditions].all? { |k, v| u.send(k) == v }
-      end
-    else
-      super
-    end
-  end
+  validates :password, :presence => true, :length => { :within => 6..20, :message => "is too short" }
 
 	def self.find_for_database_authentication(conditions)
 		self.where(:login => conditions[:email]).first || self.where(:email => conditions[:email]).first
@@ -78,8 +65,14 @@ private
   	end	       
   end
   
-  def check_name
-    
+  def skip_password_confirmation
+    self.password_confirmation = self.password
+  end
+  
+  def titleize_name
+    self.name = self.name.titleize
+    self.first_name = self.name.split(/ /)[0]
+    self.last_name = self.name.split(/ /).drop(1).join(" ")
   end
 
 end

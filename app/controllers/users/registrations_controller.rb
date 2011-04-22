@@ -2,29 +2,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	respond_to :html, :json#, :iphone
 	#before_filter :authenticate_user!, :only => [:index]
 
-  def new		
-  	@account = Account.new
-    # super
+  def new
+    super
+    resource.build_profile
   end
 
   def create
-    @account = Account.new
-    @account.users.create!(params[:user])
-    build_resource
+    #build_resource
+    @user = User.new(params[:user])
+    @user.create_profile(params[:user][:profile])
 
-     if @account.users.save
-       if @account.users.active_for_authentication?
+     if @user.save
+       if @user.active_for_authentication?
          set_flash_message :notice, :signed_up if is_navigational_format?
-         sign_in(resource_name, @account.users)
-         respond_with @account.users, :location => redirect_location(resource_name, @account.users)
+         sign_in(resource_name, @user)
+         respond_with @user, :location => redirect_location(resource_name, @user)
        else
-         set_flash_message :notice, :inactive_signed_up, :reason => @account.users.inactive_message.to_s if is_navigational_format?
+         set_flash_message :notice, :inactive_signed_up, :reason => @user.inactive_message.to_s if is_navigational_format?
          expire_session_data_after_sign_in!
-         respond_with @account.users, :location => after_inactive_sign_up_path_for(@account.users)
+         respond_with @user, :location => after_inactive_sign_up_path_for(@user)
        end
      else
-       clean_up_passwords(resource)
-       respond_with_navigational(resource) { render_with_scope :new }
+       clean_up_passwords(@user)
+       respond_with_navigational(@user) { render_with_scope :new }
      end
   end
 

@@ -1,5 +1,7 @@
 Agentrock::Application.routes.draw do
 
+  resources :profiles
+
   resources :notifications
 
   namespace :pages do resources :privacy_policies end
@@ -40,16 +42,14 @@ Agentrock::Application.routes.draw do
     post 'login' => 'users/sessions#create', :as => :user_session
     get 'logout' => 'users/sessions#destroy', :as => :destroy_user_session
 
-    get 'signup' => 'accounts#new', :as => :new_account
-    post 'signup' => 'accounts#create', :as => :account
-    get 'signup/step_2' => 'users/registrations#new', :as => :new_user_registration
-    post 'signup/step_2' => 'users/registrations#create', :as => :user_registration
+    get 'signup' => 'users/registrations#new', :as => :new_user_registration
+    post 'signup' => 'users/registrations#create', :as => :user_registration
     
     # scope :controller => 'users', :as => :oauth_callback do
     #       get  :auth,     :path => 'user/auth/facebook/callback', :as => "new"
     #       post :deauth,  :path => 'user/de-auth/facebook/callback', :as => "de"
     #     end
-    get "forgot", :to => "devise/passwords#new"
+    get "forgot", :to => "devise/passwords#new", :as => :user_password
     
     # match ':name/settings' => 'users#edit', :as => :settings
     # get ':name/edit' => 'accounts#edit', :as => :edit_account_details   
@@ -75,7 +75,7 @@ Agentrock::Application.routes.draw do
     #     get 'users/auth/:action/callback/' => 'oauth_callbacks#facebook', :as => :oauth_authorize
     # 
     #     post 'users/auth/facebook/callback/deauthorize/' => 'users/oauth_callbacks#facebook_deauthorize'
-        get 'people/:id/' => 'accounts#show', :as => :user_profile
+        get ':path' => 'accounts#show', :as => :user_profile
     # 
     # get 'payments/new', :as => :new_payment
     # get 'paypal/referer' => 'payments#referer', :as => :paypal_referer

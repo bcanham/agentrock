@@ -11,6 +11,7 @@ class HomeController < ApplicationController
       
       render 'accounts/index'
     end
+    @user = User.new
   end  
 
 end

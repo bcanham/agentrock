@@ -17,29 +17,27 @@
 	</div> 
 <div class="col_6 out" id="account_signup">
 
-<%= simple_form_for(@account) do |f| %>  
+
 <h2>Signup</h2>
 	<p>Already have an account? <a href="/login">Log in</a>.</p>
 
+<%= simple_form_for(@account) do |f| %>  
 
-	<%= f.input :name, :required => true %>
-
+	  <%= f.simple_fields_for :user do |p| %>
+	    <%= p.input :first_name %>
+	    <%= p.input :last_name %>
+			<%= p.input :email %>
+	    <%= p.input :password %>
+	    <%= p.input :password_confirmation %>
+	  <% end %>
 	
+	<%= f.input :location %>
+		
 	
-<% if current_user %>
-
-  <label style="display:block;text-align:left;float:none">Email<span style="color: #990000">*</span></label><%= error_message_on @user, :email %>
-  <input name="user[email]" size="30" type="text" required="required">
-
-  <label style="display:block;text-align:left;float:none">Password<span style="color: #990000">*</span></label><%= error_message_on @user, :password %>
-  <input name="user[password]" size="30" type="password"  required="required">
-
-	<label style="display:block;text-align:left;float:none">Confirm Password<span style="color: #990000">*</span></label><%= error_message_on @user, :password_confirmation %>
-  <input name="user[password_confirmation]" size="30" type="password"  required="required">
-
-<% end %>
   <%= f.submit "Sign up" %>
-<% end %>
+<% end %>	
+
+
 		
 	</div> 
 	<div class="clear">&nbsp;</div> 

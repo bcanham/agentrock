@@ -21,8 +21,9 @@ gem 'remail'
 gem "koala"
 gem "simple_form"
 gem "dynamic_form"
+gem 'mustache'
 
-gem "mongoid", "2.0.1"#, :git => "git://github.com/mongoid/mongoid.git", :branch => "safe_master"
+gem "mongoid", "2.0.1"
 gem "mongoid_geo"
 gem "mongoid-tree"
 gem "mongoid_search"

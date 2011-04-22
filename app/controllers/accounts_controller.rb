@@ -27,7 +27,7 @@ class AccountsController < ApplicationController
   
   def create
     @account = Account.new(params[:account])
-    
+    @account.users.create!(params[:account][:user])
     if @account.save
     	respond_with(@account)
     	redirect_to root_url
@@ -35,8 +35,8 @@ class AccountsController < ApplicationController
   end
   
   def edit
-    @user = User.any_of({:name => params[:name]}, {:name => current_user.name}).first
-    @account = Account.where(:owner => @user).first
+    @user = User.where(:name => current_user.name).first
+    # @account = Account.where(:owner => @user).first
   end
   
   def update

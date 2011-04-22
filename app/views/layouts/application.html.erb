@@ -7,8 +7,44 @@
 	<style type="text/css" media="all">/*<![CDATA[*/ @import url(/stylesheets/screen.css); /*]]>*/</style>	
   <style type="text/css">
     body {background-image: url(/images/bg.gif)}
+
+		div.box p.notice {
+
+			font-size: 18px;
+			line-height: 24px;
+			text-shadow: #fff 0 1px 0;
+			text-align: center;
+			-webkit-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			-moz-border-radius:  5px;
+			padding: 15px 0;
+			background: #B3FAAB;
+			border: 1px solid green;
+			/*    margin: 0;*/
+			margin-bottom: 18px;
+
+		}
+
+		div.box p.alert {
+			font-size: 18px;
+			line-height: 24px;
+			text-shadow: #fff 0 1px 0;
+			text-align: center;
+
+			-webkit-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			-moz-border-radius:  5px;
+			padding: 15px 0;
+			background: #FFCDCC;
+			border: 1px solid red;
+			/*    margin: 0;*/
+			margin-bottom: 18px;
+
+		}
   </style>
-<%= display_meta_tags :site => "Agent Rock" %>
+<%= display_meta_tags :site => "Agent Rock", :reverse => true %>
 
 <%= csrf_meta_tag %>
   <%= yield :head %>
