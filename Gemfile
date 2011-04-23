@@ -12,9 +12,8 @@ gem "rmagick"
 gem "ssl_requirement"
 gem "meta-tags", :git =>"git://github.com/kpumuk/meta-tags.git", :require => 'meta_tags'
 gem "rack-linkify"
-gem "rackamole"
-gem "wackamole"
-gem "memcache-client"
+
+#gem "memcache-client"
 #gem "score-fu", :git => "http://github.com/bry4n/score-fu.git"
 gem 'rack-bundle'
 gem 'remail'
@@ -39,16 +38,10 @@ gem "streama"
 gem "mongoid-history"
 
 group :development do
-#gem 'magnetism'
+	#gem 'magnetism'
 	gem "sitemap_generator"
-	# gem 'machinist_mongo', :require => 'machinist/mongoid'
-	#   gem "faker"
-# gem "ZenTest"
-	#   gem "autotest"	
-	# gem 'launchy'
-#	gem "ruby-debug19"
-#	gem "ruby-debug-base19"
-	
+	gem "rackamole"
+	gem "wackamole"
 end
 
 group :test do
@@ -56,10 +49,15 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
 
-	gem "rspec-rails",        :git => "git://github.com/rspec/rspec-rails.git"
-	gem "rspec",              :git => "git://github.com/rspec/rspec.git"
-	gem "rspec-core",         :git => "git://github.com/rspec/rspec-core.git"
-	gem "rspec-expectations", :git => "git://github.com/rspec/rspec-expectations.git"
-	gem "rspec-mocks",        :git => "git://github.com/rspec/rspec-mocks.git"
-	# gem "mongoid-rspec", :git => "https://github.com/evansagge/mongoid-rspec.git"
+	gem "rspec-rails"
+	gem "rspec"
+	gem "rspec-core"
+	gem "rspec-expectations"
+	gem "rspec-mocks"
+	# gem "mongoid-rspec"
+	# gem 'machinist_mongo', :require => 'machinist/mongoid'
+	# gem "faker"
+	# gem "ZenTest"
+	# gem "autotest"	
+	# gem 'launchy'
 end
