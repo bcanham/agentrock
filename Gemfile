@@ -37,10 +37,11 @@ gem "mongoid_voteable"
 gem "mongoid_adjust"
 gem "streama"
 gem "mongoid-history"
-gem 'magnetism'
+
 
 
 group :development do
+gem 'magnetism'
 	gem "sitemap_generator"
 	# gem 'machinist_mongo', :require => 'machinist/mongoid'
 	#   gem "faker"
