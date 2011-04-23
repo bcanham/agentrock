@@ -15,9 +15,13 @@ class AccountsController < ApplicationController
   end
 
   def show
-		@user = User.find(current_user.id)
-    # @account = Account.where(:owner => current_user.id).first
-    # @photo = @account.image.url ? @account.image.url : 'logo.png'
+		if @user = User.where(:name => params[:name]).first
+	    respond_with(@user)   
+  	  @profile = @user.profile
+      @photo = @profile.image.url ? @profile.image.url : 'logo.png'
+	  else
+	  	render_404
+	  end
 
   end
   

@@ -13,9 +13,10 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  uri: "mongodb://rails:D2t2Ba$3@localhost:27017/agentrock_development"
+  host: localhost
+  database: agentrock_development
   mongo:
-    uri: "mongodb://rails:D2t2Ba$3@localhost:27017/agentrock_development"
+    database: agentrock_development
 
 test:
   <<: *defaults
@@ -31,6 +32,6 @@ production:
   port: 27017
   username: rails
   password: D2t2Ba$3
-  database: agentnate
+  database: agentrock
   mongo:
     database: agentrock

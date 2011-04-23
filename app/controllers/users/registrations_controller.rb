@@ -8,24 +8,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    #build_resource
-    @user = User.new(params[:user])
-    @user.create_profile(params[:user][:profile])
-
-     if @user.save
-       if @user.active_for_authentication?
-         set_flash_message :notice, :signed_up if is_navigational_format?
-         sign_in(resource_name, @user)
-         respond_with @user, :location => redirect_location(resource_name, @user)
-       else
-         set_flash_message :notice, :inactive_signed_up, :reason => @user.inactive_message.to_s if is_navigational_format?
-         expire_session_data_after_sign_in!
-         respond_with @user, :location => after_inactive_sign_up_path_for(@user)
-       end
-     else
-       clean_up_passwords(@user)
-       respond_with_navigational(@user) { render_with_scope :new }
-     end
+    build_resource
+    resource.create_profile(params[:user][:profile])
+    super
   end
 
   def edit

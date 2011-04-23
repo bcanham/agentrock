@@ -7,6 +7,7 @@ class User
  	field :name
   field :first_name
   field :last_name
+  field :path
   field :login
   field :fb_uid	
   field :fb_opt_out, :type => Boolean
@@ -16,17 +17,17 @@ class User
   accepts_nested_attributes_for :profiles
    
   attr_accessible :name, :login, :email, :password, :password_confirmation, :remember_me 
-  mount_uploader :image, ImageUploader
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :trackable, :confirmable, :rememberable, :timeoutable, :lockable
+         :recoverable, :trackable, :confirmable, :rememberable
   
-  before_create :create_login, :skip_password_confirmation, :titleize_name
+  before_create :create_login, :skip_password_confirmation, :titleize_name, :parameterize_path
   
   validates :login, :uniqueness => { :on => :update }
   validates :name, :presence => true, :format => { :with => /^[A-Za-z.' -]+$/ }
   validates :email, :presence => true, :uniqueness => true, :format => { :with => /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i }  
   validates :password, :presence => true, :length => { :within => 6..20, :message => "is too short" }
+  validates :path, :presence => true, :uniqueness => true, :format => { :with => /^[A-Za-z\d._ -]+$/ }
 
 	def self.find_for_database_authentication(conditions)
 		self.where(:login => conditions[:email]).first || self.where(:email => conditions[:email]).first
@@ -63,6 +64,10 @@ private
   	else	
   		self.login = self.email
   	end	       
+  end
+  
+  def parameterize_path
+    self.path = self.path.split(/ /).join("-")
   end
   
   def skip_password_confirmation

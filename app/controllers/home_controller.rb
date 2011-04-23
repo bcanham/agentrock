@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class HomeController < Devise::RegistrationsController
 
   def index
     if user_signed_in?
@@ -10,8 +10,9 @@ class HomeController < ApplicationController
       # end
       
       render 'accounts/index'
+    else
+      build_resource
     end
-    @user = User.new
   end  
 
 end

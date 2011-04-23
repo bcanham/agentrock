@@ -1,13 +1,13 @@
 source 'http://gemcutter.org'
 
-gem "rails", "3.0.7.rc2"
+gem "rails", "3.0.7"
 
 gem "warden"
 gem "oa-oauth", :require => "omniauth/oauth"	 	
-gem "devise", "1.2.1"#, :git => "git://github.com/plataformatec/devise"
+gem "devise", "1.3.1"
 gem "resque"
 gem 'resque_mailer'
-gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
+gem 'carrierwave'
 gem "rmagick"
 gem "ssl_requirement"
 gem "meta-tags", :git =>"git://github.com/kpumuk/meta-tags.git", :require => 'meta_tags'
@@ -22,9 +22,13 @@ gem "koala"
 gem "simple_form"
 gem "dynamic_form"
 gem 'mustache'
-
+gem 'twitter'
+gem 'robotwitter'
+gem 'tweet-button'
+gem "kaminari"
+gem "private_pub"
 gem "mongoid", "2.0.1"
-gem "mongoid_geo"
+gem "mongoid_geo", :git => "https://github.com/kristianmandrup/mongoid-geo.git"
 gem "mongoid-tree"
 gem "mongoid_search"
 gem "trackoid"
@@ -33,6 +37,7 @@ gem "mongoid_voteable"
 gem "mongoid_adjust"
 gem "streama"
 gem "mongoid-history"
+gem 'magnetism'
 
 
 group :development do

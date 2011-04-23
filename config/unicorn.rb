@@ -26,8 +26,7 @@ stderr_path "/Users/skolstad/sites/agentrock/log/unicorn.stderr.log"
 stdout_path "/Users/skolstad/sites/agentrock/log/unicorn.stdout.log"
 
 
-##
-# REE
+pid '/Users/skolstad/Sites/agentrock/tmp/pids/unicorn.pid'
 
 # http://www.rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
 if GC.respond_to?(:copy_on_write_friendly=)

@@ -31,9 +31,7 @@
 		<% end %>
 
 		<%= error_message_on @user, :full_name %><%= f.input :name, :label => 'Full name', :tabindex => '1' %>
-	  <%= f.simple_fields_for :profile do |p| %>
-			<%= error_message_on @user.profile, :path %><%= p.input :path, :label => 'Username', :tabindex => '2' %>
-	  <% end %>
+		<%= error_message_on @user, :path %><%= f.input :path, :label => 'Username', :tabindex => '2' %>
 		<%= error_message_on @user, :email %><%= f.input :email, :tabindex => '3' %>
 		<%= error_message_on @user, :password %><%= f.input :password, :tabindex => '4' %>
 

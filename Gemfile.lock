@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/jnicklas/carrierwave.git
-  revision: 0bde5cb651b895aed0d108154119e1a2ef7c8515
-  specs:
-    carrierwave (0.5.3)
-      activesupport (~> 3.0)
-
-GIT
   remote: git://github.com/kpumuk/meta-tags.git
   revision: bc239194c89dc1bc2974ea394207f0dab73308a3
   specs:
@@ -13,52 +6,62 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-core.git
-  revision: 98f811deb28dc1ecf15fb9cec08673c2f480cff4
+  revision: 52eca405614468155f1413644f4089dd5cf84334
   specs:
-    rspec-core (2.5.1)
+    rspec-core (2.6.0.rc2)
 
 GIT
   remote: git://github.com/rspec/rspec-expectations.git
-  revision: 9ee29dea095f60cc589d63b9658015592322ea23
+  revision: a4ebe07641dab82bb30b854cd3adfce536cd4a97
   specs:
-    rspec-expectations (2.5.0)
+    rspec-expectations (2.6.0.rc2)
       diff-lcs (~> 1.1.2)
 
 GIT
   remote: git://github.com/rspec/rspec-mocks.git
-  revision: 1907cf9bd8ee735bc1f9bb16b8c8a346b391ba50
+  revision: f11203d233ba2c2ef5220fca3a600f9b7c991f72
   specs:
-    rspec-mocks (2.5.0)
+    rspec-mocks (2.6.0.rc2)
 
 GIT
   remote: git://github.com/rspec/rspec-rails.git
-  revision: 3c53e96aec1283e377ccebdec8031fae916ff4fa
+  revision: 3bb1b1dc82c853290d97e5bda89772a5779d641a
   specs:
-    rspec-rails (2.5.0)
+    rspec-rails (2.6.0.rc2)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
       railties (~> 3.0)
-      rspec (~> 2.5.0)
+      rspec (= 2.6.0.rc2)
 
 GIT
   remote: git://github.com/rspec/rspec.git
-  revision: 5e911bc4e9524e308b095be5da5faf889d7cac39
+  revision: aef21542dd8ca76ca52cab33399ca98d7f3243e8
   specs:
-    rspec (2.5.0)
-      rspec-core (~> 2.5.0)
-      rspec-expectations (~> 2.5.0)
-      rspec-mocks (~> 2.5.0)
+    rspec (2.6.0.rc2)
+      rspec-core (= 2.6.0.rc2)
+      rspec-expectations (= 2.6.0.rc2)
+      rspec-mocks (= 2.6.0.rc2)
+
+GIT
+  remote: https://github.com/kristianmandrup/mongoid-geo.git
+  revision: a9c26cec34b48c8acbfab17ceced9e420370cdb3
+  specs:
+    mongoid_geo (0.4.1)
+      activesupport (>= 3.0.4)
+      bson (>= 1.3)
+      hashie (>= 0.4.0)
+      mongoid (>= 2.0.1)
 
 GEM
   remote: http://gemcutter.org/
   specs:
     abstract (1.0.0)
-    actionmailer (3.0.7.rc2)
-      actionpack (= 3.0.7.rc2)
+    actionmailer (3.0.7)
+      actionpack (= 3.0.7)
       mail (~> 2.2.15)
-    actionpack (3.0.7.rc2)
-      activemodel (= 3.0.7.rc2)
-      activesupport (= 3.0.7.rc2)
+    actionpack (3.0.7)
+      activemodel (= 3.0.7)
+      activesupport (= 3.0.7)
       builder (~> 2.1.2)
       erubis (~> 2.6.6)
       i18n (~> 0.5.0)
@@ -66,19 +69,19 @@ GEM
       rack-mount (~> 0.6.14)
       rack-test (~> 0.5.7)
       tzinfo (~> 0.3.23)
-    activemodel (3.0.7.rc2)
-      activesupport (= 3.0.7.rc2)
+    activemodel (3.0.7)
+      activesupport (= 3.0.7)
       builder (~> 2.1.2)
       i18n (~> 0.5.0)
-    activerecord (3.0.7.rc2)
-      activemodel (= 3.0.7.rc2)
-      activesupport (= 3.0.7.rc2)
+    activerecord (3.0.7)
+      activemodel (= 3.0.7)
+      activesupport (= 3.0.7)
       arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
-    activeresource (3.0.7.rc2)
-      activemodel (= 3.0.7.rc2)
-      activesupport (= 3.0.7.rc2)
-    activesupport (3.0.7.rc2)
+    activeresource (3.0.7)
+      activemodel (= 3.0.7)
+      activesupport (= 3.0.7)
+    activesupport (3.0.7)
     addressable (2.2.5)
     agnostic-will_paginate (3.0.0)
     arel (2.0.9)
@@ -96,6 +99,8 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.27)
       xpath (~> 0.1.3)
+    carrierwave (0.5.3)
+      activesupport (~> 3.0)
     celerity (0.8.9)
     childprocess (0.1.8)
       ffi (~> 1.0.6)
@@ -111,8 +116,8 @@ GEM
       nokogiri (>= 1.4.4)
       rack-test (>= 0.5.7)
     culerity (0.2.15)
-    database_cleaner (0.6.6)
-    devise (1.2.1)
+    database_cleaner (0.6.7)
+    devise (1.3.1)
       bcrypt-ruby (~> 2.1.2)
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
@@ -125,23 +130,27 @@ GEM
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
       rack (>= 1.1.0, < 2)
+    faraday_middleware (0.6.3)
+      faraday (~> 0.6.0)
     fast-stemmer (1.0.0)
     fattr (2.2.0)
     ffi (1.0.7)
       rake (>= 0.8.7)
-    gherkin (2.3.5)
+    gherkin (2.3.6)
       json (>= 1.4.6)
     hashie (1.0.0)
     hitimes (1.1.1)
     i18n (0.5.0)
     json (1.5.1)
     json_pure (1.5.1)
+    kaminari (0.12.0)
+      rails (>= 3.0.0)
     koala (0.10.0)
       json (>= 1.0)
     little-plugger (1.1.2)
     logging (1.5.0)
       little-plugger (>= 1.1.2)
-    mail (2.2.16)
+    mail (2.2.17)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -171,11 +180,6 @@ GEM
     mongoid_adjust (0.1.1)
       bson (>= 1.0.3)
       mongoid (>= 2.0.0.beta.14)
-    mongoid_geo (0.4.1)
-      activesupport (>= 3.0.4)
-      bson (>= 1.3)
-      hashie (>= 0.4.0)
-      mongoid (>= 2.0.1)
     mongoid_search (0.2.4)
       bson_ext (~> 1.2)
       fast-stemmer (~> 1.0.0)
@@ -184,24 +188,25 @@ GEM
       activesupport (>= 3.0.0.rc)
       mongoid (>= 2.0.0.beta.16)
     multi_json (0.0.5)
+    multi_xml (0.2.2)
     multipart-post (1.1.0)
     mustache (0.99.3)
     nokogiri (1.4.4)
-    oa-core (0.2.2)
-      rack (~> 1.1)
-    oa-oauth (0.2.2)
+    oa-core (0.2.4)
+    oa-oauth (0.2.4)
       faraday (~> 0.6.1)
-      multi_json (~> 0.0.2)
+      multi_json (>= 0.0.5)
       nokogiri (~> 1.4.2)
-      oa-core (= 0.2.2)
+      oa-core (= 0.2.4)
       oauth (~> 0.4.0)
-      oauth2 (~> 0.3.0)
+      oauth2 (~> 0.4.1)
     oauth (0.4.4)
-    oauth2 (0.3.0)
-      faraday (~> 0.6.0)
-      multi_json (~> 0.0.4)
+    oauth2 (0.4.1)
+      faraday (~> 0.6.1)
+      multi_json (>= 0.0.5)
     orm_adapter (0.0.4)
     polyglot (0.3.1)
+    private_pub (0.2.0)
     rack (1.2.2)
     rack-bundle (0.2.3)
       nokogiri (>= 1.4.2)
@@ -228,20 +233,22 @@ GEM
       mongo (>= 1.0.1)
       ruby-growl (>= 2.0)
       twitter4r (>= 0.3.0)
-    rails (3.0.7.rc2)
-      actionmailer (= 3.0.7.rc2)
-      actionpack (= 3.0.7.rc2)
-      activerecord (= 3.0.7.rc2)
-      activeresource (= 3.0.7.rc2)
-      activesupport (= 3.0.7.rc2)
+    rails (3.0.7)
+      actionmailer (= 3.0.7)
+      actionpack (= 3.0.7)
+      activerecord (= 3.0.7)
+      activeresource (= 3.0.7)
+      activesupport (= 3.0.7)
       bundler (~> 1.0)
-      railties (= 3.0.7.rc2)
-    railties (3.0.7.rc2)
-      actionpack (= 3.0.7.rc2)
-      activesupport (= 3.0.7.rc2)
+      railties (= 3.0.7)
+    railties (3.0.7)
+      actionpack (= 3.0.7)
+      activesupport (= 3.0.7)
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    rash (0.3.0)
+      hashie (~> 1.0.0)
     redis (2.2.0)
     redis-namespace (0.7.0)
       redis (< 3.0.0)
@@ -254,18 +261,23 @@ GEM
       vegas (~> 0.1.2)
     resque_mailer (1.0.1)
     rmagick (2.13.1)
+    robotwitter (0.1.1)
+      sqlite3
+      twitter
     ruby-growl (3.0)
     rubyzip (0.9.4)
-    selenium-webdriver (0.1.4)
+    selenium-webdriver (0.2.0)
       childprocess (>= 0.1.7)
       ffi (>= 1.0.7)
       json_pure
       rubyzip
     simple_form (1.3.1)
+    simple_oauth (0.1.4)
     sinatra (1.2.3)
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)
     sitemap_generator (1.5.2)
+    sqlite3 (1.3.3)
     ssl_requirement (0.1.0)
     streama (0.1.5)
       bson_ext (~> 1.2)
@@ -274,9 +286,18 @@ GEM
     term-ansicolor (1.0.5)
     thor (0.14.6)
     tilt (1.2.2)
-    trackoid (0.3.1)
+    trackoid (0.3.4)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
+    tweet-button (0.1.0)
+    twitter (1.4.0)
+      faraday (~> 0.6.1)
+      faraday_middleware (~> 0.6.3)
+      hashie (~> 1.0.0)
+      multi_json (~> 0.0.5)
+      multi_xml (~> 0.2.0)
+      rash (~> 0.3.0)
+      simple_oauth (~> 0.1.4)
     twitter4r (0.6.0)
       json (>= 1.1.1)
       oauth (>= 0.4.1)
@@ -307,11 +328,12 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  carrierwave!
+  carrierwave
   cucumber-rails
   database_cleaner
-  devise (= 1.2.1)
+  devise (= 1.3.1)
   dynamic_form
+  kaminari
   koala
   memcache-client
   meta-tags!
@@ -319,19 +341,21 @@ DEPENDENCIES
   mongoid-history
   mongoid-tree
   mongoid_adjust
-  mongoid_geo
+  mongoid_geo!
   mongoid_search
   mongoid_voteable
   mustache
   oa-oauth
+  private_pub
   rack-bundle
   rack-linkify
   rackamole
-  rails (= 3.0.7.rc2)
+  rails (= 3.0.7)
   remail
   resque
   resque_mailer
   rmagick
+  robotwitter
   rspec!
   rspec-core!
   rspec-expectations!
@@ -342,6 +366,8 @@ DEPENDENCIES
   ssl_requirement
   streama
   trackoid
+  tweet-button
+  twitter
   voteable_mongoid
   wackamole
   warden

@@ -5,26 +5,19 @@ class Profile
   include Mongoid::Tracking
   
   embedded_in :user
-  
-  field :path
+
   field :city
   field :region
   field :country
   field :zip
   field :lat, :type => Float
   field :lng, :type => Float
-  
+  mount_uploader :image, ImageUploader  
   attr_accessor :location
   
-  validates :path, :presence => true, :uniqueness => true, :format => { :with => /^[A-Za-z\d._ -]+$/ }
-  
-  before_save :do_geocode!, :parameterize_path
+  before_save :do_geocode!
 
 private
-
-  def parameterize_path
-    self.path = self.path.split(/ /).join("-")
-  end
 
   def do_geocode!
     response = Net::HTTP.get_response(URI.parse("http://maps.googleapis.com/maps/api/geocode/json?address=#{Rack::Utils.escape(location)}&sensor=false"))
