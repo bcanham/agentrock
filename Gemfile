@@ -38,10 +38,8 @@ gem "mongoid_adjust"
 gem "streama"
 gem "mongoid-history"
 
-
-
 group :development do
-gem 'magnetism'
+#gem 'magnetism'
 	gem "sitemap_generator"
 	# gem 'machinist_mongo', :require => 'machinist/mongoid'
 	#   gem "faker"
