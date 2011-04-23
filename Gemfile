@@ -12,9 +12,6 @@ gem "rmagick"
 gem "ssl_requirement"
 gem "meta-tags", :git =>"git://github.com/kpumuk/meta-tags.git", :require => 'meta_tags'
 gem "rack-linkify"
-
-#gem "memcache-client"
-#gem "score-fu", :git => "http://github.com/bry4n/score-fu.git"
 gem 'rack-bundle'
 gem 'remail'
 gem "koala"
@@ -27,7 +24,7 @@ gem 'tweet-button'
 gem "kaminari"
 gem "private_pub"
 gem "mongoid", "2.0.1"
-gem "mongoid_geo", :git => "https://github.com/kristianmandrup/mongoid-geo.git"
+gem "mongoid_geo"
 gem "mongoid-tree"
 gem "mongoid_search"
 gem "trackoid"
@@ -38,10 +35,11 @@ gem "streama"
 gem "mongoid-history"
 
 group :development do
-	#gem 'magnetism'
+	# gem 'magnetism'
 	gem "sitemap_generator"
 	gem "rackamole"
 	gem "wackamole"
+	# gem "score-fu", :git => "http://github.com/bry4n/score-fu.git"
 end
 
 group :test do
