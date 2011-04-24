@@ -2,9 +2,9 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 
-unless Rails.env.production?
-	use Rack::Mole, { :app_name => "Agent Rock", :user_key => :session_id }
-end	
+# unless Rails.env.production?
+# 	use Rack::Mole, { :app_name => "Agent Rock", :user_key => :session_id }
+# end	
 
 use Rack::Bundle, :public_dir => "#{Rails.root}/public"
 
