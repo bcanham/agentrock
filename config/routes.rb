@@ -32,6 +32,7 @@ Agentrock::Application.routes.draw do
 		match 'facebook/welcome' => 'facebooks/welcomes#index'
 	end
 	 	
+
 	get 'blog/' => 'admin/articles#index'
 	get 'articles/:title/' => 'admin/articles#show'
 	
