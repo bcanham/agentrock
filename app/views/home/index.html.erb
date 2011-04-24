@@ -20,20 +20,20 @@
 	<h1>Join Agent Rock Today!</h1>
 	<p class="large">It's free and sign up is instant.</p>
 	
-	<%= simple_form_for(@user, :as => :user, :url => { :controller => 'users/registrations', :action => 'new' }) do |f| %>
+	<%= simple_form_for(resource, :as => resource_name, :url => { :controller => 'users/registrations', :action => 'new' }) do |f| %>
 
 		<p>Already have an account? <a href="/login">Log in</a>.</p>
 
-		<% if @user.errors.any? %> 
+		<% if resource.errors.any? %> 
 			<div id="errorExplanation"> 
 			  <h2>Oops! What happened?</h2>
 			</div> 
 		<% end %>
 
-		<%= error_message_on @user, :full_name %><%= f.input :name, :label => 'Full name', :tabindex => '1' %>
-		<%= error_message_on @user, :path %><%= f.input :path, :label => 'Username', :tabindex => '2' %>
-		<%= error_message_on @user, :email %><%= f.input :email, :tabindex => '3' %>
-		<%= error_message_on @user, :password %><%= f.input :password, :tabindex => '4' %>
+		<%= error_message_on resource, :full_name %><%= f.input :name, :label => 'Full name', :tabindex => '1' %>
+		<%= error_message_on resource, :path %><%= f.input :path, :label => 'Username', :tabindex => '2' %>
+		<%= error_message_on resource, :email %><%= f.input :email, :tabindex => '3' %>
+		<%= error_message_on resource, :password %><%= f.input :password, :tabindex => '4' %>
 
 	  <%= f.submit "Signup", :class => 'red' %>
 	<% end %>	

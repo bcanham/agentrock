@@ -32,12 +32,13 @@ Agentrock::Application.routes.draw do
 		match 'facebook/welcome' => 'facebooks/welcomes#index'
 	end
 	 	
-  root :to => "home#index"
+  
 
 	get 'blog/' => 'admin/articles#index'
 	get 'articles/:title/' => 'admin/articles#show'
 	
   devise_for :user, :controllers => { :registrations => 'users/registrations', :sessions => 'users/sessions' }, :skip => [:sessions, :registration, :passwords] do
+    root :to => "home#index"
     get 'login' => 'users/sessions#new', :as => :new_user_session
     post 'login' => 'users/sessions#create', :as => :user_session
     get 'logout' => 'users/sessions#destroy', :as => :destroy_user_session

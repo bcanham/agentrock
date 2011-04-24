@@ -24,7 +24,7 @@ gem 'tweet-button'
 gem "kaminari"
 gem "private_pub"
 gem "mongoid", "2.0.1"
-gem "mongoid_geo"
+gem "mongoid_geo", :git => "https://github.com/kristianmandrup/mongoid-geo.git"
 gem "mongoid-tree"
 gem "mongoid_search"
 gem "trackoid"
