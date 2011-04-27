@@ -1,4 +1,3 @@
-
 <div class="col_12">
 
 	<div class="col_2">
@@ -13,7 +12,7 @@
 	<div class="col_5">
 		<!-- <h2>General Info</h2> -->
 
-		<%= form_for(@profile, :url => { :controller => 'profiles', :action => 'update' }, :html => { :method => :put }) do |f| %>
+		<%= simple_form_for(@user, :url => { :controller => 'profiles', :action => 'update' }, :html => { :method => :put, :multipart => true }) do |f| %>
 
 		<label style="display:block;text-align:left;float:none">Profile Picture</label>
 		  <p class="col_4 in" style="display:inline"><%= image(current_user) %>
@@ -21,18 +20,18 @@
 				<%= f.file_field :image %>
 		    <%= f.hidden_field :image_cache %></p>
 			</p>
+<%= simple_fields_for(@profile) do |p| %>
+		  <p><label style="display:block;text-align:left;float:none">My Artist Summary<%= error_message_on @profile, :summary %></label>
+		  <%= p.text_area :summary, :class => "profile" %></p>
 
-		  <p><label style="display:block;text-align:left;float:none">About Artist<%= error_message_on @account, :about %></label>
-		  <%= f.text_area :about, :class => "profile" %></p>
+		  <p><label style="display:block;text-align:left;float:none">My Influences</label><br />
+		  <%= p.text_area :influences %></p>
 
-		  <p><label style="display:block;text-align:left;float:none">Influences</label><br />
-		  <%= f.text_area :influences %></p>
-
-		  <p><label style="display:block;text-align:left;float:none">Equipment List</label>
-		  <%= f.text_area :equipment_list %></p>
-
-		  <!-- <p><label style="display:block;text-align:left;float:none">Genre</label><br />
-		  <%= f.text_field :genre %></p> -->
+		  <p><label style="display:block;text-align:left;float:none">My Equipment</label>
+		  <%= p.text_area :equipment %></p>
+<% end %>
+		  <p><label style="display:block;text-align:left;float:none">Genre</label><br />
+		  <#%= p.text_field :genre %></p>
 
 		  <p><%= f.submit "Update", :class => "red" %></p>
 		<% end %>
@@ -50,3 +49,7 @@
 	</div>
 
 </div>
+
+
+<%= link_to 'Show', @users_profile %> |
+<%= link_to 'Back', users_profiles_path %>

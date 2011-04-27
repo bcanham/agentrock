@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "profiles/show.html.erb" do
+describe "users_profiles/show.html.erb" do
   before(:each) do
-    @profile = assign(:profile, stub_model(Profile))
+    @profile = assign(:profile, stub_model(Users::Profile))
   end
 
   it "renders attributes in <p>" do

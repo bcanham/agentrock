@@ -314,12 +314,11 @@ top: 35px;
  
 /* @end */
  
-
- 
 .inline li {
 	display: inline;
 	float: left;
 	margin: 0 15px 0 0;
+	list-style-type:none;
 	}
  
 ul.list {
@@ -833,4 +832,42 @@ div#profile_details dl dt {
 }
 div#profile_details dl dd {
     padding: 10px 10px 10px 100px;
+}
+
+/* BLUE CAP ---------------------------------------------------------------- */
+
+h4.blue_cap {
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #d5e1ed;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e3ebf3), to(#d5e1ed));
+    background: -moz-linear-gradient(top, #e3ebf3, #d5e1ed);
+    border: 1px solid #d5e1ed;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #b8cadd;
+    display: block;
+    width: auto;
+    height: 30px;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 31px;
+    text-shadow: 0px 1px 0px #fff;
+    color: #2963a4;
+}
+body.firefox h4.blue_cap {
+    line-height: 30px;
+}
+h4.blue_cap a {
+    display: block;
+}
+h4.blue_cap a:hover {
+    color: #183B62;
+    text-decoration: none;
 }

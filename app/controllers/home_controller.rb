@@ -9,7 +9,7 @@ class HomeController < Devise::RegistrationsController
       #   @notes
       # end
       
-      render 'accounts/index'
+      render 'users/home/index'
     else
       build_resource
     end

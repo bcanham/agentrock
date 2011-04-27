@@ -4,30 +4,31 @@ class User
   include Mongoid::Paranoia
   include Mongoid::Tracking
  
- 	field :name
+ 	field :full_name
   field :first_name
   field :last_name
-  field :path
+  field :name
   field :login
   field :fb_uid	
   field :fb_opt_out, :type => Boolean
   field :newsletter, :type => Boolean
-
+  mount_uploader :image, ImageUploader
   embeds_one :profile
   accepts_nested_attributes_for :profiles
    
-  attr_accessible :name, :login, :email, :password, :password_confirmation, :remember_me 
+  attr_accessible :full_name, :name, :email, :password, :password_confirmation, :remember_me 
 
   devise :database_authenticatable, :registerable,
          :recoverable, :trackable, :confirmable, :rememberable
   
-  before_create :create_login, :skip_password_confirmation, :titleize_name, :parameterize_path
+  before_validation :create_login, :on => :create
+  before_create :skip_password_confirmation, :titleize_full_name, :parameterize_name
   
-  validates :login, :uniqueness => { :on => :update }
-  validates :name, :presence => true, :format => { :with => /^[A-Za-z.' -]+$/ }
+  validates :login, :presence => true, :uniqueness => true
+  validates :full_name, :presence => true, :format => { :with => /^[A-Za-z.' -]+$/ }
   validates :email, :presence => true, :uniqueness => true, :format => { :with => /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i }  
   validates :password, :presence => true, :length => { :within => 6..20, :message => "is too short" }
-  validates :path, :presence => true, :uniqueness => true, :format => { :with => /^[A-Za-z\d._ -]+$/ }
+  validates :name, :presence => true, :uniqueness => true, :format => { :with => /^[A-Za-z\d._ -]+$/ }
 
 	def self.find_for_database_authentication(conditions)
 		self.where(:login => conditions[:email]).first || self.where(:email => conditions[:email]).first
@@ -66,18 +67,18 @@ private
   	end	       
   end
   
-  def parameterize_path
-    self.path = self.path.split(/ /).join("-")
+  def parameterize_name
+    self.name = self.name.split(/ /).join("-")
   end
   
   def skip_password_confirmation
     self.password_confirmation = self.password
   end
   
-  def titleize_name
-    self.name = self.name.titleize
-    self.first_name = self.name.split(/ /)[0]
-    self.last_name = self.name.split(/ /).drop(1).join(" ")
+  def titleize_full_name
+    self.full_name = self.full_name.titleize
+    self.first_name = self.full_name.split(/ /)[0]
+    self.last_name = self.full_name.split(/ /).drop(1).join(" ")
   end
 
 end

@@ -17,8 +17,8 @@ class AccountsController < ApplicationController
   def show
 		if @user = User.where(:name => params[:name]).first
 	    respond_with(@user)   
-  	  @profile = @user.profile
-      @photo = @profile.image.url ? @profile.image.url : 'logo.png'
+      # @profile = @user.profile
+      @photo = @user.image.url ? @user.image.url : 'logo.png'
 	  else
 	  	render_404
 	  end
@@ -44,7 +44,14 @@ class AccountsController < ApplicationController
   end
   
   def update
+    @user = User.where(:name => current_user.name).first
+    @profile = @user.profile
     
+    if @profile = params[:profile]
+      redirect_to user_profile_path
+    else
+      redirect_to edit_user_profile_path
+    end
   end
   
 layout :choose_layout

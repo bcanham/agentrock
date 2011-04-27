@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 	respond_to :html, :json#, :iphone
-	#before_filter :authenticate_user!, :only => [:index]
+	before_filter :authenticate_user!, :only => [:edit, :update, :destroy]
 
   def new
     super
@@ -9,7 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource
-    resource.create_profile(params[:user][:profile])
+    resource.create_profile(:ip => request.env['REMOTE_ADDR'])
+ #   default_image = ImageUploader.new
+#    default_image.store!(`/identicon.sh -H default_image.md5 -o #{Rails.root + "/public/images/fallback/" + [params[:name], "default.png"].compact.join('_')}`)
     super
   end
 
@@ -22,9 +24,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def index
-  	@users = User.paginate(:page => params[:page] || 1, :per_page => 30)
-  	@location = User.near(:position => [ 37.7, -122.4, 10 ])
-  	@near_me = User.near(:position => [ current_user.lat, current_user.long, 10 ])
+  	@users = User.page(params[:page]).per(50)
+  	#@location = User.near(:position => [ 37.7, -122.4, 10 ])
+  	#@near_me = User.near(:position => [ current_user.lat, current_user.long, 10 ])
   end
 
   def show

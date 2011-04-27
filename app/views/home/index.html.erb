@@ -30,8 +30,8 @@
 			</div> 
 		<% end %>
 
-		<%= error_message_on resource, :full_name %><%= f.input :name, :label => 'Full name', :tabindex => '1' %>
-		<%= error_message_on resource, :path %><%= f.input :path, :label => 'Username', :tabindex => '2' %>
+		<%= error_message_on resource, :full_name %><%= f.input :full_name, :label => 'Full name', :tabindex => '1' %>
+		<%= error_message_on resource, :name %><%= f.input :name, :label => 'Username', :tabindex => '2' %>
 		<%= error_message_on resource, :email %><%= f.input :email, :tabindex => '3' %>
 		<%= error_message_on resource, :password %><%= f.input :password, :tabindex => '4' %>
 

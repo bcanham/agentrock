@@ -18,6 +18,20 @@ module ApplicationHelper
 	  end 
 	end
 	
+	def thumb(current_user, size)	  
+    if user_signed_in?
+      image_tag(current_user.image.thumb.url, :style => "width:#{size}px;height:#{size}px;") unless current_user.image.thumb.url.blank?
+    end  
+    
+	end  
+	
+	def image(current_user, size=nil)	  
+    if user_signed_in?
+      image_tag(current_user.image.url, :style => "width:#{size}px;height:#{size}px;") unless current_user.image.url.blank?
+    end  
+    
+	end
+	
 	def username(current_user)
 	  unless current_user.nil? 
 	   unless current_user.name.nil?

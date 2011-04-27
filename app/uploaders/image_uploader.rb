@@ -19,11 +19,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     "#{Rails.root}/tmp/cache"
   end
 
-  # Provide a default URL as a default if there hasn't been a file uploaded
-  #     def default_url
-  #       "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  #     end
-
   process :fix_exif_rotation
   process :strip
   # process :resize_to_fill => [1024, 768]
@@ -43,6 +38,11 @@ class ImageUploader < CarrierWave::Uploader::Base
       def extension_white_list
         %w(jpg jpeg gif png)
       end
+
+  # Provide a default URL as a default if there hasn't been a file uploaded
+  def default_url
+    "/public/images/fallback/" + [model.name, "default.png"].compact.join('_')
+  end
 
   # Override the filename of the uploaded files
       # def filename

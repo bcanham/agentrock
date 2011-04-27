@@ -5,9 +5,12 @@
 
 <% @users.each do |user| %>
 
-<p><%= link_to user.name, user_path(user.name) %></p>
+<p class="inline">
+<%= link_to image_tag(user.image.url), user_profile_path(user.name) %>
+<%= link_to user.name, user_profile_path(user.name) %>
+</p>
 
 
 <% end %>
 
-<%= will_paginate(@users) %>
+<%= paginate(@users) %>

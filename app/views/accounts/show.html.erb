@@ -1,3 +1,5 @@
-<!-- <h1><%= title current_user.name+"'s Profile" %></h1> -->
+<h1><%= title current_user.name+"'s Profile" %></h1>
 
 <#%= link_to(image_tag(@photo), root_path) %>
+
+<%= Mongoid.database.name %>

@@ -1,0 +1,10 @@
+<h1><%= title current_user.name+"'s Profile" %></h1>
+
+<p id="notice"><%= notice %></p>
+
+<%= link_to image_tag(@user.image.url), root_url + @user.image.url %>
+
+<% if current_user %>
+	<%= link_to 'Edit', edit_user_profile_path(@profile) %> |
+<% end %>
+<%= link_to 'Back', search_path %>
