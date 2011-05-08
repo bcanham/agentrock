@@ -180,7 +180,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   config.omniauth :facebook, '141114879242972', 'edb74892f516289cab8c2b7643cf4bbd'#, :scope => %w(email, offline_access)
-  config.omniauth :twitter, '69119852-tykSP7nVXRpIFJSOSpxEBeC0tFWCENn3M308lJ0ku', '0gwIYti1U2TPLx7HrkJYGyu3niTGmXdMX9WzOynI'
+  config.omniauth :twitter, 'NYVChEGwPPaVefmq2Q0NQg', 'hpWPTrhmd0j7WYUoWyZxCFI0GslmoXIO974HRBijVA'
   config.omniauth :soundcloud, 'oXY1V39NjeonGez8Mbt4OQ', 'Ltu1UFUk5DUOWjt3gwaEq4e3dm7tUUwFOV0aEwGM'  
   
   # ==> Warden configuration
