@@ -6,7 +6,7 @@ gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem "warden"
 gem "oa-oauth", :require => "omniauth/oauth"	 	
 #gem 'devise_invitable'
-gem "devise", :git => "http://github.com/plataformatec/devise.git"
+gem "devise"
 gem "resque"
 gem 'resque_mailer'
 gem 'carrierwave'
