@@ -4,7 +4,7 @@ gem 'rack', :git => 'git://github.com/rack/rack.git'
 gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem "warden"
-gem "oa-oauth", :require => "omniauth/oauth"	 	
+gem "oa-oauth", :git => 'https://github.com/intridea/omniauth.git', :require => "omniauth/oauth"	 	
 #gem 'devise_invitable'
 gem "devise"
 gem "resque"
