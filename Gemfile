@@ -1,18 +1,21 @@
 source 'http://gemcutter.org'
 
-gem "rails", "3.0.7"
+gem 'rack', :git => 'git://github.com/rack/rack.git'
+gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem "warden"
 gem "oa-oauth", :require => "omniauth/oauth"	 	
-gem "devise", "1.3.1"
+#gem 'devise_invitable'
+gem "devise", :git => "http://github.com/plataformatec/devise.git"
 gem "resque"
 gem 'resque_mailer'
 gem 'carrierwave'
 gem "rmagick"
+#gem 'magnetism', :git => 'https://github.com/agentrock/magnetism.git', :require => 'magnetism'
 gem "ssl_requirement"
 gem "meta-tags", :git =>"git://github.com/kpumuk/meta-tags.git", :require => 'meta_tags'
-gem "rack-linkify"
-gem 'rack-bundle'
+#gem "rack-linkify"
+#gem 'rack-bundle'
 gem 'remail'
 gem "koala"
 gem "simple_form"
@@ -23,7 +26,7 @@ gem 'robotwitter'
 gem 'tweet-button'
 gem "kaminari"
 gem "private_pub"
-gem "mongoid", "2.0.1"
+gem "mongoid", :git => 'https://github.com/mongoid/mongoid.git'
 gem 'geo_magic', :require => 'geo_magic/remote'
 gem "mongoid_geo", :git => "https://github.com/kristianmandrup/mongoid-geo.git"
 gem "mongoid-tree"
@@ -36,7 +39,6 @@ gem "streama"
 gem "mongoid-history"
 
 group :development do
-	# gem 'magnetism'
 	gem "sitemap_generator"
 	gem "rackamole"
 	gem "wackamole"

@@ -1,0 +1,2 @@
+module Affiliate::AccountsHelper
+end

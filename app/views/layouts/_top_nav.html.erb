@@ -1,9 +1,9 @@
 
 	<ul id="top_nav">
 		<li><%= login_logout %></li>
-		<li><a href="/blog/">Articles</a></li>
+		<li><a href="/blog/">Blog</a></li>
 		<li><a href="http://twitter.com/agentrock" target="blank">Twitter</a></li>
-		<li><a href="/support">Support</a></li>
+		<li><a href="https://www.facebook.com/pages/Agent-Rock/115055155232575?sk=app_2373072738" target="blank">Support</a></li>
 	</ul>
 	<div class="clear">&nbsp;</div>
 		<ul id="nav" class="clearfix">
@@ -11,7 +11,13 @@
 				<a href="/"><img src="/images/logo.png" alt="Agent Rock"><img alt="Beta" class="beta" src="/images/beta.png"></a>
 				<!-- <p class="tagline"></p> -->
 			</li>
-	          
+
 	    </ul>
+			  			<% unless user_signed_in? %>
+
+			<ul id="sub_nav">						<li><%= link_to image_tag('soundcloud/login-button-small.png'), user_omniauth_authorize_path(:soundcloud) %></li>
+									<li><%= link_to image_tag('twitter/twitter-dark.png'), user_omniauth_authorize_path(:twitter) %></li>
+									<li><%= link_to image_tag('facebook/fb-login-button.png'), user_omniauth_authorize_path(:facebook) %></li></ul>
+						<% end %>	
 		<div class="clear">&nbsp;</div>
 </div>

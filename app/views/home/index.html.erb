@@ -1,51 +1,43 @@
-<% title "Sign up" %>
+<% set_meta_tags :title => "Find local musicians. Jam, Share, Collaborate...", :description => "Agent Rock provides musicians with a social platform for learning and sharing music.", :keywords => "musicians, find musicians, musician services, musician classifieds" %>
 
 <div class="col_12 in">
 <div class="col_6 in">
 		<h1>Who is Agent Rock?<br /></h1>
-		<p class="large">Agent Rock will help you find other musicians, host your website, sell your music to fans, and learn new tricks on your instrument.</p>
+		<p class="large">Agent Rock will help you find other musicians, manage your website, sell your music to fans, and learn new tricks on your instrument.</p>
 
 		<hr/>
-
-		<ul class="features">
-      <li>Fill a spot in your band. Maybe even land a gig.</li>
-			<li>Upload your music. Then distribute it to your fans.</li>
-			<li>Easily manage your band's website.</li>
-			<li>Improve your knowledge and skills of the music industry and your instrument.</li>
-			<li>Collaborate and compete with musicians worldwide. Win cash and other prizes.</li>
-			<!-- <li><a href="/how-it-works">How It Works</a> - turn your music into a solid revenue stream</li> -->
-		</ul>
+		<embed data-fb="like" data-href="https://www.facebook.com/pages/Agent-Rock/115055155232575" data-width="195px" data-show_faces="false" />
+			<noscript> <iframe src="https://www.facebook.com/pages/Agent-Rock/115055155232575"
+			        scrolling="no" frameborder="0" show_faces="false"
+			        style="border:none; width:195px; height:80px; position:relative;margin-top:-200px;top:-75px"></iframe> </noscript>			
 	</div> 
-<div class="col_6 out" id="account_signup">
-	<h1>Join Agent Rock Today!</h1>
-	<p class="large">It's free and sign up is instant.</p>
-	
-	<%= simple_form_for(resource, :as => resource_name, :url => { :controller => 'users/registrations', :action => 'new' }) do |f| %>
+	<div class="col_6 out">
+<h2>What can I do here?</h2>
+								<ul class="features">
+						      <li>Find local musicians to jam with. Join a band in no time flat.</li>
+									<li>Share your musical talent and collaborate with musicians worldwide.</li>
+									<li>Challenge each other, compete to win cash and other prizes.</li>
+									<li>Participate in Agent Rock's "Rockstar Routine" program.</li>			
+									<li>Easily manage your band's website with <a href="http://bandmagnet.com/" target="_blank">Band Magnet</a>!</li>
+									<!-- <li>Take a look around. Check out the <a href="/tour">tour</a></li> -->
+								</ul>
 
-		<p>Already have an account? <a href="/login">Log in</a>.</p>
+								<p class="medium">It's free and sign up is instant.</p>
+								<!-- <p class="large">	
+										Become more skilled with your instrument.<br>
+										Increase your knowledge of the music industry.
+									</p> -->
 
-		<% if resource.errors.any? %> 
-			<div id="errorExplanation"> 
-			  <h2>Oops! What happened?</h2>
-			</div> 
-		<% end %>
+									  <%= link_to "Join Today!", new_user_registration_path, :class => 'red' %>
 
-		<%= error_message_on resource, :full_name %><%= f.input :full_name, :label => 'Full name', :tabindex => '1' %>
-		<%= error_message_on resource, :name %><%= f.input :name, :label => 'Username', :tabindex => '2' %>
-		<%= error_message_on resource, :email %><%= f.input :email, :tabindex => '3' %>
-		<%= error_message_on resource, :password %><%= f.input :password, :tabindex => '4' %>
-
-	  <%= f.submit "Signup", :class => 'red' %>
-	<% end %>	
-		
 	</div> 
-	<div class="clear">&nbsp;</div> 
+	<div class="clear">&nbsp;</div>
 	
 	
-	
-	
-	<!-- <p>A modern day, web 2.0, interactive, dynamic website is a forever evolving entity with lots of internal components that bring their own set of upgrade and maintenance headaches. Are you going to solicit help every time your website needs an update? Agent Rock is your guy! Let him focus on all of your website demands from hosting to customized app building, to internet marketing and beyond...!
-	
-	There is no installation, setup is easy, and best of all you don't pay a cent unless you want to publish your site by taking it live. And, with our al a carte style, dynamic, micro, prorated to the minute billing!, you will surely be thrilled with what Agent Rock can provide for you.</p> -->
+	<!-- <div class="col_3 in"><li><%= link_to image_tag('facebook/fb-button.png', :style => 'height:36px;width:36px'), 'https://www.facebook.com/pages/Agent-Rock/115055155232575?sk=wall', :target => '_blank' %></li>
+
+							<li><a href="http://www.twitter.com/agentrock" target="_blank"><img src="http://twitter-badges.s3.amazonaws.com/t_logo-a.png" alt="Follow Agent Rock on Twitter"/></a></li>	
+							
+	</div> -->
 	
 </div>

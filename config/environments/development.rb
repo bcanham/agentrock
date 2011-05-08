@@ -11,12 +11,12 @@ Agentrock::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-  config.action_view.debug_rjs             = true
+  # config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
 	
 	config.active_support.deprecation = :log
 	
-  config.session_store :cookie_store, :key => '_agentrock_session', :domain => :all
+  # config.session_store :cookie_store, :key => '_agentrock_session', :domain => :all
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true

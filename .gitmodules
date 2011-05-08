@@ -1,3 +1,6 @@
 [submodule "vendor/plugins/rmagick"]
 	path = vendor/plugins/rmagick
 	url = http://github.com/rmagick/rmagick.git
+[submodule "vendor/plugins/magnetism"]
+	path = vendor/plugins/magnetism
+	url = git@github.com:agentrock/magnetism.git

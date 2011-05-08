@@ -1,57 +1,104 @@
 GIT
   remote: git://github.com/kpumuk/meta-tags.git
-  revision: bc239194c89dc1bc2974ea394207f0dab73308a3
+  revision: d7a437c64018549216f54e65394292a6b4867df5
   specs:
-    meta-tags (1.2.3)
+    meta-tags (1.2.4)
+      actionpack
+
+GIT
+  remote: git://github.com/rack/rack.git
+  revision: 18040b59dad3f2efe96d5b70b2260764fcda4784
+  specs:
+    rack (1.3.0.beta)
+
+GIT
+  remote: git://github.com/rails/rails.git
+  revision: 1ca81238b5abcbdad667d45a588fdb1f68a0516e
+  specs:
+    actionmailer (3.1.0.beta)
+      actionpack (= 3.1.0.beta)
+      mail (~> 2.3.0)
+    actionpack (3.1.0.beta)
+      activemodel (= 3.1.0.beta)
+      activesupport (= 3.1.0.beta)
+      builder (~> 3.0.0)
+      erubis (~> 2.7.0)
+      i18n (~> 0.6.0beta1)
+      rack (~> 1.3.0.beta)
+      rack-cache (~> 1.0.0)
+      rack-mount (~> 0.7.2)
+      rack-test (~> 0.5.7)
+      sprockets (~> 2.0.0.beta.2)
+      tzinfo (~> 0.3.23)
+    activemodel (3.1.0.beta)
+      activesupport (= 3.1.0.beta)
+      bcrypt-ruby (~> 2.1.4)
+      builder (~> 3.0.0)
+      i18n (~> 0.6.0beta1)
+    activerecord (3.1.0.beta)
+      activemodel (= 3.1.0.beta)
+      activesupport (= 3.1.0.beta)
+      arel (~> 2.1.0)
+      tzinfo (~> 0.3.23)
+    activeresource (3.1.0.beta)
+      activemodel (= 3.1.0.beta)
+      activesupport (= 3.1.0.beta)
+    activesupport (3.1.0.beta)
+      multi_json (~> 1.0.0)
+    rails (3.1.0.beta)
+      actionmailer (= 3.1.0.beta)
+      actionpack (= 3.1.0.beta)
+      activerecord (= 3.1.0.beta)
+      activeresource (= 3.1.0.beta)
+      activesupport (= 3.1.0.beta)
+      bundler (~> 1.0)
+      railties (= 3.1.0.beta)
+    railties (3.1.0.beta)
+      actionpack (= 3.1.0.beta)
+      activesupport (= 3.1.0.beta)
+      rack-ssl (~> 1.3.2)
+      rake (>= 0.8.7)
+      thor (~> 0.14.4)
+
+GIT
+  remote: http://github.com/plataformatec/devise.git
+  revision: 9cc69277bc2c094c5d8cea60b0d316017a5980ce
+  specs:
+    devise (1.4.0.dev)
+      bcrypt-ruby (~> 2.1.2)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
 
 GIT
   remote: https://github.com/kristianmandrup/mongoid-geo.git
-  revision: a9c26cec34b48c8acbfab17ceced9e420370cdb3
+  revision: 1530f6c76eeb3fb7075b7d9b6f107664c419a529
   specs:
-    mongoid_geo (0.4.1)
+    mongoid_geo (0.4.2)
       activesupport (>= 3.0.4)
       bson (>= 1.3)
       hashie (>= 0.4.0)
       mongoid (>= 2.0.1)
 
+GIT
+  remote: https://github.com/mongoid/mongoid.git
+  revision: 8f61f5b58c109cda398bf5b2bfc639fb7989a57b
+  specs:
+    mongoid (2.0.1)
+      activemodel (~> 3.0)
+      mongo (~> 1.3)
+      tzinfo (~> 0.3.22)
+
 GEM
   remote: http://gemcutter.org/
   specs:
-    abstract (1.0.0)
-    actionmailer (3.0.7)
-      actionpack (= 3.0.7)
-      mail (~> 2.2.15)
-    actionpack (3.0.7)
-      activemodel (= 3.0.7)
-      activesupport (= 3.0.7)
-      builder (~> 2.1.2)
-      erubis (~> 2.6.6)
-      i18n (~> 0.5.0)
-      rack (~> 1.2.1)
-      rack-mount (~> 0.6.14)
-      rack-test (~> 0.5.7)
-      tzinfo (~> 0.3.23)
-    activemodel (3.0.7)
-      activesupport (= 3.0.7)
-      builder (~> 2.1.2)
-      i18n (~> 0.5.0)
-    activerecord (3.0.7)
-      activemodel (= 3.0.7)
-      activesupport (= 3.0.7)
-      arel (~> 2.0.2)
-      tzinfo (~> 0.3.23)
-    activeresource (3.0.7)
-      activemodel (= 3.0.7)
-      activesupport (= 3.0.7)
-    activesupport (3.0.7)
     addressable (2.2.5)
     agnostic-will_paginate (3.0.0)
-    arel (2.0.9)
+    arel (2.1.0)
     arrayfields (4.7.4)
     bcrypt-ruby (2.1.4)
     bson (1.3.0)
     bson_ext (1.3.0)
-    builder (2.1.2)
+    builder (3.0.0)
     capybara (0.4.1.2)
       celerity (>= 0.7.9)
       culerity (>= 0.2.4)
@@ -80,15 +127,10 @@ GEM
       rack-test (>= 0.5.7)
     culerity (0.2.15)
     database_cleaner (0.6.7)
-    devise (1.3.1)
-      bcrypt-ruby (~> 2.1.2)
-      orm_adapter (~> 0.0.3)
-      warden (~> 1.0.3)
     diff-lcs (1.1.2)
     dynamic_form (1.1.4)
     easy_diff (0.0.1)
-    erubis (2.6.6)
-      abstract (>= 1.0.0)
+    erubis (2.7.0)
     faraday (0.6.1)
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
@@ -105,24 +147,25 @@ GEM
       geo-distance (>= 0.1.0)
       httparty (>= 0.6.0)
       httparty (>= 0.6.0)
-    gherkin (2.3.6)
+    gherkin (2.3.7)
       json (>= 1.4.6)
     hashie (1.0.0)
+    hike (1.0.0)
     hitimes (1.1.1)
     httparty (0.7.7)
       crack (= 0.1.8)
-    i18n (0.5.0)
+    i18n (0.6.0beta1)
     json (1.5.1)
     json_pure (1.5.1)
-    kaminari (0.12.0)
+    kaminari (0.12.3)
       rails (>= 3.0.0)
-    koala (0.10.0)
-      json (>= 1.0)
+    koala (1.0.0)
+      json (~> 1.0)
+      multipart-post (~> 1.0)
     little-plugger (1.1.2)
     logging (1.5.0)
       little-plugger (>= 1.1.2)
-    mail (2.2.17)
-      activesupport (>= 2.3.6)
+    mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -138,11 +181,6 @@ GEM
       mongo (>= 0.18.2)
       mongo_ext (>= 0.18.2)
       rack (>= 1.0.1)
-    mongoid (2.0.1)
-      activemodel (~> 3.0)
-      mongo (~> 1.3)
-      tzinfo (~> 0.3.22)
-      will_paginate (~> 3.0.pre)
     mongoid-history (0.0.9)
       easy_diff
       mongoid (~> 2.0.0.rc.7)
@@ -158,17 +196,17 @@ GEM
     mongoid_voteable (0.1.1)
       activesupport (>= 3.0.0.rc)
       mongoid (>= 2.0.0.beta.16)
-    multi_json (0.0.5)
+    multi_json (1.0.0)
     multi_xml (0.2.2)
     multipart-post (1.1.0)
     mustache (0.99.3)
     nokogiri (1.4.4)
-    oa-core (0.2.4)
-    oa-oauth (0.2.4)
+    oa-core (0.2.5)
+    oa-oauth (0.2.5)
       faraday (~> 0.6.1)
-      multi_json (>= 0.0.5)
-      nokogiri (~> 1.4.2)
-      oa-core (= 0.2.4)
+      multi_json (~> 1.0.0)
+      multi_xml (~> 0.2.2)
+      oa-core (= 0.2.5)
       oauth (~> 0.4.0)
       oauth2 (~> 0.4.1)
     oauth (0.4.4)
@@ -178,19 +216,12 @@ GEM
     orm_adapter (0.0.4)
     polyglot (0.3.1)
     private_pub (0.2.0)
-    rack (1.2.2)
-    rack-bundle (0.2.3)
-      nokogiri (>= 1.4.2)
+    rack-cache (1.0.1)
+      rack (>= 0.4)
+    rack-mount (0.7.2)
       rack (>= 1.0.0)
-    rack-linkify (0.0.2)
-      rack-plastic (>= 0.1.1)
-    rack-mount (0.6.14)
-      rack (>= 1.0.0)
-    rack-plastic (0.1.2)
-      nokogiri (>= 1.4.0)
-      nokogiri (>= 1.4.0)
-      rack (>= 1.0.0)
-      rack (>= 1.0.0)
+    rack-ssl (1.3.2)
+      rack
     rack-test (0.5.7)
       rack (>= 1.0)
     rackamole (0.4.0)
@@ -204,19 +235,6 @@ GEM
       mongo (>= 1.0.1)
       ruby-growl (>= 2.0)
       twitter4r (>= 0.3.0)
-    rails (3.0.7)
-      actionmailer (= 3.0.7)
-      actionpack (= 3.0.7)
-      activerecord (= 3.0.7)
-      activeresource (= 3.0.7)
-      activesupport (= 3.0.7)
-      bundler (~> 1.0)
-      railties (= 3.0.7)
-    railties (3.0.7)
-      actionpack (= 3.0.7)
-      activesupport (= 3.0.7)
-      rake (>= 0.8.7)
-      thor (~> 0.14.4)
     rake (0.8.7)
     rash (0.3.0)
       hashie (~> 1.0.0)
@@ -257,10 +275,14 @@ GEM
       rubyzip
     simple_form (1.3.1)
     simple_oauth (0.1.4)
-    sinatra (1.2.3)
+    sinatra (1.2.6)
       rack (~> 1.1)
-      tilt (>= 1.2.2, < 2.0)
+      tilt (< 2.0, >= 1.2.2)
     sitemap_generator (1.5.2)
+    sprockets (2.0.0.beta.2)
+      hike (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.0)
     sqlite3 (1.3.3)
     ssl_requirement (0.1.0)
     streama (0.1.5)
@@ -269,26 +291,26 @@ GEM
       will_paginate (~> 3.0.pre2)
     term-ansicolor (1.0.5)
     thor (0.14.6)
-    tilt (1.2.2)
-    trackoid (0.3.4)
+    tilt (1.3)
+    trackoid (0.3.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tweet-button (0.1.0)
-    twitter (1.4.0)
+    twitter (1.4.1)
       faraday (~> 0.6.1)
       faraday_middleware (~> 0.6.3)
       hashie (~> 1.0.0)
-      multi_json (~> 0.0.5)
+      multi_json (~> 1.0.0)
       multi_xml (~> 0.2.0)
       rash (~> 0.3.0)
       simple_oauth (~> 0.1.4)
     twitter4r (0.6.0)
       json (>= 1.1.1)
       oauth (>= 0.4.1)
-    tzinfo (0.3.26)
+    tzinfo (0.3.27)
     vegas (0.1.8)
       rack (>= 1.0.0)
-    voteable_mongoid (0.7.2)
+    voteable_mongoid (0.7.6)
       mongoid (~> 2.0.0)
     wackamole (0.1.4)
       agnostic-will_paginate (>= 3.0.0)
@@ -304,7 +326,7 @@ GEM
     warden (1.0.3)
       rack (>= 1.0.0)
     will_paginate (3.0.pre2)
-    xpath (0.1.3)
+    xpath (0.1.4)
       nokogiri (~> 1.3)
 
 PLATFORMS
@@ -315,13 +337,13 @@ DEPENDENCIES
   carrierwave
   cucumber-rails
   database_cleaner
-  devise (= 1.3.1)
+  devise!
   dynamic_form
   geo_magic
   kaminari
   koala
   meta-tags!
-  mongoid (= 2.0.1)
+  mongoid!
   mongoid-history
   mongoid-tree
   mongoid_adjust
@@ -331,10 +353,9 @@ DEPENDENCIES
   mustache
   oa-oauth
   private_pub
-  rack-bundle
-  rack-linkify
+  rack!
   rackamole
-  rails (= 3.0.7)
+  rails!
   remail
   resque
   resque_mailer

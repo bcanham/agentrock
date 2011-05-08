@@ -53,6 +53,26 @@ Devise.setup do |config|
   # using other encryptors, it sets how many times you want the password re-encrypted.
   config.stretches = 10
 
+  # ==> Configuration for :invitable
+  # The period the generated invitation token is valid, after
+  # this period, the invited resource won't be able to accept the invitation.
+  # When invite_for is 0 (the default), the invitation won't expire.
+  # config.invite_for = 2.weeks
+  
+  # Number of invitations users can send.
+  # If invitation_limit is nil, users can send unlimited invitations.
+  # If invitation_limit is 0, users can't send invitations.
+  # If invitation_limit n > 0, users can send n invitations.
+  # Default: nil
+  # config.invitation_limit = 5
+  
+  # The key to be used to check existing users when sending an invitation
+  # config.invite_key = :email
+  
+  # Flag that force a record to be valid before being actually invited 
+  # Default: false
+  # config.validate_on_invite = true
+
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time
   # he will be able to access your application without confirming. Default is 0.days
@@ -70,7 +90,7 @@ Devise.setup do |config|
   config.remember_across_browsers = true
 
   # If true, extends the user's remember period when remembered via cookie.
-  config.extend_remember_period = false
+  config.extend_remember_period = true
 
   # If true, uses the password salt as remember token. This should be turned
   # to false if you are not using database authenticatable.
@@ -161,6 +181,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :facebook, '141114879242972', 'edb74892f516289cab8c2b7643cf4bbd'#, :scope => %w(email, offline_access)
   config.omniauth :twitter, '69119852-tykSP7nVXRpIFJSOSpxEBeC0tFWCENn3M308lJ0ku', '0gwIYti1U2TPLx7HrkJYGyu3niTGmXdMX9WzOynI'
+  config.omniauth :soundcloud, 'oXY1V39NjeonGez8Mbt4OQ', 'Ltu1UFUk5DUOWjt3gwaEq4e3dm7tUUwFOV0aEwGM'  
   
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

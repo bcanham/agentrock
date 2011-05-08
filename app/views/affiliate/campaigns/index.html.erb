@@ -1,0 +1,21 @@
+<h1>Listing affiliate_campaigns</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @affiliate_campaigns.each do |affiliate_campaign| %>
+  <tr>
+    <td><%= link_to 'Show', affiliate_campaign %></td>
+    <td><%= link_to 'Edit', edit_affiliate_campaign_path(affiliate_campaign) %></td>
+    <td><%= link_to 'Destroy', affiliate_campaign, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Campaign', new_affiliate_campaign_path %>

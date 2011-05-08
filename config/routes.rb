@@ -1,6 +1,10 @@
 Agentrock::Application.routes.draw do
 
+  namespace :affiliate do resources :cta end
 
+  namespace :affiliate do resources :campaigns end
+
+  namespace :affiliate do resources :accounts end
 
   resources :notifications
 
@@ -32,10 +36,14 @@ Agentrock::Application.routes.draw do
 		match 'facebook/welcome' => 'facebooks/welcomes#index'
 	end
 	 	
-	get 'blog/' => 'admin/articles#index'
-	get 'articles/:title/' => 'admin/articles#show'
+  # mount Magnetism::Engine => '/blog'  
+  get 'blog/' => 'magnetism/posts#index'
+  get 'blog/:title/' => 'magnetism/posts#show'
+  namespace :admin do
+    resource :post, :except => [:show, :index]    
+	end
 	
-  devise_for :user, :controllers => { :registrations => 'users/registrations', :sessions => 'users/sessions' }, :skip => [:sessions, :registration, :passwords] do
+  devise_for :user, :controllers => { :registrations => 'users/registrations', :sessions => 'users/sessions', :omniauth_callbacks => "users/omniauth_callbacks" }, :skip => [:sessions, :registration, :passwords] do
     root :to => "home#index"
     get 'login' => 'users/sessions#new', :as => :new_user_session
     post 'login' => 'users/sessions#create', :as => :user_session

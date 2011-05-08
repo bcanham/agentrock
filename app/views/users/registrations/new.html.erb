@@ -3,11 +3,11 @@
 <div class="col_12 in" id="account_signup">
 	<p style="float:right;">Already have an account? <a href="/login">Log in</a>.</p>	
 		
-	<h1>Join Agent Rock</h1>
-	<p class="medium">It's free and sign up is instant.</p>
+	<h1>Join Agent Rock Today!</h1>
+	<p class="medium">Experience a resource every musician craves.</p>
 
 	<div class="col_6 in">
-	<%= simple_form_for(resource, :as => resource_name, :url => { :controller => 'users/registrations', :action => 'new' }) do |f| %>  
+	<%= simple_form_for(resource, :as => resource_name, :url => { :controller => 'users/registrations', :action => 'new' }, :html => {:multipart => true}) do |f| %>  
 
 		<% if resource.errors.any? %> 
 			<div id="errorExplanation"> 

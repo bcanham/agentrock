@@ -87,6 +87,24 @@ if (typeof jQuery == 'undefined') {
 
 <script type="text/javascript" src="/jquery/rails.js"></script>
 
+<div id="fb-root"></div>
+<!-- the JavaScript API -->
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<!-- the extention script from this article -->
+<script src="/js/fbml.js"></script>
+<script>
+ //<![CDATA[
+  FB.init({apiKey: 'edb74892f516289cab8c2b7643cf4bbd', appId: '141114879242972', status: true, cookie: true, fbml5: true});
+	FB.getLoginStatus(function(response) {
+	  if (response.session) {
+	    // logged in and connected user, someone you know
+	  } else {
+	    // no user session available, someone you dont know
+	  }
+	});
+ //]]>
+</script>
+
 <% unless Rails.env = "Production" %>
 <%= ren
 der 'layouts/trackers' %>

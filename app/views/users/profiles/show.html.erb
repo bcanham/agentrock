@@ -8,3 +8,14 @@
 	<%= link_to 'Edit', edit_user_profile_path(@profile) %> |
 <% end %>
 <%= link_to 'Back', search_path %>
+
+
+	<div class="col_4 out">
+<h4 class="blue_cap">  <a class="the_skinny" href="#" onclick="return false;"> My Details <span class="edit"></span> </a>  </h4>
+		<div id="profile_details"> 
+			<dl> <dt>Last Online</dt> <dd><%= time_ago_in_words(@user.last_sign_in_at) %> ago </dd> </dl>
+<!-- <dl> <dt>Looking For</dt> <dd id="ajax_lookingfor"> ### </dd> </dl> -->
+<!-- <dl> <dt>Drinks</dt> <dd id="ajax_drinking">###</dd> </dl> -->
+<!-- <dl> <dt>Drugs</dt> <dd id="ajax_drugs">###</dd> </dl> -->
+<!-- <dl> <dt>Speaks</dt> <dd id="ajax_languages"> ### </dd> </dl> --> </div>
+	</div>

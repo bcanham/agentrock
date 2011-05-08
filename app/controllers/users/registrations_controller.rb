@@ -10,8 +10,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource
     resource.create_profile(:ip => request.env['REMOTE_ADDR'])
- #   default_image = ImageUploader.new
-#    default_image.store!(`/identicon.sh -H default_image.md5 -o #{Rails.root + "/public/images/fallback/" + [params[:name], "default.png"].compact.join('_')}`)
     super
   end
 

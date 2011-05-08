@@ -1,0 +1,21 @@
+<h1>Listing affiliate_cta</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @affiliate_cta.each do |affiliate_ctum| %>
+  <tr>
+    <td><%= link_to 'Show', affiliate_ctum %></td>
+    <td><%= link_to 'Edit', edit_affiliate_ctum_path(affiliate_ctum) %></td>
+    <td><%= link_to 'Destroy', affiliate_ctum, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ctum', new_affiliate_ctum_path %>
