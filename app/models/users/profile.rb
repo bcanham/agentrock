@@ -1,3 +1,5 @@
+require 'carrierwave/mongoid'
+
 class Profile
   include Mongoid::Document
   include Mongoid::Timestamps

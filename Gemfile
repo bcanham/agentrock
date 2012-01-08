@@ -1,64 +1,66 @@
-source 'http://gemcutter.org'
+source 'https://rubygems.org/'
 
-gem 'rack', :git => 'git://github.com/rack/rack.git'
-gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', '~> 3.1'
 
-gem "warden"
-gem "oa-oauth", :git => 'https://github.com/intridea/omniauth.git', :require => "omniauth/oauth"	 	
+gem 'warden', "~> 1.1"
 #gem 'devise_invitable'
-gem "devise"
-gem "resque"
+gem 'omniauth-facebook', '~> 1.0.0'
+gem 'omniauth-twitter'
+gem 'omniauth-soundcloud', '~> 1.0.0'
+gem 'devise', "~> 1.5.3"
+# gem 'cloudy', path: '/Users/skolstad/sites/cloudy', require: 'cloudy'#, git: 'https://github.com/agentrock/cloudy.git'
+# gem 'magnetism', path: '/Users/skolstad/sites/magnetism', require: 'magnetism'#, git: 'https://github.com/agentrock/magnetism.git'
+gem 'resque'
 gem 'resque_mailer'
-gem 'carrierwave'
-gem "rmagick"
-#gem 'magnetism', :git => 'https://github.com/agentrock/magnetism.git', :require => 'magnetism'
-gem "ssl_requirement"
-gem "meta-tags", :git =>"git://github.com/kpumuk/meta-tags.git", :require => 'meta_tags'
-#gem "rack-linkify"
-#gem 'rack-bundle'
+gem 'carrierwave-mongoid', '~> 0.1.3', require: 'carrierwave/mongoid'
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly', '~>0.9.9'
+gem 'rmagick'
+gem 'rdiscount'
+gem 'ssl_requirement'
+gem 'meta-tags', git: 'https://github.com/kpumuk/meta-tags.git', require: 'meta_tags'
+#gem 'rack-linkify'
 gem 'remail'
-gem "koala"
-gem "simple_form"
-gem "dynamic_form"
+gem 'koala'
+gem 'simple_form'
+gem 'show_for'
+gem 'dynamic_form'
 gem 'mustache'
-gem 'twitter'
-gem 'robotwitter'
+# gem 'twitter'
+# gem 'robotwitter'
 gem 'tweet-button'
-gem "kaminari"
-gem "private_pub"
-gem "mongoid", :git => 'https://github.com/mongoid/mongoid.git'
-gem 'geo_magic', :require => 'geo_magic/remote'
-gem "mongoid_geo", :git => "https://github.com/kristianmandrup/mongoid-geo.git"
-gem "mongoid-tree"
-gem "mongoid_search"
-gem "trackoid"
-gem "voteable_mongoid"
-gem "mongoid_voteable"
-gem "mongoid_adjust"
-gem "streama"
-gem "mongoid-history"
+gem 'kaminari'
+gem 'private_pub'
+gem 'bson_ext', '~> 1.5'
+gem 'mongoid', '~> 2.1'
+gem 'geo_magic', require: 'geo_magic/remote'
+# gem 'mongoid_geo', git: 'https://github.com/kristianmandrup/mongoid-geo.git'
+# gem 'mongoid-tree'
+# gem 'mongoid_search'
+gem 'trackoid', git: 'https://github.com/twoixter/trackoid.git'
+# gem 'voteable_mongoid'
+#gem 'mongoid_voteable'
+# gem 'mongoid_adjust'
+# gem 'streama'
+# gem 'mongoid-history'
+# gem 'sitemap_generator'
 
-group :development do
-	gem "sitemap_generator"
-	gem "rackamole"
-	gem "wackamole"
-	# gem "score-fu", :git => "http://github.com/bry4n/score-fu.git"
-end
+# Asset template engines
+# gem 'sass'
+# gem 'coffee-script'
+# gem 'uglifier'
 
-group :test do
-  gem 'cucumber-rails'
-  gem 'capybara'
-  gem 'database_cleaner'
+gem 'jquery-rails'
 
-	gem "rspec-rails"
-	gem "rspec"
-	gem "rspec-core"
-	gem "rspec-expectations"
-	gem "rspec-mocks"
-	# gem "mongoid-rspec"
-	# gem 'machinist_mongo', :require => 'machinist/mongoid'
-	# gem "faker"
-	# gem "ZenTest"
-	# gem "autotest"	
-	# gem 'launchy'
-end
+# group :development do
+#   gem 'web-app-theme', '>= 0.6.2'
+#   gem 'rackamole'
+#   gem 'wackamole'
+# end
+# 
+# group :test do
+#   gem 'capybara'
+# 
+#   gem 'machinist_mongo', require: 'machinist/mongoid'
+#   # gem 'faker'
+# end

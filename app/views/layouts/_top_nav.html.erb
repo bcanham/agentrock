@@ -2,8 +2,8 @@
 	<ul id="top_nav">
 		<li><%= login_logout %></li>
 		<li><a href="/blog/">Blog</a></li>
-		<li><a href="http://twitter.com/agentrock" target="blank">Twitter</a></li>
-		<li><a href="https://www.facebook.com/pages/Agent-Rock/115055155232575?sk=app_2373072738" target="blank">Support</a></li>
+		<li><a href="http://twitter.com/agentrock" target="blank"  rel="nofollow">Twitter</a></li>
+		<li><a href="https://www.facebook.com/pages/Agent-Rock/115055155232575?sk=app_2373072738" target="blank" rel="nofollow">Support</a></li>
 	</ul>
 	<div class="clear">&nbsp;</div>
 		<ul id="nav" class="clearfix">
@@ -15,9 +15,9 @@
 	    </ul>
 			  			<% unless user_signed_in? %>
 
-			<ul id="sub_nav">						<li><%= link_to image_tag('soundcloud/login-button-small.png'), user_omniauth_authorize_path(:soundcloud) %></li>
-									<li><%= link_to image_tag('twitter/twitter-dark.png'), user_omniauth_authorize_path(:twitter) %></li>
-									<li><%= link_to image_tag('facebook/fb-login-button.png'), user_omniauth_authorize_path(:facebook) %></li></ul>
+			<ul id="sub_nav">						<li><%= link_to image_tag('soundcloud/login-button-small.png'), user_omniauth_authorize_path(:soundcloud), :rel => 'nofollow' %></li>
+									<li><%= link_to image_tag('twitter/twitter-dark.png'), user_omniauth_authorize_path(:twitter), :rel => 'nofollow' %></li>
+									<li><%= link_to image_tag('facebook/fb-login-button.png'), user_omniauth_authorize_path(:facebook), :rel => 'nofollow' %></li></ul>
 						<% end %>	
 		<div class="clear">&nbsp;</div>
 </div>

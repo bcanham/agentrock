@@ -20,6 +20,22 @@
 									<li>Participate in Agent Rock's "Rockstar Routine" program.</li>			
 									<li>Easily manage your band's website with <a href="http://bandmagnet.com/" target="_blank">Band Magnet</a>!</li>
 									<!-- <li>Take a look around. Check out the <a href="/tour">tour</a></li> -->
+									<script src="http://connect.soundcloud.com/base.js"></script>
+									<script>
+									  SC.Connect.options = {
+									    'request_token_endpoint': '/user/auth/soundcloud',
+									    'access_token_endpoint': '/user/auth/soundcloud/callback',
+									    'callback': function(params) {
+									      window.location.reload();
+									    }
+									  };
+									</script>
+									<p>
+									  <a id="sc-connect"
+									     href="#" 
+									     onclick="SC.Connect.initiate();">
+									  </a>
+									</p>
 								</ul>
 
 								<p class="medium">It's free and sign up is instant.</p>
