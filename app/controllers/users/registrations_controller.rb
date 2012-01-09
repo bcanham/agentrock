@@ -4,7 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     super
-    resource.build_profile
   end
 
   def create

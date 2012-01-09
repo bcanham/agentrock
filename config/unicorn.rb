@@ -7,7 +7,7 @@ worker_processes (rails_env == 'production' ? 1 : 1)
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-working_directory "/home/skolstad/sites/agentrock" # available in 0.94.0+
+working_directory "/users/skolstad/sites/agentrock" # available in 0.94.0+
 
 # Load rails+github.git into the master before forking workers
 # for super-fast worker spawn times
@@ -17,16 +17,16 @@ preload_app true
 timeout 30
 
 # Listen on a Unix data socket
-listen '/home/skolstad/sites/agentrock/tmp/sockets/unicorn.sock', :backlog => 2048
+listen '/users/skolstad/sites/agentrock/tmp/sockets/unicorn.sock', :backlog => 2048
 
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path "/home/skolstad/sites/agentrock/log/unicorn.stderr.log"
-stdout_path "/home/skolstad/sites/agentrock/log/unicorn.stdout.log"
+stderr_path "/users/skolstad/sites/agentrock/log/unicorn.stderr.log"
+stdout_path "/users/skolstad/sites/agentrock/log/unicorn.stdout.log"
 
 
-pid '/home/skolstad/sites/agentrock/tmp/pids/unicorn.pid'
+pid '/users/skolstad/sites/agentrock/tmp/pids/unicorn.pid'
 
 # http://www.rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
 if GC.respond_to?(:copy_on_write_friendly=)
@@ -75,7 +75,7 @@ after_fork do |server, worker|
 
   begin
     uid, gid = Process.euid, Process.egid
-    user, group = 'skolstad', 'wheel'
+    user, group = 'skolstad', 'staff'
     target_uid = Etc.getpwnam(user).uid
     target_gid = Etc.getgrnam(group).gid
     worker.tmp.chown(target_uid, target_gid)
