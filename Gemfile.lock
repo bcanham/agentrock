@@ -199,7 +199,7 @@ DEPENDENCIES
   kaminari
   koala
   meta-tags!
-  mongoid (~> 2.1)
+  mongoid (~> 2.3)
   mustache
   omniauth-facebook (~> 1.0.0)
   omniauth-soundcloud (~> 1.0.0)
