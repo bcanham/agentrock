@@ -1,15 +1,15 @@
-# defaults: &defaults
-#   allow_dynamic_fields: true
-#   parameterize_keys: true
-#   persist_in_safe_mode: true
-#   raise_not_found_error: true
-#   reconnect_time: 3
-#   use_object_ids: true
-#   # slaves:
-#   #   - host: slave1.local
-#   #     port: 27018
-#   #   - host: slave2.local
-#   #     port: 27019
+defaults: &defaults
+  allow_dynamic_fields: true
+  parameterize_keys: true
+  persist_in_safe_mode: true
+  raise_not_found_error: true
+  reconnect_time: 3
+  use_object_ids: true
+  # slaves:
+  #   - host: slave1.local
+  #     port: 27018
+  #   - host: slave2.local
+  #     port: 27019
 # development:
 #   uri: 'mongodb://skolstad:D2t2Ba$3@staff.mongohq.com:27029/agentrock'
 # staging:
@@ -31,8 +31,6 @@ test:
 # set these environment variables on your prod server
 production:
   <<: *defaults
-  # uri: <%= ENV['MONGOHQ_URL'] %>
-  # uri: "mongodb://heroku:ptjsrssyzdj9fejf0eyb6r@flame.mongohq.com:27019/app504379"
   host: localhost
   port: 27017
   username: rails
